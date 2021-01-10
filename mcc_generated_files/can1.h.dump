@@ -1,0 +1,585 @@
+<?xml version="1.0"?>
+<dumps>
+  <platform name="Native" char_bit="8" short_bit="16" int_bit="32" long_bit="64" long_long_bit="64" pointer_bit="64"/>
+  <rawtokens>
+    <file index="0" name="mcc_generated_files/can1.h"/>
+    <file index="1" name="mcc_generated_files/can_types.h"/>
+    <tok fileIndex="0" linenr="1" column="1" str="/**x  CAN1 Generated Driver Filexx  @Companyx    Microchip Technology Inc.xx  @File Namex    can1.cxx  @Summaryx    This is the generated driver implementation file for the CAN1 driver using PIC10 / PIC12 / PIC16 / PIC18 MCUsxx  @Descriptionx    This header file provides implementations for driver APIs for CAN1.x    Generation Information :x        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.6x        Device            :  PIC18F27Q84x        Driver Version    :  1.1.1x    The generated drivers are tested against the following:x        Compiler          :  XC8 2.30 and above or laterx        MPLAB             :  MPLAB X 5.40x*/"/>
+    <tok fileIndex="0" linenr="24" column="1" str="/*x    (c) 2018 Microchip Technology Inc. and its subsidiaries. x    x    Subject to your compliance with these terms, you may use Microchip software and any x    derivatives exclusively with Microchip products. It is your responsibility to comply with third party x    license terms applicable to your use of third party software (including open source software) that x    may accompany Microchip software.x    x    THIS SOFTWARE IS SUPPLIED BY MICROCHIP &quot;AS IS&quot;. NO WARRANTIES, WHETHER x    EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY x    IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS x    FOR A PARTICULAR PURPOSE.x    x    IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, x    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND x    WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP x    HAS BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO x    THE FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL x    CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT x    OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS x    SOFTWARE.x*/"/>
+    <tok fileIndex="0" linenr="47" column="1" str="#"/>
+    <tok fileIndex="0" linenr="47" column="2" str="ifndef"/>
+    <tok fileIndex="0" linenr="47" column="9" str="CAN1_H"/>
+    <tok fileIndex="0" linenr="48" column="1" str="#"/>
+    <tok fileIndex="0" linenr="48" column="2" str="define"/>
+    <tok fileIndex="0" linenr="48" column="9" str="CAN1_H"/>
+    <tok fileIndex="0" linenr="50" column="1" str="/**  Section: Included Files*/"/>
+    <tok fileIndex="0" linenr="54" column="1" str="#"/>
+    <tok fileIndex="0" linenr="54" column="2" str="include"/>
+    <tok fileIndex="0" linenr="54" column="10" str="&lt;stdbool.h&gt;"/>
+    <tok fileIndex="0" linenr="55" column="1" str="#"/>
+    <tok fileIndex="0" linenr="55" column="2" str="include"/>
+    <tok fileIndex="0" linenr="55" column="10" str="&lt;stdint.h&gt;"/>
+    <tok fileIndex="0" linenr="56" column="1" str="#"/>
+    <tok fileIndex="0" linenr="56" column="2" str="include"/>
+    <tok fileIndex="0" linenr="56" column="10" str="&quot;can_types.h&quot;"/>
+    <tok fileIndex="0" linenr="58" column="1" str="// Transmit FIFO's Custom Name"/>
+    <tok fileIndex="0" linenr="59" column="1" str="#"/>
+    <tok fileIndex="0" linenr="59" column="2" str="define"/>
+    <tok fileIndex="0" linenr="59" column="9" str="CAN1_TX_TXQ"/>
+    <tok fileIndex="0" linenr="59" column="21" str="TXQ"/>
+    <tok fileIndex="0" linenr="61" column="1" str="typedef"/>
+    <tok fileIndex="0" linenr="61" column="9" str="enum"/>
+    <tok fileIndex="0" linenr="62" column="1" str="{"/>
+    <tok fileIndex="0" linenr="63" column="5" str="TXQ"/>
+    <tok fileIndex="0" linenr="63" column="9" str="="/>
+    <tok fileIndex="0" linenr="63" column="11" str="0"/>
+    <tok fileIndex="0" linenr="64" column="1" str="}"/>
+    <tok fileIndex="0" linenr="64" column="3" str="CAN1_TX_FIFO_CHANNELS"/>
+    <tok fileIndex="0" linenr="64" column="24" str=";"/>
+    <tok fileIndex="0" linenr="67" column="1" str="/**x  Section: CAN Module APIsx*/"/>
+    <tok fileIndex="0" linenr="71" column="1" str="/**x  @Summaryx    Initialization routine that takes inputs from the CAN GUI.xx  @Descriptionx    This routine initializes the CAN module.x    This routine must be called before any other CAN routine is called.x    This routine should only be called once during system initialization.xx  @Preconditionsx    Nonexx  @Paramx    Nonexx  @Returnsx    Nonexx  @Examplex    &lt;code&gt;x    void main(void)x    {x        SYSTEM_Initialize();x   x        while (1)x        {x            //User Application codex        }      x    }x    &lt;/code&gt; x*/"/>
+    <tok fileIndex="0" linenr="102" column="1" str="void"/>
+    <tok fileIndex="0" linenr="102" column="6" str="CAN1_Initialize"/>
+    <tok fileIndex="0" linenr="102" column="21" str="("/>
+    <tok fileIndex="0" linenr="102" column="22" str="void"/>
+    <tok fileIndex="0" linenr="102" column="26" str=")"/>
+    <tok fileIndex="0" linenr="102" column="27" str=";"/>
+    <tok fileIndex="0" linenr="104" column="1" str="/**x  @Summaryx    Set the CAN operation mode.xx  @Descriptionx    This function sets the CAN operation mode.xx  @Preconditionsx    CAN1_Initialize() function should be called before calling this function.x x  @Paramx    reqestMode - CAN operation modexx  @Returnsx    CAN_OP_MODE_REQUEST_SUCCESS - Requested Operation mode set successfullyx    CAN_OP_MODE_REQUEST_FAIL - Requested Operation mode set failure. Set configuration x                               mode before setting CAN normal or debug operation mode.x    CAN_OP_MODE_SYS_ERROR_OCCURED - System error occurred while setting Operation mode.xx  @Examplex    &lt;code&gt;x    void main(void)x    {x        SYSTEM_Initialize();xx        if(CAN_CONFIGURATION_MODE == CAN1_OperationModeGet())x        {x            if(CAN_OP_MODE_REQUEST_SUCCESS == CAN1_OperationModeSet(CAN_NORMAL_2_0_MODE))x            {x                //User Application codex            }x        }xx        while (1)x        {x        }x    }x    &lt;/code&gt; x*/"/>
+    <tok fileIndex="0" linenr="143" column="1" str="CAN_OP_MODE_STATUS"/>
+    <tok fileIndex="0" linenr="143" column="20" str="CAN1_OperationModeSet"/>
+    <tok fileIndex="0" linenr="143" column="41" str="("/>
+    <tok fileIndex="0" linenr="143" column="42" str="const"/>
+    <tok fileIndex="0" linenr="143" column="48" str="CAN_OP_MODES"/>
+    <tok fileIndex="0" linenr="143" column="61" str="reqestMode"/>
+    <tok fileIndex="0" linenr="143" column="71" str=")"/>
+    <tok fileIndex="0" linenr="143" column="72" str=";"/>
+    <tok fileIndex="0" linenr="145" column="1" str="/**x  @Summaryx    Get the CAN operation mode.xx  @Descriptionx    This function gets the CAN operation mode.xx  @Preconditionsx    CAN1_Initialize() function should be called before calling this function. x x  @Paramx    Nonexx  @Returnsx    Return the present CAN operation mode. xx  @Examplex    &lt;code&gt;x    void main(void)x    {        x        SYSTEM_Initialize();x            x        if(CAN_CONFIGURATION_MODE == CAN1_OperationModeGet())x        {x            if(CAN_OP_MODE_REQUEST_SUCCESS == CAN1_OperationModeSet(CAN_NORMAL_2_0_MODE))x            {x                //User Application codex            }x        }x    x        while (1)x        {      x        }x    }x    &lt;/code&gt; x*/"/>
+    <tok fileIndex="0" linenr="181" column="1" str="CAN_OP_MODES"/>
+    <tok fileIndex="0" linenr="181" column="14" str="CAN1_OperationModeGet"/>
+    <tok fileIndex="0" linenr="181" column="35" str="("/>
+    <tok fileIndex="0" linenr="181" column="36" str="void"/>
+    <tok fileIndex="0" linenr="181" column="40" str=")"/>
+    <tok fileIndex="0" linenr="181" column="41" str=";"/>
+    <tok fileIndex="0" linenr="184" column="1" str="/**x  @Summaryx    Writes a message object to the CAN TX FIFO.xx  @Descriptionx    This routine writes a message object to the CAN TX FIFO.xx  @Preconditionsx    CAN1_Initialize function should be called before calling this function. x    The transfer status should be checked to see if transmitter is not full x    before calling this function.xx  @Paramx    fifoChannel - CAN TX priority FIFO selectionx    txCanMsg     - pointer to the message objectxx  @Returnsx    CAN Transmit message status.x    CAN_TX_MSG_REQUEST_SUCCESS - Transmit message object successfully placed into transmit FIFOx    CAN_TX_MSG_REQUEST_DLC_EXCEED_ERROR - Transmit message object DLC size is more than transmit FIFO configured DLC sizex    CAN_TX_MSG_REQUEST_BRS_ERROR - Transmit FIFO configured has Non BRS mode and CAN TX Message object has BRS enabledx    CAN_TX_MSG_REQUEST_FIFO_FULL - Transmit FIFO Fullxx  @Examplex    &lt;code&gt;x    #define CAN_TX_BUFF  &quot;TEMPERATURE SENSOR ON&quot;x    x    void main(void) x    {x        CAN_MSG_OBJ msg;x        uint8_t data[32] = CAN_TX_BUFF;x        x        SYSTEM_Initialize();x        x        if(CAN_CONFIGURATION_MODE == CAN1_OperationModeGet())x        {x            if(CAN_OP_MODE_REQUEST_SUCCESS == CAN1_OperationModeSet(CAN_NORMAL_2_0_MODE))x            {x                msg.msgId = 0x1FFFF;x                msg.field.formatType = CAN_FD_FORMAT;x                msg.field.brs = CAN_NON_BRS_MODE;x                msg.field.frameType = CAN_FRAME_DATA;x                msg.field.idType = CAN_FRAME_EXT;x                msg.field.dlc = DLC_32;x                msg.data = data;x            x                if(CAN_TX_FIFO_AVAILABLE == (CAN1_TransmitFIFOStatusGet(CAN1_TX_FIFO1) &amp; CAN_TX_FIFO_AVAILABLE))x                {x                    CAN1_Transmit(CAN1_TX_FIFO1, &amp;msg);x                }x            }x        }xx        while(1);x    }x    &lt;/code&gt;x*/"/>
+    <tok fileIndex="0" linenr="241" column="1" str="CAN_TX_MSG_REQUEST_STATUS"/>
+    <tok fileIndex="0" linenr="241" column="27" str="CAN1_Transmit"/>
+    <tok fileIndex="0" linenr="241" column="40" str="("/>
+    <tok fileIndex="0" linenr="241" column="41" str="const"/>
+    <tok fileIndex="0" linenr="241" column="47" str="CAN1_TX_FIFO_CHANNELS"/>
+    <tok fileIndex="0" linenr="241" column="69" str="fifoChannel"/>
+    <tok fileIndex="0" linenr="241" column="80" str=","/>
+    <tok fileIndex="0" linenr="241" column="82" str="CAN_MSG_OBJ"/>
+    <tok fileIndex="0" linenr="241" column="94" str="*"/>
+    <tok fileIndex="0" linenr="241" column="95" str="txCanMsg"/>
+    <tok fileIndex="0" linenr="241" column="103" str=")"/>
+    <tok fileIndex="0" linenr="241" column="104" str=";"/>
+    <tok fileIndex="0" linenr="243" column="1" str="/**x  @Summaryx    Checks whether the transmitter is in bus off state.xx  @Descriptionx    This routine checks whether the transmitter is in bus off state.xx  @Preconditionsx    CAN1_Initialize function should be called before calling this function.xx  @Paramx    Nonexx  @Returnsx    true    - Transmitter in Bus Off statex    false   - Transmitter not in Bus Off statexx  @Examplex    &lt;code&gt;x    #define CAN_TX_BUFF  &quot;TEMPERATURE SENSOR ON&quot;xx    void main(void) x    {x        CAN_MSG_OBJ msg;x        uint8_t data[32] = CAN_TX_BUFF;x        x        SYSTEM_Initialize();x        x        if(CAN_CONFIGURATION_MODE == CAN1_OperationModeGet())x        {x            if(CAN_OP_MODE_REQUEST_SUCCESS == CAN1_OperationModeSet(CAN_NORMAL_2_0_MODE))x            {x                msg.msgId = 0x1FFFF;x                msg.field.formatType = CAN_FD_FORMAT;x                msg.field.brs = CAN_NON_BRS_MODE;x                msg.field.frameType = CAN_FRAME_DATA;x                msg.field.idType = CAN_FRAME_EXT;x                msg.field.dlc = DLC_32;x                msg.data = data;x            x                if(CAN1_IsBusOff() == false)x                {x                    if(CAN_TX_FIFO_AVAILABLE == (CAN1_TransmitFIFOStatusGet(CAN1_TX_FIFO1) &amp; CAN_TX_FIFO_AVAILABLE))x                    {x                        CAN1_Transmit(CAN1_TX_FIFO1, &amp;msg);x                    }x                }x            }x        }x        x        while(1);x    }x    &lt;/code&gt;x*/"/>
+    <tok fileIndex="0" linenr="297" column="1" str="bool"/>
+    <tok fileIndex="0" linenr="297" column="6" str="CAN1_IsBusOff"/>
+    <tok fileIndex="0" linenr="297" column="19" str="("/>
+    <tok fileIndex="0" linenr="297" column="20" str="void"/>
+    <tok fileIndex="0" linenr="297" column="24" str=")"/>
+    <tok fileIndex="0" linenr="297" column="25" str=";"/>
+    <tok fileIndex="0" linenr="299" column="1" str="/**x  @Summaryx    Checks whether the transmitter is in the error passive state.xx  @Descriptionx    This routine checks whether the transmitter is in the error passive state.x    If Transmitter error counter is above 127, then the transmitter error passive x    state is set.xx  @Preconditionsx    CAN1_Initialize function should be called before calling this function.xx  @Paramx    Nonexx  @Returnsx    true    - Transmitter in Error Passive statex    false   - Transmitter not in Error Passive statexx  @Examplex    &lt;code&gt;x    #define CAN_TX_BUFF  &quot;TEMPERATURE SENSOR ON&quot;xx    void main(void) x    {x        CAN_MSG_OBJ msg;x        uint8_t data[32] = CAN_TX_BUFF;x        x        SYSTEM_Initialize();x        x        if(CAN_CONFIGURATION_MODE == CAN1_OperationModeGet())x        {x            if(CAN_OP_MODE_REQUEST_SUCCESS == CAN1_OperationModeSet(CAN_NORMAL_2_0_MODE))x            {x                msg.msgId = 0x1FFFF;x                msg.field.formatType = CAN_FD_FORMAT;x                msg.field.brs = CAN_NON_BRS_MODE;x                msg.field.frameType = CAN_FRAME_DATA;x                msg.field.idType = CAN_FRAME_EXT;x                msg.field.dlc = DLC_32;x                msg.data = data;x            x                if(CAN1_IsTxErrorPassive() == false)x                {x                    if(CAN_TX_FIFO_AVAILABLE == (CAN1_TransmitFIFOStatusGet(CAN1_TX_FIFO1) &amp; CAN_TX_FIFO_AVAILABLE))x                    {x                        CAN1_Transmit(CAN1_TX_FIFO1, &amp;msg);x                    }x                }x            }x        }x        x        while(1);x    }x    &lt;/code&gt;x*/"/>
+    <tok fileIndex="0" linenr="355" column="1" str="bool"/>
+    <tok fileIndex="0" linenr="355" column="6" str="CAN1_IsTxErrorPassive"/>
+    <tok fileIndex="0" linenr="355" column="27" str="("/>
+    <tok fileIndex="0" linenr="355" column="28" str="void"/>
+    <tok fileIndex="0" linenr="355" column="32" str=")"/>
+    <tok fileIndex="0" linenr="355" column="33" str=";"/>
+    <tok fileIndex="0" linenr="357" column="1" str="/**x  @Summaryx    Checks whether the transmitter is in the error warning state.xx  @Descriptionx    This routine checks whether the transmitter is in the error warning state.x    If Transmitter error counter is above 95 to below 128, then transmitter error x    warning state is set.xx  @Preconditionsx    CAN1_Initialize function should be called x    before calling this function.xx  @Paramx    Nonexx  @Returnsx    true    - Transmitter in Error warning statex    false   - Transmitter not in Error warning statexx  @Examplex    &lt;code&gt;x    #define CAN_TX_BUFF  &quot;TEMPERATURE SENSOR ON&quot;xx    void main(void) x    {x        CAN_MSG_OBJ msg;x        uint8_t data[32] = CAN_TX_BUFF;x        x        SYSTEM_Initialize();x        x        if(CAN_CONFIGURATION_MODE == CAN1_OperationModeGet())x        {x            if(CAN_OP_MODE_REQUEST_SUCCESS == CAN1_OperationModeSet(CAN_NORMAL_2_0_MODE))x            {x                msg.msgId = 0x1FFFF;x                msg.field.formatType = CAN_FD_FORMAT;x                msg.field.brs = CAN_NON_BRS_MODE;x                msg.field.frameType = CAN_FRAME_DATA;x                msg.field.idType = CAN_FRAME_EXT;x                msg.field.dlc = DLC_32;x                msg.data = data;x            x                if(CAN1_IsTxErrorWarning() == false)x                {x                    if(CAN_TX_FIFO_AVAILABLE == (CAN1_TransmitFIFOStatusGet(CAN1_TX_FIFO1) &amp; CAN_TX_FIFO_AVAILABLE))x                    {x                        CAN1_Transmit(CAN1_TX_FIFO1, &amp;msg);x                    }x                }x            }x        }x        x        while(1);x    }x    &lt;/code&gt;x*/"/>
+    <tok fileIndex="0" linenr="414" column="1" str="bool"/>
+    <tok fileIndex="0" linenr="414" column="6" str="CAN1_IsTxErrorWarning"/>
+    <tok fileIndex="0" linenr="414" column="27" str="("/>
+    <tok fileIndex="0" linenr="414" column="28" str="void"/>
+    <tok fileIndex="0" linenr="414" column="32" str=")"/>
+    <tok fileIndex="0" linenr="414" column="33" str=";"/>
+    <tok fileIndex="0" linenr="416" column="1" str="/**x  @Summaryx    Checks whether the transmitter is in the error active state.xx  @Descriptionx    This routine checks whether the transmitter is in the error active state.x    If Transmitter error counter is above 0 to below 128, then transmitter error x    active state is set.xx  @Preconditionsx    CAN1_Initialize function should be called x    before calling this function.xx  @Paramx    Nonexx  @Returnsx    true    - Transmitter in Error active statex    false   - Transmitter not in Error active statexx  @Examplex    &lt;code&gt;x    #define CAN_TX_BUFF  &quot;TEMPERATURE SENSOR ON&quot;xx    void main(void) x    {x        CAN_MSG_OBJ msg;x        uint8_t data[32] = CAN_TX_BUFF;x        x        SYSTEM_Initialize();xx        if(CAN_CONFIGURATION_MODE == CAN1_OperationModeGet())x        {x            if(CAN_OP_MODE_REQUEST_SUCCESS == CAN1_OperationModeSet(CAN_NORMAL_2_0_MODE))x            {x                msg.msgId = 0x1FFFF;x                msg.field.formatType = CAN_FD_FORMAT;x                msg.field.brs = CAN_NON_BRS_MODE;x                msg.field.frameType = CAN_FRAME_DATA;x                msg.field.idType = CAN_FRAME_EXT;x                msg.field.dlc = DLC_32;x                msg.data = data;x            x                if(CAN1_IsTxErrorActive() == false)x                {x                    if(CAN_TX_FIFO_AVAILABLE == (CAN1_TransmitFIFOStatusGet(CAN1_TX_FIFO1) &amp; CAN_TX_FIFO_AVAILABLE))x                    {x                        CAN1_Transmit(CAN1_TX_FIFO1, &amp;msg);x                    }x                }x            }x        }x        x        while(1);x    }x    &lt;/code&gt;x*/"/>
+    <tok fileIndex="0" linenr="473" column="1" str="bool"/>
+    <tok fileIndex="0" linenr="473" column="6" str="CAN1_IsTxErrorActive"/>
+    <tok fileIndex="0" linenr="473" column="26" str="("/>
+    <tok fileIndex="0" linenr="473" column="27" str="void"/>
+    <tok fileIndex="0" linenr="473" column="31" str=")"/>
+    <tok fileIndex="0" linenr="473" column="32" str=";"/>
+    <tok fileIndex="0" linenr="475" column="1" str="/**x  @Summaryx    Checks whether the Receiver is in the error passive state.xx  @Descriptionx    This routine checks whether the receive is in the error passive state.x    If Receiver error counter is above 127, then receiver error passive x    state is set.xx  @Preconditionsx    CAN1_Initialize function should be called before calling this function.xx  @Paramx    Nonexx  @Returnsx    true    - Receiver in Error passive statex    false   - Receiver not in Error passive statexx  @Examplex    &lt;code&gt;x    void main(void) x    {x        CAN_MSG_OBJ msg;x        x        SYSTEM_Initialize();x        x        if(CAN_CONFIGURATION_MODE == CAN1_OperationModeGet())x        {x            if(CAN_OP_MODE_REQUEST_SUCCESS == CAN1_OperationModeSet(CAN_NORMAL_2_0_MODE))x            {x                while(1) x                {x                    if(CAN1_IsRxErrorPassive() == false)x                    {x                        if(CAN1_ReceivedMessageCountGet() &gt; 0) x                        {x                            CAN1_Receive(&amp;msg);x                        }x                    }x                }x            }x        }x    }x    &lt;/code&gt;x*/"/>
+    <tok fileIndex="0" linenr="521" column="1" str="bool"/>
+    <tok fileIndex="0" linenr="521" column="6" str="CAN1_IsRxErrorPassive"/>
+    <tok fileIndex="0" linenr="521" column="27" str="("/>
+    <tok fileIndex="0" linenr="521" column="28" str="void"/>
+    <tok fileIndex="0" linenr="521" column="32" str=")"/>
+    <tok fileIndex="0" linenr="521" column="33" str=";"/>
+    <tok fileIndex="0" linenr="523" column="1" str="/**x  @Summaryx    Checks whether the Receiver is in the error warning state.xx  @Descriptionx    This routine checks whether the receive is in the error warning state.x    If Receiver error counter is above 95 to below 128, then receiver error warning x    state is set.xx  @Preconditionsx    CAN1_Initialize function should be called before calling this function.xx  @Paramx    Nonexx  @Returnsx    true    - Receiver in Error warning statex    false   - Receiver not in Error warning statexx  @Examplex    &lt;code&gt;x    void main(void) x    {x        CAN_MSG_OBJ msg;x     x        SYSTEM_Initialize();x        x        if(CAN_CONFIGURATION_MODE == CAN1_OperationModeGet())x        {x            if(CAN_OP_MODE_REQUEST_SUCCESS == CAN1_OperationModeSet(CAN_NORMAL_2_0_MODE))x            {x                while(1) x                {x                    if(CAN1_IsRxErrorWarning() == false)x                    {x                        if(CAN1_ReceivedMessageCountGet() &gt; 0) x                        {x                            CAN1_Receive(&amp;msg);x                        }x                    }x                }x            }x        }x    }x    &lt;/code&gt;x*/"/>
+    <tok fileIndex="0" linenr="569" column="1" str="bool"/>
+    <tok fileIndex="0" linenr="569" column="6" str="CAN1_IsRxErrorWarning"/>
+    <tok fileIndex="0" linenr="569" column="27" str="("/>
+    <tok fileIndex="0" linenr="569" column="28" str="void"/>
+    <tok fileIndex="0" linenr="569" column="32" str=")"/>
+    <tok fileIndex="0" linenr="569" column="33" str=";"/>
+    <tok fileIndex="0" linenr="571" column="1" str="/**x  @Summaryx    Checks whether the Receiver is in the error active state.xx  @Descriptionx    This routine checks whether the receive is in the error active state.x    If Receiver error counter is above 0 to below 128, then receiver error active x    state is set.xx  @Preconditionsx    CAN1_Initialize function should be called before calling this function.xx  @Paramx    Nonexx  @Returnsx    true    - Receiver in Error active statex    false   - Receiver not in Error active statexx  @Examplex    &lt;code&gt;x    void main(void) x    {x        CAN_MSG_OBJ msg;x     x        SYSTEM_Initialize();x        x        if(CAN_CONFIGURATION_MODE == CAN1_OperationModeGet())x        {x            if(CAN_OP_MODE_REQUEST_SUCCESS == CAN1_OperationModeSet(CAN_NORMAL_2_0_MODE))x            {x                while(1) x                {x                    if(CAN1_IsRxErrorActive() == false)x                    {x                        if(CAN1_ReceivedMessageCountGet() &gt; 0) x                        {x                            CAN1_Receive(&amp;msg);x                        }x                    }x                }x            }x        }x    }x    &lt;/code&gt;x*/"/>
+    <tok fileIndex="0" linenr="617" column="1" str="bool"/>
+    <tok fileIndex="0" linenr="617" column="6" str="CAN1_IsRxErrorActive"/>
+    <tok fileIndex="0" linenr="617" column="26" str="("/>
+    <tok fileIndex="0" linenr="617" column="27" str="void"/>
+    <tok fileIndex="0" linenr="617" column="31" str=")"/>
+    <tok fileIndex="0" linenr="617" column="32" str=";"/>
+    <tok fileIndex="0" linenr="619" column="1" str="/**x  @Summaryx    Puts CAN module in sleep mode.xx  @Descriptionx    This routine puts CAN module in sleep mode.xx  @Preconditionsx    CAN1_Initialize function should be called before calling this function.xx  @Paramx    Nonexx  @Returnsx    Nonexx  @Examplex    &lt;code&gt;x    void main(void) x    {     x        SYSTEM_Initialize();x        x        if(CAN_CONFIGURATION_MODE == CAN1_OperationModeGet())x        {x            if(CAN_OP_MODE_REQUEST_SUCCESS == CAN1_OperationModeSet(CAN_NORMAL_2_0_MODE))x            {x                CAN1_Sleep();x                x                if(CAN_DISABLE_MODE == CAN1_OperationModeGet())x                {x                    Sleep(); //Call sleep instructionx                    C1INTLbits.WAKIF = 0; // Clear Wake-Up interrupt flagx                    x                    // Recover to Normal modex                    if(CAN_OP_MODE_REQUEST_SUCCESS == CAN1_OperationModeSet(CAN_CONFIGURATION_MODE))x                    {x                        if(CAN_OP_MODE_REQUEST_SUCCESS == CAN1_OperationModeSet(CAN_NORMAL_2_0_MODE))x                        {x                            //User Application code                            x                        }x                    }x                }x            }x        }x        x        while(1);x    }x    &lt;/code&gt;x*/"/>
+    <tok fileIndex="0" linenr="668" column="1" str="void"/>
+    <tok fileIndex="0" linenr="668" column="6" str="CAN1_Sleep"/>
+    <tok fileIndex="0" linenr="668" column="16" str="("/>
+    <tok fileIndex="0" linenr="668" column="17" str="void"/>
+    <tok fileIndex="0" linenr="668" column="21" str=")"/>
+    <tok fileIndex="0" linenr="668" column="22" str=";"/>
+    <tok fileIndex="0" linenr="670" column="1" str="/**x  @Summaryx    CAN transmitter FIFO status.xx  @Descriptionx    This returns the CAN transmitter FIFO status.xx  @Preconditionsx    CAN1_Initialize function should be called before calling this function.xx  @Paramx    fifoChannel - CAN TX priority FIFO selectionxx  @Returnsx    CAN Transmit FIFO status.x    CAN_TX_FIFO_FULL         - CAN Transmit FIFO is fullx    CAN_TX_FIFO_AVAILABLE     - CAN Transmit FIFO message space is availablexx  @Examplex    &lt;code&gt;x    #define CAN_TX_BUFF  &quot;TEMPERATURE SENSOR ON&quot;x    x    void main(void) x    {x        CAN_MSG_OBJ msg;x        uint8_t data[32] = CAN_TX_BUFF;x        x        SYSTEM_Initialize();xx        if(CAN_CONFIGURATION_MODE == CAN1_OperationModeGet())x        {    x            if(CAN_OP_MODE_REQUEST_SUCCESS == CAN1_OperationModeSet(CAN_NORMAL_2_0_MODE))x            {x                msg.msgId = 0x1FFFF;x                msg.field.formatType = CAN_FD_FORMAT;x                msg.field.brs = CAN_NON_BRS_MODE;x                msg.field.frameType = CAN_FRAME_DATA;x                msg.field.idType = CAN_FRAME_EXT;x                msg.field.dlc = DLC_32;x                msg.data = data;x            x                if(CAN_TX_FIFO_AVAILABLE == (CAN1_TransmitFIFOStatusGet(CAN1_TX_FIFO1) &amp; CAN_TX_FIFO_AVAILABLE))x                {x                    CAN1_Transmit(CAN1_TX_FIFO1, &amp;msg);x                }x            }x        }x        x        while(1);x    }x    &lt;/code&gt;x*/"/>
+    <tok fileIndex="0" linenr="722" column="1" str="CAN_TX_FIFO_STATUS"/>
+    <tok fileIndex="0" linenr="722" column="20" str="CAN1_TransmitFIFOStatusGet"/>
+    <tok fileIndex="0" linenr="722" column="46" str="("/>
+    <tok fileIndex="0" linenr="722" column="47" str="const"/>
+    <tok fileIndex="0" linenr="722" column="53" str="CAN1_TX_FIFO_CHANNELS"/>
+    <tok fileIndex="0" linenr="722" column="75" str="fifoChannel"/>
+    <tok fileIndex="0" linenr="722" column="86" str=")"/>
+    <tok fileIndex="0" linenr="722" column="87" str=";"/>
+    <tok fileIndex="0" linenr="725" column="1" str="/**x  @Summaryx    Sets the Disable TXQ Interrupt interrupt handler.xx  @Descriptionx    This routine sets the Disable TXQ Interrupt interrupt handler for TXQ.xx  @Paramx    Address of the callback routine.xx  @Returnsx    Nonex x  @Examplex    &lt;code&gt;x    volatile CAN_MSG_OBJ gMsg;x    x    void CustomTXQHandler(void)x    {x        CAN1_Transmit(CAN1_TX_FIFO1, &amp;gMsg);x    }xx    void main(void)x    {x        uint8_t data[8] = {0x41,0x42,0x43,0x44,0x45,0x46,0x47,0x48};x        gMsg.msgId = 0x1FFFF;x        gMsg.field.formatType = CAN_FD_FORMAT;x        gMsg.field.brs = CAN_NON_BRS_MODE;x        gMsg.field.frameType = CAN_FRAME_DATA;x        gMsg.field.idType = CAN_FRAME_EXT;x        gMsg.field.dlc = DLC_8;x        gMsg.data = data;x        x        SYSTEM_Initialize();x        CAN1_SetTXQnullHandler(&amp;CustomTXQHandler);x        x        INTERRUPT_GlobalInterruptEnable();xx        while(1);x    }x    &lt;/code&gt;x*/"/>
+    <tok fileIndex="0" linenr="767" column="1" str="void"/>
+    <tok fileIndex="0" linenr="767" column="6" str="CAN1_SetTXQnullHandler"/>
+    <tok fileIndex="0" linenr="767" column="28" str="("/>
+    <tok fileIndex="0" linenr="767" column="29" str="void"/>
+    <tok fileIndex="0" linenr="767" column="34" str="("/>
+    <tok fileIndex="0" linenr="767" column="35" str="*"/>
+    <tok fileIndex="0" linenr="767" column="36" str="handler"/>
+    <tok fileIndex="0" linenr="767" column="43" str=")"/>
+    <tok fileIndex="0" linenr="767" column="44" str="("/>
+    <tok fileIndex="0" linenr="767" column="45" str="void"/>
+    <tok fileIndex="0" linenr="767" column="49" str=")"/>
+    <tok fileIndex="0" linenr="767" column="50" str=")"/>
+    <tok fileIndex="0" linenr="767" column="51" str=";"/>
+    <tok fileIndex="0" linenr="771" column="1" str="#"/>
+    <tok fileIndex="0" linenr="771" column="2" str="endif"/>
+    <tok fileIndex="0" linenr="771" column="9" str="//CAN1_H"/>
+  </rawtokens>
+  <suppressions>
+  </suppressions>
+<dump cfg="">
+  <standards>
+    <c version="c11"/>
+    <cpp version="c++20"/>
+  </standards>
+  <directivelist>
+    <directive file="mcc_generated_files/can1.h" linenr="47" str="#ifndef CAN1_H"/>
+    <directive file="mcc_generated_files/can1.h" linenr="48" str="#define CAN1_H"/>
+    <directive file="mcc_generated_files/can1.h" linenr="54" str="#include &lt;stdbool.h&gt;"/>
+    <directive file="mcc_generated_files/can1.h" linenr="55" str="#include &lt;stdint.h&gt;"/>
+    <directive file="mcc_generated_files/can1.h" linenr="56" str="#include &quot;can_types.h&quot;"/>
+    <directive file="mcc_generated_files/can1.h" linenr="59" str="#define CAN1_TX_TXQ TXQ"/>
+    <directive file="mcc_generated_files/can1.h" linenr="771" str="#endif"/>
+    <directive file="mcc_generated_files/can_types.h" linenr="47" str="#ifndef CAN_TYPES_H"/>
+    <directive file="mcc_generated_files/can_types.h" linenr="48" str="#define CAN_TYPES_H"/>
+    <directive file="mcc_generated_files/can_types.h" linenr="54" str="#include &lt;stdint.h&gt;"/>
+    <directive file="mcc_generated_files/can_types.h" linenr="247" str="#endif"/>
+  </directivelist>
+  <tokenlist>
+    <token id="0x7f991b2052c0" file="mcc_generated_files/can_types.h" linenr="65" column="9" str="union" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b216b30" file="mcc_generated_files/can_types.h" linenr="65" column="0" str="CAN_MSG_FIELD" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b2067e0" file="mcc_generated_files/can_types.h" linenr="66" column="1" str="{" scope="0x7f991b216740" link="0x7f991b209710"/>
+    <token id="0x7f991b207eb0" file="mcc_generated_files/can_types.h" linenr="67" column="5" str="uint8_t" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b207f80" file="mcc_generated_files/can_types.h" linenr="67" column="13" str="msgfields" scope="0x7f991b216740" type="name" varId="1"/>
+    <token id="0x7f991b208050" file="mcc_generated_files/can_types.h" linenr="67" column="22" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b208120" file="mcc_generated_files/can_types.h" linenr="70" column="9" str="uint8_t" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b208390" file="mcc_generated_files/can_types.h" linenr="70" column="17" str="idType" scope="0x7f991b216740" type="name" varId="2"/>
+    <token id="0x7f991b208600" file="mcc_generated_files/can_types.h" linenr="70" column="25" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b2086d0" file="mcc_generated_files/can_types.h" linenr="71" column="9" str="uint8_t" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b2087a0" file="mcc_generated_files/can_types.h" linenr="71" column="17" str="frameType" scope="0x7f991b216740" type="name" varId="3"/>
+    <token id="0x7f991b208a10" file="mcc_generated_files/can_types.h" linenr="71" column="28" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b208ae0" file="mcc_generated_files/can_types.h" linenr="72" column="9" str="uint8_t" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b208bb0" file="mcc_generated_files/can_types.h" linenr="72" column="17" str="dlc" scope="0x7f991b216740" type="name" varId="4"/>
+    <token id="0x7f991b208e20" file="mcc_generated_files/can_types.h" linenr="72" column="22" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b208ef0" file="mcc_generated_files/can_types.h" linenr="73" column="9" str="uint8_t" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b208fc0" file="mcc_generated_files/can_types.h" linenr="73" column="17" str="formatType" scope="0x7f991b216740" type="name" varId="5"/>
+    <token id="0x7f991b209230" file="mcc_generated_files/can_types.h" linenr="73" column="29" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b209300" file="mcc_generated_files/can_types.h" linenr="74" column="9" str="uint8_t" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b2093d0" file="mcc_generated_files/can_types.h" linenr="74" column="17" str="brs" scope="0x7f991b216740" type="name" varId="6"/>
+    <token id="0x7f991b209640" file="mcc_generated_files/can_types.h" linenr="74" column="22" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b209710" file="mcc_generated_files/can_types.h" linenr="76" column="1" str="}" scope="0x7f991b216740" link="0x7f991b2067e0"/>
+    <token id="0x7f991b216c00" file="mcc_generated_files/can_types.h" linenr="76" column="0" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b209b20" file="mcc_generated_files/can_types.h" linenr="78" column="9" str="struct" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b209a50" file="mcc_generated_files/can_types.h" linenr="78" column="0" str="CAN_MSG_OBJ" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b209cc0" file="mcc_generated_files/can_types.h" linenr="79" column="1" str="{" scope="0x7f991b216740" link="0x7f991b20a5b0"/>
+    <token id="0x7f991b209d90" file="mcc_generated_files/can_types.h" linenr="80" column="5" str="uint32_t" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b209e60" file="mcc_generated_files/can_types.h" linenr="80" column="14" str="msgId" scope="0x7f991b216740" type="name" varId="7"/>
+    <token id="0x7f991b209f30" file="mcc_generated_files/can_types.h" linenr="80" column="19" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b20a000" file="mcc_generated_files/can_types.h" linenr="81" column="5" str="union" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b207de0" file="mcc_generated_files/can_types.h" linenr="81" column="0" str="CAN_MSG_FIELD" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b20a0d0" file="mcc_generated_files/can_types.h" linenr="81" column="19" str="field" scope="0x7f991b216740" type="name" varId="8"/>
+    <token id="0x7f991b20a1a0" file="mcc_generated_files/can_types.h" linenr="81" column="24" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b20a270" file="mcc_generated_files/can_types.h" linenr="82" column="5" str="uint8_t" scope="0x7f991b216740" type="name" astParent="0x7f991b20a340"/>
+    <token id="0x7f991b20a340" file="mcc_generated_files/can_types.h" linenr="82" column="13" str="*" scope="0x7f991b216740" type="op" isArithmeticalOp="True" astOperand1="0x7f991b20a270" astOperand2="0x7f991b20a410"/>
+    <token id="0x7f991b20a410" file="mcc_generated_files/can_types.h" linenr="82" column="14" str="data" scope="0x7f991b216740" type="name" varId="9" astParent="0x7f991b20a340"/>
+    <token id="0x7f991b20a4e0" file="mcc_generated_files/can_types.h" linenr="82" column="18" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b20a5b0" file="mcc_generated_files/can_types.h" linenr="83" column="1" str="}" scope="0x7f991b216740" link="0x7f991b209cc0"/>
+    <token id="0x7f991b209980" file="mcc_generated_files/can_types.h" linenr="83" column="0" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b20a820" file="mcc_generated_files/can_types.h" linenr="94" column="9" str="enum" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b20a750" file="mcc_generated_files/can_types.h" linenr="94" column="0" str="CAN_MSG_OBJ_BRS_MODE" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b20a9c0" file="mcc_generated_files/can_types.h" linenr="95" column="1" str="{" scope="0x7f991b216740" link="0x7f991b20b040"/>
+    <token id="0x7f991b20aa90" file="mcc_generated_files/can_types.h" linenr="96" column="5" str="CAN_NON_BRS_MODE" scope="0x7f991b216740" type="name" astParent="0x7f991b20ab60"/>
+    <token id="0x7f991b20ab60" file="mcc_generated_files/can_types.h" linenr="96" column="25" str="=" scope="0x7f991b216740" type="op" isAssignmentOp="True" astParent="0x7f991b20ad00" astOperand1="0x7f991b20aa90" astOperand2="0x7f991b20ac30"/>
+    <token id="0x7f991b20ac30" file="mcc_generated_files/can_types.h" linenr="96" column="27" str="0" scope="0x7f991b216740" type="number" isInt="True" values="0x7f991b20c950" astParent="0x7f991b20ab60" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f991b20ad00" file="mcc_generated_files/can_types.h" linenr="96" column="28" str="," scope="0x7f991b216740" astOperand1="0x7f991b20ab60" astOperand2="0x7f991b20aea0"/>
+    <token id="0x7f991b20add0" file="mcc_generated_files/can_types.h" linenr="97" column="5" str="CAN_BRS_MODE" scope="0x7f991b216740" type="name" astParent="0x7f991b20aea0"/>
+    <token id="0x7f991b20aea0" file="mcc_generated_files/can_types.h" linenr="97" column="25" str="=" scope="0x7f991b216740" type="op" isAssignmentOp="True" astParent="0x7f991b20ad00" astOperand1="0x7f991b20add0" astOperand2="0x7f991b20af70"/>
+    <token id="0x7f991b20af70" file="mcc_generated_files/can_types.h" linenr="97" column="27" str="1" scope="0x7f991b216740" type="number" isInt="True" values="0x7f991b20d670" astParent="0x7f991b20aea0" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f991b20b040" file="mcc_generated_files/can_types.h" linenr="98" column="1" str="}" scope="0x7f991b216740" link="0x7f991b20a9c0"/>
+    <token id="0x7f991b20a680" file="mcc_generated_files/can_types.h" linenr="98" column="0" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b216cd0" file="mcc_generated_files/can_types.h" linenr="109" column="9" str="enum" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b20b2b0" file="mcc_generated_files/can_types.h" linenr="109" column="0" str="CAN_MSG_OBJ_ID_TYPE" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b20b450" file="mcc_generated_files/can_types.h" linenr="110" column="1" str="{" scope="0x7f991b216740" link="0x7f991b20bba0"/>
+    <token id="0x7f991b20b520" file="mcc_generated_files/can_types.h" linenr="111" column="5" str="CAN_FRAME_STD" scope="0x7f991b216740" type="name" astParent="0x7f991b20b5f0"/>
+    <token id="0x7f991b20b5f0" file="mcc_generated_files/can_types.h" linenr="111" column="25" str="=" scope="0x7f991b216740" type="op" isAssignmentOp="True" astParent="0x7f991b20b790" astOperand1="0x7f991b20b520" astOperand2="0x7f991b20b6c0"/>
+    <token id="0x7f991b20b6c0" file="mcc_generated_files/can_types.h" linenr="111" column="27" str="0" scope="0x7f991b216740" type="number" isInt="True" values="0x7f991b2049b0" astParent="0x7f991b20b5f0" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f991b20b790" file="mcc_generated_files/can_types.h" linenr="111" column="28" str="," scope="0x7f991b216740" astOperand1="0x7f991b20b5f0" astOperand2="0x7f991b20b930"/>
+    <token id="0x7f991b20b860" file="mcc_generated_files/can_types.h" linenr="112" column="5" str="CAN_FRAME_EXT" scope="0x7f991b216740" type="name" astParent="0x7f991b20b930"/>
+    <token id="0x7f991b20b930" file="mcc_generated_files/can_types.h" linenr="112" column="25" str="=" scope="0x7f991b216740" type="op" isAssignmentOp="True" astParent="0x7f991b20b790" astOperand1="0x7f991b20b860" astOperand2="0x7f991b20ba00"/>
+    <token id="0x7f991b20ba00" file="mcc_generated_files/can_types.h" linenr="112" column="27" str="1" scope="0x7f991b216740" type="number" isInt="True" values="0x7f991b206b00" astParent="0x7f991b20b930" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f991b20bad0" file="mcc_generated_files/can_types.h" linenr="112" column="28" str="," scope="0x7f991b216740"/>
+    <token id="0x7f991b20bba0" file="mcc_generated_files/can_types.h" linenr="113" column="1" str="}" scope="0x7f991b216740" link="0x7f991b20b450"/>
+    <token id="0x7f991b20a8f0" file="mcc_generated_files/can_types.h" linenr="113" column="0" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b20b190" file="mcc_generated_files/can_types.h" linenr="124" column="9" str="enum" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b20be10" file="mcc_generated_files/can_types.h" linenr="124" column="0" str="CAN_MSG_OBJ_FRAME_TYPE" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b20bfb0" file="mcc_generated_files/can_types.h" linenr="125" column="1" str="{" scope="0x7f991b216740" link="0x7f991b20c700"/>
+    <token id="0x7f991b20c080" file="mcc_generated_files/can_types.h" linenr="126" column="5" str="CAN_FRAME_DATA" scope="0x7f991b216740" type="name" astParent="0x7f991b20c150"/>
+    <token id="0x7f991b20c150" file="mcc_generated_files/can_types.h" linenr="126" column="25" str="=" scope="0x7f991b216740" type="op" isAssignmentOp="True" astParent="0x7f991b20c2f0" astOperand1="0x7f991b20c080" astOperand2="0x7f991b20c220"/>
+    <token id="0x7f991b20c220" file="mcc_generated_files/can_types.h" linenr="126" column="27" str="0" scope="0x7f991b216740" type="number" isInt="True" values="0x7f991b204b50" astParent="0x7f991b20c150" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f991b20c2f0" file="mcc_generated_files/can_types.h" linenr="126" column="28" str="," scope="0x7f991b216740" astOperand1="0x7f991b20c150" astOperand2="0x7f991b20c490"/>
+    <token id="0x7f991b20c3c0" file="mcc_generated_files/can_types.h" linenr="127" column="5" str="CAN_FRAME_RTR" scope="0x7f991b216740" type="name" astParent="0x7f991b20c490"/>
+    <token id="0x7f991b20c490" file="mcc_generated_files/can_types.h" linenr="127" column="25" str="=" scope="0x7f991b216740" type="op" isAssignmentOp="True" astParent="0x7f991b20c2f0" astOperand1="0x7f991b20c3c0" astOperand2="0x7f991b20c560"/>
+    <token id="0x7f991b20c560" file="mcc_generated_files/can_types.h" linenr="127" column="27" str="1" scope="0x7f991b216740" type="number" isInt="True" values="0x7f991b2120e0" astParent="0x7f991b20c490" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f991b20c630" file="mcc_generated_files/can_types.h" linenr="127" column="28" str="," scope="0x7f991b216740"/>
+    <token id="0x7f991b20c700" file="mcc_generated_files/can_types.h" linenr="128" column="1" str="}" scope="0x7f991b216740" link="0x7f991b20bfb0"/>
+    <token id="0x7f991b20b260" file="mcc_generated_files/can_types.h" linenr="128" column="0" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b20b380" file="mcc_generated_files/can_types.h" linenr="139" column="9" str="enum" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b20c970" file="mcc_generated_files/can_types.h" linenr="139" column="0" str="CAN_MSG_OBJ_TYPE" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b20cb10" file="mcc_generated_files/can_types.h" linenr="140" column="1" str="{" scope="0x7f991b216740" link="0x7f991b20d190"/>
+    <token id="0x7f991b20cbe0" file="mcc_generated_files/can_types.h" linenr="141" column="5" str="CAN_2_0_FORMAT" scope="0x7f991b216740" type="name" astParent="0x7f991b20ccb0"/>
+    <token id="0x7f991b20ccb0" file="mcc_generated_files/can_types.h" linenr="141" column="25" str="=" scope="0x7f991b216740" type="op" isAssignmentOp="True" astParent="0x7f991b20ce50" astOperand1="0x7f991b20cbe0" astOperand2="0x7f991b20cd80"/>
+    <token id="0x7f991b20cd80" file="mcc_generated_files/can_types.h" linenr="141" column="27" str="0" scope="0x7f991b216740" type="number" isInt="True" values="0x7f991b206e80" astParent="0x7f991b20ccb0" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f991b20ce50" file="mcc_generated_files/can_types.h" linenr="141" column="28" str="," scope="0x7f991b216740" astOperand1="0x7f991b20ccb0" astOperand2="0x7f991b20cff0"/>
+    <token id="0x7f991b20cf20" file="mcc_generated_files/can_types.h" linenr="142" column="5" str="CAN_FD_FORMAT" scope="0x7f991b216740" type="name" astParent="0x7f991b20cff0"/>
+    <token id="0x7f991b20cff0" file="mcc_generated_files/can_types.h" linenr="142" column="25" str="=" scope="0x7f991b216740" type="op" isAssignmentOp="True" astParent="0x7f991b20ce50" astOperand1="0x7f991b20cf20" astOperand2="0x7f991b20d0c0"/>
+    <token id="0x7f991b20d0c0" file="mcc_generated_files/can_types.h" linenr="142" column="27" str="1" scope="0x7f991b216740" type="number" isInt="True" values="0x7f991b205960" astParent="0x7f991b20cff0" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f991b20d190" file="mcc_generated_files/can_types.h" linenr="143" column="1" str="}" scope="0x7f991b216740" link="0x7f991b20cb10"/>
+    <token id="0x7f991b20bee0" file="mcc_generated_files/can_types.h" linenr="143" column="0" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b20c850" file="mcc_generated_files/can_types.h" linenr="154" column="9" str="enum" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b20d400" file="mcc_generated_files/can_types.h" linenr="154" column="0" str="CAN_TX_MSG_REQUEST_STATUS" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b20d5a0" file="mcc_generated_files/can_types.h" linenr="155" column="1" str="{" scope="0x7f991b216740" link="0x7f991b20e450"/>
+    <token id="0x7f991b20d690" file="mcc_generated_files/can_types.h" linenr="156" column="5" str="CAN_TX_MSG_REQUEST_SUCCESS" scope="0x7f991b216740" type="name" astParent="0x7f991b20d790"/>
+    <token id="0x7f991b20d790" file="mcc_generated_files/can_types.h" linenr="156" column="32" str="=" scope="0x7f991b216740" type="op" isAssignmentOp="True" astParent="0x7f991b20d930" astOperand1="0x7f991b20d690" astOperand2="0x7f991b20d860"/>
+    <token id="0x7f991b20d860" file="mcc_generated_files/can_types.h" linenr="156" column="34" str="0" scope="0x7f991b216740" type="number" isInt="True" values="0x7f991b218970" astParent="0x7f991b20d790" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f991b20d930" file="mcc_generated_files/can_types.h" linenr="156" column="35" str="," scope="0x7f991b216740" astParent="0x7f991b20dcd0" astOperand1="0x7f991b20d790" astOperand2="0x7f991b20db30"/>
+    <token id="0x7f991b20da30" file="mcc_generated_files/can_types.h" linenr="157" column="5" str="CAN_TX_MSG_REQUEST_DLC_EXCEED_ERROR" scope="0x7f991b216740" type="name" astParent="0x7f991b20db30"/>
+    <token id="0x7f991b20db30" file="mcc_generated_files/can_types.h" linenr="157" column="41" str="=" scope="0x7f991b216740" type="op" isAssignmentOp="True" astParent="0x7f991b20d930" astOperand1="0x7f991b20da30" astOperand2="0x7f991b20dc00"/>
+    <token id="0x7f991b20dc00" file="mcc_generated_files/can_types.h" linenr="157" column="43" str="1" scope="0x7f991b216740" type="number" isInt="True" values="0x7f991b218a20" astParent="0x7f991b20db30" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f991b20dcd0" file="mcc_generated_files/can_types.h" linenr="157" column="44" str="," scope="0x7f991b216740" astParent="0x7f991b20e010" astOperand1="0x7f991b20d930" astOperand2="0x7f991b20de70"/>
+    <token id="0x7f991b20dda0" file="mcc_generated_files/can_types.h" linenr="158" column="5" str="CAN_TX_MSG_REQUEST_BRS_ERROR" scope="0x7f991b216740" type="name" astParent="0x7f991b20de70"/>
+    <token id="0x7f991b20de70" file="mcc_generated_files/can_types.h" linenr="158" column="34" str="=" scope="0x7f991b216740" type="op" isAssignmentOp="True" astParent="0x7f991b20dcd0" astOperand1="0x7f991b20dda0" astOperand2="0x7f991b20df40"/>
+    <token id="0x7f991b20df40" file="mcc_generated_files/can_types.h" linenr="158" column="36" str="2" scope="0x7f991b216740" type="number" isInt="True" values="0x7f991b218ad0" astParent="0x7f991b20de70" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f991b20e010" file="mcc_generated_files/can_types.h" linenr="158" column="37" str="," scope="0x7f991b216740" astOperand1="0x7f991b20dcd0" astOperand2="0x7f991b20e1e0"/>
+    <token id="0x7f991b20e0e0" file="mcc_generated_files/can_types.h" linenr="159" column="5" str="CAN_TX_MSG_REQUEST_FIFO_FULL" scope="0x7f991b216740" type="name" astParent="0x7f991b20e1e0"/>
+    <token id="0x7f991b20e1e0" file="mcc_generated_files/can_types.h" linenr="159" column="34" str="=" scope="0x7f991b216740" type="op" isAssignmentOp="True" astParent="0x7f991b20e010" astOperand1="0x7f991b20e0e0" astOperand2="0x7f991b20e2b0"/>
+    <token id="0x7f991b20e2b0" file="mcc_generated_files/can_types.h" linenr="159" column="36" str="3" scope="0x7f991b216740" type="number" isInt="True" values="0x7f991b218b80" astParent="0x7f991b20e1e0" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f991b20e380" file="mcc_generated_files/can_types.h" linenr="159" column="37" str="," scope="0x7f991b216740"/>
+    <token id="0x7f991b20e450" file="mcc_generated_files/can_types.h" linenr="160" column="1" str="}" scope="0x7f991b216740" link="0x7f991b20d5a0"/>
+    <token id="0x7f991b20c9c0" file="mcc_generated_files/can_types.h" linenr="160" column="0" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b20d260" file="mcc_generated_files/can_types.h" linenr="171" column="9" str="enum" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b20e6f0" file="mcc_generated_files/can_types.h" linenr="171" column="0" str="CAN_OP_MODES" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b20e890" file="mcc_generated_files/can_types.h" linenr="172" column="1" str="{" scope="0x7f991b216740" link="0x7f991b2103f0"/>
+    <token id="0x7f991b20e960" file="mcc_generated_files/can_types.h" linenr="173" column="5" str="CAN_NORMAL_FD_MODE" scope="0x7f991b216740" type="name" astParent="0x7f991b20ea30"/>
+    <token id="0x7f991b20ea30" file="mcc_generated_files/can_types.h" linenr="173" column="24" str="=" scope="0x7f991b216740" type="op" isAssignmentOp="True" astParent="0x7f991b20ebd0" astOperand1="0x7f991b20e960" astOperand2="0x7f991b20eb00"/>
+    <token id="0x7f991b20eb00" file="mcc_generated_files/can_types.h" linenr="173" column="26" str="0" scope="0x7f991b216740" type="number" isInt="True" values="0x7f991b218c30" astParent="0x7f991b20ea30" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f991b20ebd0" file="mcc_generated_files/can_types.h" linenr="173" column="27" str="," scope="0x7f991b216740" astParent="0x7f991b20ef10" astOperand1="0x7f991b20ea30" astOperand2="0x7f991b20ed70"/>
+    <token id="0x7f991b20eca0" file="mcc_generated_files/can_types.h" linenr="174" column="5" str="CAN_DISABLE_MODE" scope="0x7f991b216740" type="name" astParent="0x7f991b20ed70"/>
+    <token id="0x7f991b20ed70" file="mcc_generated_files/can_types.h" linenr="174" column="22" str="=" scope="0x7f991b216740" type="op" isAssignmentOp="True" astParent="0x7f991b20ebd0" astOperand1="0x7f991b20eca0" astOperand2="0x7f991b20ee40"/>
+    <token id="0x7f991b20ee40" file="mcc_generated_files/can_types.h" linenr="174" column="24" str="1" scope="0x7f991b216740" type="number" isInt="True" values="0x7f991b218ce0" astParent="0x7f991b20ed70" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f991b20ef10" file="mcc_generated_files/can_types.h" linenr="174" column="25" str="," scope="0x7f991b216740" astParent="0x7f991b20f280" astOperand1="0x7f991b20ebd0" astOperand2="0x7f991b20f0e0"/>
+    <token id="0x7f991b20efe0" file="mcc_generated_files/can_types.h" linenr="175" column="5" str="CAN_INTERNAL_LOOPBACK_MODE" scope="0x7f991b216740" type="name" astParent="0x7f991b20f0e0"/>
+    <token id="0x7f991b20f0e0" file="mcc_generated_files/can_types.h" linenr="175" column="32" str="=" scope="0x7f991b216740" type="op" isAssignmentOp="True" astParent="0x7f991b20ef10" astOperand1="0x7f991b20efe0" astOperand2="0x7f991b20f1b0"/>
+    <token id="0x7f991b20f1b0" file="mcc_generated_files/can_types.h" linenr="175" column="34" str="2" scope="0x7f991b216740" type="number" isInt="True" values="0x7f991b218d90" astParent="0x7f991b20f0e0" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f991b20f280" file="mcc_generated_files/can_types.h" linenr="175" column="35" str="," scope="0x7f991b216740" astParent="0x7f991b20f5c0" astOperand1="0x7f991b20ef10" astOperand2="0x7f991b20f420"/>
+    <token id="0x7f991b20f350" file="mcc_generated_files/can_types.h" linenr="176" column="5" str="CAN_LISTEN_ONLY_MODE" scope="0x7f991b216740" type="name" astParent="0x7f991b20f420"/>
+    <token id="0x7f991b20f420" file="mcc_generated_files/can_types.h" linenr="176" column="26" str="=" scope="0x7f991b216740" type="op" isAssignmentOp="True" astParent="0x7f991b20f280" astOperand1="0x7f991b20f350" astOperand2="0x7f991b20f4f0"/>
+    <token id="0x7f991b20f4f0" file="mcc_generated_files/can_types.h" linenr="176" column="28" str="3" scope="0x7f991b216740" type="number" isInt="True" values="0x7f991b218e40" astParent="0x7f991b20f420" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f991b20f5c0" file="mcc_generated_files/can_types.h" linenr="176" column="29" str="," scope="0x7f991b216740" astParent="0x7f991b20f900" astOperand1="0x7f991b20f280" astOperand2="0x7f991b20f760"/>
+    <token id="0x7f991b20f690" file="mcc_generated_files/can_types.h" linenr="177" column="5" str="CAN_CONFIGURATION_MODE" scope="0x7f991b216740" type="name" astParent="0x7f991b20f760"/>
+    <token id="0x7f991b20f760" file="mcc_generated_files/can_types.h" linenr="177" column="28" str="=" scope="0x7f991b216740" type="op" isAssignmentOp="True" astParent="0x7f991b20f5c0" astOperand1="0x7f991b20f690" astOperand2="0x7f991b20f830"/>
+    <token id="0x7f991b20f830" file="mcc_generated_files/can_types.h" linenr="177" column="30" str="4" scope="0x7f991b216740" type="number" isInt="True" values="0x7f991b218ef0" astParent="0x7f991b20f760" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f991b20f900" file="mcc_generated_files/can_types.h" linenr="177" column="31" str="," scope="0x7f991b216740" astParent="0x7f991b20fc70" astOperand1="0x7f991b20f5c0" astOperand2="0x7f991b20fad0"/>
+    <token id="0x7f991b20f9d0" file="mcc_generated_files/can_types.h" linenr="178" column="5" str="CAN_EXTERNAL_LOOPBACK_MODE" scope="0x7f991b216740" type="name" astParent="0x7f991b20fad0"/>
+    <token id="0x7f991b20fad0" file="mcc_generated_files/can_types.h" linenr="178" column="32" str="=" scope="0x7f991b216740" type="op" isAssignmentOp="True" astParent="0x7f991b20f900" astOperand1="0x7f991b20f9d0" astOperand2="0x7f991b20fba0"/>
+    <token id="0x7f991b20fba0" file="mcc_generated_files/can_types.h" linenr="178" column="34" str="5" scope="0x7f991b216740" type="number" isInt="True" values="0x7f991b218f10" astParent="0x7f991b20fad0" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f991b20fc70" file="mcc_generated_files/can_types.h" linenr="178" column="35" str="," scope="0x7f991b216740" astParent="0x7f991b20ffb0" astOperand1="0x7f991b20f900" astOperand2="0x7f991b20fe10"/>
+    <token id="0x7f991b20fd40" file="mcc_generated_files/can_types.h" linenr="179" column="5" str="CAN_NORMAL_2_0_MODE" scope="0x7f991b216740" type="name" astParent="0x7f991b20fe10"/>
+    <token id="0x7f991b20fe10" file="mcc_generated_files/can_types.h" linenr="179" column="25" str="=" scope="0x7f991b216740" type="op" isAssignmentOp="True" astParent="0x7f991b20fc70" astOperand1="0x7f991b20fd40" astOperand2="0x7f991b20fee0"/>
+    <token id="0x7f991b20fee0" file="mcc_generated_files/can_types.h" linenr="179" column="27" str="6" scope="0x7f991b216740" type="number" isInt="True" values="0x7f991b219050" astParent="0x7f991b20fe10" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f991b20ffb0" file="mcc_generated_files/can_types.h" linenr="179" column="28" str="," scope="0x7f991b216740" astOperand1="0x7f991b20fc70" astOperand2="0x7f991b210180"/>
+    <token id="0x7f991b210080" file="mcc_generated_files/can_types.h" linenr="180" column="5" str="CAN_RESTRICTED_OPERATION_MODE" scope="0x7f991b216740" type="name" astParent="0x7f991b210180"/>
+    <token id="0x7f991b210180" file="mcc_generated_files/can_types.h" linenr="180" column="35" str="=" scope="0x7f991b216740" type="op" isAssignmentOp="True" astParent="0x7f991b20ffb0" astOperand1="0x7f991b210080" astOperand2="0x7f991b210250"/>
+    <token id="0x7f991b210250" file="mcc_generated_files/can_types.h" linenr="180" column="36" str="7" scope="0x7f991b216740" type="number" isInt="True" values="0x7f991b219100" astParent="0x7f991b210180" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f991b210320" file="mcc_generated_files/can_types.h" linenr="180" column="37" str="," scope="0x7f991b216740"/>
+    <token id="0x7f991b2103f0" file="mcc_generated_files/can_types.h" linenr="181" column="1" str="}" scope="0x7f991b216740" link="0x7f991b20e890"/>
+    <token id="0x7f991b20d4d0" file="mcc_generated_files/can_types.h" linenr="181" column="0" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b20d330" file="mcc_generated_files/can_types.h" linenr="192" column="9" str="enum" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b210660" file="mcc_generated_files/can_types.h" linenr="192" column="0" str="CAN_OP_MODE_STATUS" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b210800" file="mcc_generated_files/can_types.h" linenr="193" column="1" str="{" scope="0x7f991b216740" link="0x7f991b210d70"/>
+    <token id="0x7f991b2108d0" file="mcc_generated_files/can_types.h" linenr="194" column="5" str="CAN_OP_MODE_REQUEST_SUCCESS" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b2109d0" file="mcc_generated_files/can_types.h" linenr="194" column="32" str="," scope="0x7f991b216740"/>
+    <token id="0x7f991b210aa0" file="mcc_generated_files/can_types.h" linenr="195" column="5" str="CAN_OP_MODE_REQUEST_FAIL" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b210ba0" file="mcc_generated_files/can_types.h" linenr="195" column="29" str="," scope="0x7f991b216740"/>
+    <token id="0x7f991b210c70" file="mcc_generated_files/can_types.h" linenr="196" column="5" str="CAN_OP_MODE_SYS_ERROR_OCCURED" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b210d70" file="mcc_generated_files/can_types.h" linenr="197" column="1" str="}" scope="0x7f991b216740" link="0x7f991b210800"/>
+    <token id="0x7f991b20e740" file="mcc_generated_files/can_types.h" linenr="197" column="0" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b2104c0" file="mcc_generated_files/can_types.h" linenr="208" column="9" str="enum" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b210ee0" file="mcc_generated_files/can_types.h" linenr="208" column="0" str="CAN_TX_FIFO_STATUS" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b210f80" file="mcc_generated_files/can_types.h" linenr="209" column="1" str="{" scope="0x7f991b216740" link="0x7f991b211190"/>
+    <token id="0x7f991b210fd0" file="mcc_generated_files/can_types.h" linenr="210" column="5" str="CAN_TX_FIFO_FULL" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b2110a0" file="mcc_generated_files/can_types.h" linenr="210" column="21" str="," scope="0x7f991b216740"/>
+    <token id="0x7f991b2110f0" file="mcc_generated_files/can_types.h" linenr="211" column="5" str="CAN_TX_FIFO_AVAILABLE" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b211140" file="mcc_generated_files/can_types.h" linenr="211" column="26" str="," scope="0x7f991b216740"/>
+    <token id="0x7f991b211190" file="mcc_generated_files/can_types.h" linenr="212" column="1" str="}" scope="0x7f991b216740" link="0x7f991b210f80"/>
+    <token id="0x7f991b2106b0" file="mcc_generated_files/can_types.h" linenr="212" column="0" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b205390" file="mcc_generated_files/can_types.h" linenr="223" column="9" str="enum" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b211280" file="mcc_generated_files/can_types.h" linenr="223" column="0" str="CAN_DLC" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b2113a0" file="mcc_generated_files/can_types.h" linenr="224" column="1" str="{" scope="0x7f991b216740" link="0x7f991b211fa0"/>
+    <token id="0x7f991b2113f0" file="mcc_generated_files/can_types.h" linenr="226" column="5" str="DLC_0" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b211440" file="mcc_generated_files/can_types.h" linenr="226" column="10" str="," scope="0x7f991b216740"/>
+    <token id="0x7f991b211490" file="mcc_generated_files/can_types.h" linenr="227" column="5" str="DLC_1" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b2114e0" file="mcc_generated_files/can_types.h" linenr="227" column="10" str="," scope="0x7f991b216740"/>
+    <token id="0x7f991b211530" file="mcc_generated_files/can_types.h" linenr="228" column="5" str="DLC_2" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b211580" file="mcc_generated_files/can_types.h" linenr="228" column="10" str="," scope="0x7f991b216740"/>
+    <token id="0x7f991b2115d0" file="mcc_generated_files/can_types.h" linenr="229" column="5" str="DLC_3" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b2116a0" file="mcc_generated_files/can_types.h" linenr="229" column="10" str="," scope="0x7f991b216740"/>
+    <token id="0x7f991b2116f0" file="mcc_generated_files/can_types.h" linenr="230" column="5" str="DLC_4" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b211740" file="mcc_generated_files/can_types.h" linenr="230" column="10" str="," scope="0x7f991b216740"/>
+    <token id="0x7f991b211790" file="mcc_generated_files/can_types.h" linenr="231" column="5" str="DLC_5" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b2117e0" file="mcc_generated_files/can_types.h" linenr="231" column="10" str="," scope="0x7f991b216740"/>
+    <token id="0x7f991b211830" file="mcc_generated_files/can_types.h" linenr="232" column="5" str="DLC_6" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b211880" file="mcc_generated_files/can_types.h" linenr="232" column="10" str="," scope="0x7f991b216740"/>
+    <token id="0x7f991b2118d0" file="mcc_generated_files/can_types.h" linenr="233" column="5" str="DLC_7" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b2119a0" file="mcc_generated_files/can_types.h" linenr="233" column="10" str="," scope="0x7f991b216740"/>
+    <token id="0x7f991b2119f0" file="mcc_generated_files/can_types.h" linenr="234" column="5" str="DLC_8" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b211a40" file="mcc_generated_files/can_types.h" linenr="234" column="10" str="," scope="0x7f991b216740"/>
+    <token id="0x7f991b211a90" file="mcc_generated_files/can_types.h" linenr="238" column="5" str="DLC_12" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b211ae0" file="mcc_generated_files/can_types.h" linenr="238" column="11" str="," scope="0x7f991b216740"/>
+    <token id="0x7f991b211b30" file="mcc_generated_files/can_types.h" linenr="239" column="5" str="DLC_16" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b211b80" file="mcc_generated_files/can_types.h" linenr="239" column="11" str="," scope="0x7f991b216740"/>
+    <token id="0x7f991b211bd0" file="mcc_generated_files/can_types.h" linenr="240" column="5" str="DLC_20" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b211ca0" file="mcc_generated_files/can_types.h" linenr="240" column="11" str="," scope="0x7f991b216740"/>
+    <token id="0x7f991b211cf0" file="mcc_generated_files/can_types.h" linenr="241" column="5" str="DLC_24" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b211d40" file="mcc_generated_files/can_types.h" linenr="241" column="11" str="," scope="0x7f991b216740"/>
+    <token id="0x7f991b211d90" file="mcc_generated_files/can_types.h" linenr="242" column="5" str="DLC_32" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b211de0" file="mcc_generated_files/can_types.h" linenr="242" column="11" str="," scope="0x7f991b216740"/>
+    <token id="0x7f991b211e30" file="mcc_generated_files/can_types.h" linenr="243" column="5" str="DLC_48" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b206710" file="mcc_generated_files/can_types.h" linenr="243" column="11" str="," scope="0x7f991b216740"/>
+    <token id="0x7f991b211f00" file="mcc_generated_files/can_types.h" linenr="244" column="5" str="DLC_64" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b211f50" file="mcc_generated_files/can_types.h" linenr="244" column="11" str="," scope="0x7f991b216740"/>
+    <token id="0x7f991b211fa0" file="mcc_generated_files/can_types.h" linenr="245" column="1" str="}" scope="0x7f991b216740" link="0x7f991b2113a0"/>
+    <token id="0x7f991b210f30" file="mcc_generated_files/can_types.h" linenr="245" column="0" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b205890" file="mcc_generated_files/can1.h" linenr="61" column="9" str="enum" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b212110" file="mcc_generated_files/can1.h" linenr="61" column="0" str="CAN1_TX_FIFO_CHANNELS" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b2122a0" file="mcc_generated_files/can1.h" linenr="62" column="1" str="{" scope="0x7f991b216740" link="0x7f991b2123e0"/>
+    <token id="0x7f991b2122f0" file="mcc_generated_files/can1.h" linenr="63" column="5" str="TXQ" scope="0x7f991b216740" type="name" astParent="0x7f991b212340"/>
+    <token id="0x7f991b212340" file="mcc_generated_files/can1.h" linenr="63" column="9" str="=" scope="0x7f991b216740" type="op" isAssignmentOp="True" astOperand1="0x7f991b2122f0" astOperand2="0x7f991b212390"/>
+    <token id="0x7f991b212390" file="mcc_generated_files/can1.h" linenr="63" column="11" str="0" scope="0x7f991b216740" type="number" isInt="True" values="0x7f991b2191b0" astParent="0x7f991b212340" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f991b2123e0" file="mcc_generated_files/can1.h" linenr="64" column="1" str="}" scope="0x7f991b216740" link="0x7f991b2122a0"/>
+    <token id="0x7f991b2112d0" file="mcc_generated_files/can1.h" linenr="64" column="0" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b211ff0" file="mcc_generated_files/can1.h" linenr="102" column="1" str="void" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b2125a0" file="mcc_generated_files/can1.h" linenr="102" column="6" str="CAN1_Initialize" scope="0x7f991b216740" type="name" function="0x7f991b2138f0" astParent="0x7f991b2125f0"/>
+    <token id="0x7f991b2125f0" file="mcc_generated_files/can1.h" linenr="102" column="21" str="(" scope="0x7f991b216740" link="0x7f991b212690" astOperand1="0x7f991b2125a0" valueType-type="void"/>
+    <token id="0x7f991b212690" file="mcc_generated_files/can1.h" linenr="102" column="26" str=")" scope="0x7f991b216740" link="0x7f991b2125f0"/>
+    <token id="0x7f991b2126e0" file="mcc_generated_files/can1.h" linenr="102" column="27" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b212730" file="mcc_generated_files/can1.h" linenr="143" column="1" str="CAN_OP_MODE_STATUS" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b212780" file="mcc_generated_files/can1.h" linenr="143" column="20" str="CAN1_OperationModeSet" scope="0x7f991b216740" type="name" function="0x7f991b209770" astParent="0x7f991b212850"/>
+    <token id="0x7f991b212850" file="mcc_generated_files/can1.h" linenr="143" column="41" str="(" scope="0x7f991b216740" link="0x7f991b212990" astOperand1="0x7f991b212780" astOperand2="0x7f991b212940"/>
+    <token id="0x7f991b2128a0" file="mcc_generated_files/can1.h" linenr="143" column="42" str="const" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b2128f0" file="mcc_generated_files/can1.h" linenr="143" column="48" str="CAN_OP_MODES" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b212940" file="mcc_generated_files/can1.h" linenr="143" column="61" str="reqestMode" scope="0x7f991b216740" type="name" varId="10" variable="0x7f991b2159c0" astParent="0x7f991b212850"/>
+    <token id="0x7f991b212990" file="mcc_generated_files/can1.h" linenr="143" column="71" str=")" scope="0x7f991b216740" link="0x7f991b212850"/>
+    <token id="0x7f991b2129e0" file="mcc_generated_files/can1.h" linenr="143" column="72" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b212a30" file="mcc_generated_files/can1.h" linenr="181" column="1" str="CAN_OP_MODES" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b212a80" file="mcc_generated_files/can1.h" linenr="181" column="14" str="CAN1_OperationModeGet" scope="0x7f991b216740" type="name" function="0x7f991b209810" astParent="0x7f991b212b50"/>
+    <token id="0x7f991b212b50" file="mcc_generated_files/can1.h" linenr="181" column="35" str="(" scope="0x7f991b216740" link="0x7f991b212bf0" astOperand1="0x7f991b212a80"/>
+    <token id="0x7f991b212bf0" file="mcc_generated_files/can1.h" linenr="181" column="40" str=")" scope="0x7f991b216740" link="0x7f991b212b50"/>
+    <token id="0x7f991b212c40" file="mcc_generated_files/can1.h" linenr="181" column="41" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b212c90" file="mcc_generated_files/can1.h" linenr="241" column="1" str="CAN_TX_MSG_REQUEST_STATUS" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b212ce0" file="mcc_generated_files/can1.h" linenr="241" column="27" str="CAN1_Transmit" scope="0x7f991b216740" type="name" function="0x7f991b208180" astParent="0x7f991b212db0"/>
+    <token id="0x7f991b212db0" file="mcc_generated_files/can1.h" linenr="241" column="40" str="(" scope="0x7f991b216740" link="0x7f991b2130b0" astOperand1="0x7f991b212ce0" astOperand2="0x7f991b212ef0"/>
+    <token id="0x7f991b212e00" file="mcc_generated_files/can1.h" linenr="241" column="41" str="const" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b212e50" file="mcc_generated_files/can1.h" linenr="241" column="47" str="CAN1_TX_FIFO_CHANNELS" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b212ea0" file="mcc_generated_files/can1.h" linenr="241" column="69" str="fifoChannel" scope="0x7f991b216740" type="name" varId="11" variable="0x7f991b207640" astParent="0x7f991b212ef0"/>
+    <token id="0x7f991b212ef0" file="mcc_generated_files/can1.h" linenr="241" column="80" str="," scope="0x7f991b216740" astParent="0x7f991b212db0" astOperand1="0x7f991b212ea0" astOperand2="0x7f991b212f90"/>
+    <token id="0x7f991b212f40" file="mcc_generated_files/can1.h" linenr="241" column="82" str="struct" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b209bf0" file="mcc_generated_files/can1.h" linenr="241" column="0" str="CAN_MSG_OBJ" scope="0x7f991b216740" type="name" astParent="0x7f991b212f90"/>
+    <token id="0x7f991b212f90" file="mcc_generated_files/can1.h" linenr="241" column="94" str="*" scope="0x7f991b216740" type="op" isArithmeticalOp="True" astParent="0x7f991b212ef0" astOperand1="0x7f991b209bf0" astOperand2="0x7f991b212fe0"/>
+    <token id="0x7f991b212fe0" file="mcc_generated_files/can1.h" linenr="241" column="95" str="txCanMsg" scope="0x7f991b216740" type="name" varId="12" variable="0x7f991b214f40" astParent="0x7f991b212f90" valueType-type="record" valueType-pointer="1"/>
+    <token id="0x7f991b2130b0" file="mcc_generated_files/can1.h" linenr="241" column="103" str=")" scope="0x7f991b216740" link="0x7f991b212db0"/>
+    <token id="0x7f991b213100" file="mcc_generated_files/can1.h" linenr="241" column="104" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b213150" file="mcc_generated_files/can1.h" linenr="297" column="1" str="bool" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b2131a0" file="mcc_generated_files/can1.h" linenr="297" column="6" str="CAN1_IsBusOff" scope="0x7f991b216740" type="name" function="0x7f991b208220" astParent="0x7f991b2131f0"/>
+    <token id="0x7f991b2131f0" file="mcc_generated_files/can1.h" linenr="297" column="19" str="(" scope="0x7f991b216740" link="0x7f991b213290" astOperand1="0x7f991b2131a0" valueType-type="bool"/>
+    <token id="0x7f991b213290" file="mcc_generated_files/can1.h" linenr="297" column="24" str=")" scope="0x7f991b216740" link="0x7f991b2131f0"/>
+    <token id="0x7f991b2132e0" file="mcc_generated_files/can1.h" linenr="297" column="25" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b2133b0" file="mcc_generated_files/can1.h" linenr="355" column="1" str="bool" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b213400" file="mcc_generated_files/can1.h" linenr="355" column="6" str="CAN1_IsTxErrorPassive" scope="0x7f991b216740" type="name" function="0x7f991b2094b0" astParent="0x7f991b213450"/>
+    <token id="0x7f991b213450" file="mcc_generated_files/can1.h" linenr="355" column="27" str="(" scope="0x7f991b216740" link="0x7f991b2134f0" astOperand1="0x7f991b213400" valueType-type="bool"/>
+    <token id="0x7f991b2134f0" file="mcc_generated_files/can1.h" linenr="355" column="32" str=")" scope="0x7f991b216740" link="0x7f991b213450"/>
+    <token id="0x7f991b213540" file="mcc_generated_files/can1.h" linenr="355" column="33" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b213590" file="mcc_generated_files/can1.h" linenr="414" column="1" str="bool" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b2135e0" file="mcc_generated_files/can1.h" linenr="414" column="6" str="CAN1_IsTxErrorWarning" scope="0x7f991b216740" type="name" function="0x7f991b209550" astParent="0x7f991b2136b0"/>
+    <token id="0x7f991b2136b0" file="mcc_generated_files/can1.h" linenr="414" column="27" str="(" scope="0x7f991b216740" link="0x7f991b213750" astOperand1="0x7f991b2135e0" valueType-type="bool"/>
+    <token id="0x7f991b213750" file="mcc_generated_files/can1.h" linenr="414" column="32" str=")" scope="0x7f991b216740" link="0x7f991b2136b0"/>
+    <token id="0x7f991b2137a0" file="mcc_generated_files/can1.h" linenr="414" column="33" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b2137f0" file="mcc_generated_files/can1.h" linenr="473" column="1" str="bool" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b213840" file="mcc_generated_files/can1.h" linenr="473" column="6" str="CAN1_IsTxErrorActive" scope="0x7f991b216740" type="name" function="0x7f991b2090a0" astParent="0x7f991b213890"/>
+    <token id="0x7f991b213890" file="mcc_generated_files/can1.h" linenr="473" column="26" str="(" scope="0x7f991b216740" link="0x7f991b2139b0" astOperand1="0x7f991b213840" valueType-type="bool"/>
+    <token id="0x7f991b2139b0" file="mcc_generated_files/can1.h" linenr="473" column="31" str=")" scope="0x7f991b216740" link="0x7f991b213890"/>
+    <token id="0x7f991b213a00" file="mcc_generated_files/can1.h" linenr="473" column="32" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b213a50" file="mcc_generated_files/can1.h" linenr="521" column="1" str="bool" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b213aa0" file="mcc_generated_files/can1.h" linenr="521" column="6" str="CAN1_IsRxErrorPassive" scope="0x7f991b216740" type="name" function="0x7f991b209140" astParent="0x7f991b213af0"/>
+    <token id="0x7f991b213af0" file="mcc_generated_files/can1.h" linenr="521" column="27" str="(" scope="0x7f991b216740" link="0x7f991b213b90" astOperand1="0x7f991b213aa0" valueType-type="bool"/>
+    <token id="0x7f991b213b90" file="mcc_generated_files/can1.h" linenr="521" column="32" str=")" scope="0x7f991b216740" link="0x7f991b213af0"/>
+    <token id="0x7f991b213be0" file="mcc_generated_files/can1.h" linenr="521" column="33" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b213cb0" file="mcc_generated_files/can1.h" linenr="569" column="1" str="bool" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b213d00" file="mcc_generated_files/can1.h" linenr="569" column="6" str="CAN1_IsRxErrorWarning" scope="0x7f991b216740" type="name" function="0x7f991b208c90" astParent="0x7f991b213d50"/>
+    <token id="0x7f991b213d50" file="mcc_generated_files/can1.h" linenr="569" column="27" str="(" scope="0x7f991b216740" link="0x7f991b213df0" astOperand1="0x7f991b213d00" valueType-type="bool"/>
+    <token id="0x7f991b213df0" file="mcc_generated_files/can1.h" linenr="569" column="32" str=")" scope="0x7f991b216740" link="0x7f991b213d50"/>
+    <token id="0x7f991b213e40" file="mcc_generated_files/can1.h" linenr="569" column="33" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b213e90" file="mcc_generated_files/can1.h" linenr="617" column="1" str="bool" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b213ee0" file="mcc_generated_files/can1.h" linenr="617" column="6" str="CAN1_IsRxErrorActive" scope="0x7f991b216740" type="name" function="0x7f991b208d30" astParent="0x7f991b213fb0"/>
+    <token id="0x7f991b213fb0" file="mcc_generated_files/can1.h" linenr="617" column="26" str="(" scope="0x7f991b216740" link="0x7f991b214050" astOperand1="0x7f991b213ee0" valueType-type="bool"/>
+    <token id="0x7f991b214050" file="mcc_generated_files/can1.h" linenr="617" column="31" str=")" scope="0x7f991b216740" link="0x7f991b213fb0"/>
+    <token id="0x7f991b2140a0" file="mcc_generated_files/can1.h" linenr="617" column="32" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b2140f0" file="mcc_generated_files/can1.h" linenr="668" column="1" str="void" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b214140" file="mcc_generated_files/can1.h" linenr="668" column="6" str="CAN1_Sleep" scope="0x7f991b216740" type="name" function="0x7f991b208880" astParent="0x7f991b214190"/>
+    <token id="0x7f991b214190" file="mcc_generated_files/can1.h" linenr="668" column="16" str="(" scope="0x7f991b216740" link="0x7f991b2142b0" astOperand1="0x7f991b214140" valueType-type="void"/>
+    <token id="0x7f991b2142b0" file="mcc_generated_files/can1.h" linenr="668" column="21" str=")" scope="0x7f991b216740" link="0x7f991b214190"/>
+    <token id="0x7f991b214300" file="mcc_generated_files/can1.h" linenr="668" column="22" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b214350" file="mcc_generated_files/can1.h" linenr="722" column="1" str="CAN_TX_FIFO_STATUS" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b2143a0" file="mcc_generated_files/can1.h" linenr="722" column="20" str="CAN1_TransmitFIFOStatusGet" scope="0x7f991b216740" type="name" function="0x7f991b208920" astParent="0x7f991b2143f0"/>
+    <token id="0x7f991b2143f0" file="mcc_generated_files/can1.h" linenr="722" column="46" str="(" scope="0x7f991b216740" link="0x7f991b2145b0" astOperand1="0x7f991b2143a0" astOperand2="0x7f991b214560"/>
+    <token id="0x7f991b2144c0" file="mcc_generated_files/can1.h" linenr="722" column="47" str="const" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b214510" file="mcc_generated_files/can1.h" linenr="722" column="53" str="CAN1_TX_FIFO_CHANNELS" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b214560" file="mcc_generated_files/can1.h" linenr="722" column="75" str="fifoChannel" scope="0x7f991b216740" type="name" varId="13" variable="0x7f991b214cc0" astParent="0x7f991b2143f0"/>
+    <token id="0x7f991b2145b0" file="mcc_generated_files/can1.h" linenr="722" column="86" str=")" scope="0x7f991b216740" link="0x7f991b2143f0"/>
+    <token id="0x7f991b214600" file="mcc_generated_files/can1.h" linenr="722" column="87" str=";" scope="0x7f991b216740"/>
+    <token id="0x7f991b214650" file="mcc_generated_files/can1.h" linenr="767" column="1" str="void" scope="0x7f991b216740" type="name"/>
+    <token id="0x7f991b2146a0" file="mcc_generated_files/can1.h" linenr="767" column="6" str="CAN1_SetTXQnullHandler" scope="0x7f991b216740" type="name" function="0x7f991b208470" astParent="0x7f991b2146f0"/>
+    <token id="0x7f991b2146f0" file="mcc_generated_files/can1.h" linenr="767" column="28" str="(" scope="0x7f991b216740" link="0x7f991b214a40" astOperand1="0x7f991b2146a0" astOperand2="0x7f991b2149f0" valueType-type="void"/>
+    <token id="0x7f991b214740" file="mcc_generated_files/can1.h" linenr="767" column="29" str="void" scope="0x7f991b216740" type="name" astParent="0x7f991b214810"/>
+    <token id="0x7f991b214810" file="mcc_generated_files/can1.h" linenr="767" column="34" str="(" scope="0x7f991b216740" link="0x7f991b214900" astParent="0x7f991b2149f0" astOperand1="0x7f991b214740" astOperand2="0x7f991b214860" valueType-type="void"/>
+    <token id="0x7f991b214860" file="mcc_generated_files/can1.h" linenr="767" column="35" str="*" scope="0x7f991b216740" type="op" isArithmeticalOp="True" astParent="0x7f991b214810" astOperand1="0x7f991b2148b0" valueType-type="void"/>
+    <token id="0x7f991b2148b0" file="mcc_generated_files/can1.h" linenr="767" column="36" str="handler" scope="0x7f991b216740" type="name" varId="14" variable="0x7f991b207040" astParent="0x7f991b214860" valueType-type="void" valueType-pointer="1"/>
+    <token id="0x7f991b214900" file="mcc_generated_files/can1.h" linenr="767" column="43" str=")" scope="0x7f991b216740" link="0x7f991b214810"/>
+    <token id="0x7f991b2149f0" file="mcc_generated_files/can1.h" linenr="767" column="0" str="(" scope="0x7f991b216740" link="0x7f991b212480" astParent="0x7f991b2146f0" astOperand1="0x7f991b214810"/>
+    <token id="0x7f991b212480" file="mcc_generated_files/can1.h" linenr="767" column="0" str=")" scope="0x7f991b216740" link="0x7f991b2149f0"/>
+    <token id="0x7f991b214a40" file="mcc_generated_files/can1.h" linenr="767" column="50" str=")" scope="0x7f991b216740" link="0x7f991b2146f0"/>
+    <token id="0x7f991b214b10" file="mcc_generated_files/can1.h" linenr="767" column="51" str=";" scope="0x7f991b216740"/>
+  </tokenlist>
+  <scopes>
+    <scope id="0x7f991b216740" type="Global">
+      <functionList>
+        <function id="0x7f991b2138f0" tokenDef="0x7f991b2125a0" name="CAN1_Initialize" type="Function"/>
+        <function id="0x7f991b209770" tokenDef="0x7f991b212780" name="CAN1_OperationModeSet" type="Function">
+          <arg nr="1" variable="0x7f991b2159c0"/>
+        </function>
+        <function id="0x7f991b209810" tokenDef="0x7f991b212a80" name="CAN1_OperationModeGet" type="Function"/>
+        <function id="0x7f991b208180" tokenDef="0x7f991b212ce0" name="CAN1_Transmit" type="Function">
+          <arg nr="1" variable="0x7f991b207640"/>
+          <arg nr="2" variable="0x7f991b214f40"/>
+        </function>
+        <function id="0x7f991b208220" tokenDef="0x7f991b2131a0" name="CAN1_IsBusOff" type="Function"/>
+        <function id="0x7f991b2094b0" tokenDef="0x7f991b213400" name="CAN1_IsTxErrorPassive" type="Function"/>
+        <function id="0x7f991b209550" tokenDef="0x7f991b2135e0" name="CAN1_IsTxErrorWarning" type="Function"/>
+        <function id="0x7f991b2090a0" tokenDef="0x7f991b213840" name="CAN1_IsTxErrorActive" type="Function"/>
+        <function id="0x7f991b209140" tokenDef="0x7f991b213aa0" name="CAN1_IsRxErrorPassive" type="Function"/>
+        <function id="0x7f991b208c90" tokenDef="0x7f991b213d00" name="CAN1_IsRxErrorWarning" type="Function"/>
+        <function id="0x7f991b208d30" tokenDef="0x7f991b213ee0" name="CAN1_IsRxErrorActive" type="Function"/>
+        <function id="0x7f991b208880" tokenDef="0x7f991b214140" name="CAN1_Sleep" type="Function"/>
+        <function id="0x7f991b208920" tokenDef="0x7f991b2143a0" name="CAN1_TransmitFIFOStatusGet" type="Function">
+          <arg nr="1" variable="0x7f991b214cc0"/>
+        </function>
+        <function id="0x7f991b208470" tokenDef="0x7f991b2146a0" name="CAN1_SetTXQnullHandler" type="Function">
+          <arg nr="1" variable="0x7f991b207040"/>
+        </function>
+      </functionList>
+    </scope>
+  </scopes>
+  <variables>
+    <var id="0x7f991b207040" nameToken="0x7f991b2148b0" typeStartToken="0x7f991b214740" typeEndToken="0x7f991b214860" access="Argument" scope="0x0" constness="0" isArgument="true" isArray="false" isClass="false" isConst="false" isExtern="false" isLocal="false" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x7f991b207640" nameToken="0x7f991b212ea0" typeStartToken="0x7f991b212e50" typeEndToken="0x7f991b212e50" access="Argument" scope="0x0" constness="1" isArgument="true" isArray="false" isClass="true" isConst="true" isExtern="false" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x7f991b214cc0" nameToken="0x7f991b214560" typeStartToken="0x7f991b214510" typeEndToken="0x7f991b214510" access="Argument" scope="0x0" constness="1" isArgument="true" isArray="false" isClass="true" isConst="true" isExtern="false" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x7f991b214f40" nameToken="0x7f991b212fe0" typeStartToken="0x7f991b209bf0" typeEndToken="0x7f991b212f90" access="Argument" scope="0x0" constness="0" isArgument="true" isArray="false" isClass="false" isConst="false" isExtern="false" isLocal="false" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x7f991b2159c0" nameToken="0x7f991b212940" typeStartToken="0x7f991b2128f0" typeEndToken="0x7f991b2128f0" access="Argument" scope="0x0" constness="1" isArgument="true" isArray="false" isClass="true" isConst="true" isExtern="false" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+  </variables>
+  <valueflow>
+    <values id="0x7f991b20c950">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x7f991b20d670">
+      <value intvalue="1" known="true"/>
+    </values>
+    <values id="0x7f991b2049b0">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x7f991b206b00">
+      <value intvalue="1" known="true"/>
+    </values>
+    <values id="0x7f991b204b50">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x7f991b2120e0">
+      <value intvalue="1" known="true"/>
+    </values>
+    <values id="0x7f991b206e80">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x7f991b205960">
+      <value intvalue="1" known="true"/>
+    </values>
+    <values id="0x7f991b218970">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x7f991b218a20">
+      <value intvalue="1" known="true"/>
+    </values>
+    <values id="0x7f991b218ad0">
+      <value intvalue="2" known="true"/>
+    </values>
+    <values id="0x7f991b218b80">
+      <value intvalue="3" known="true"/>
+    </values>
+    <values id="0x7f991b218c30">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x7f991b218ce0">
+      <value intvalue="1" known="true"/>
+    </values>
+    <values id="0x7f991b218d90">
+      <value intvalue="2" known="true"/>
+    </values>
+    <values id="0x7f991b218e40">
+      <value intvalue="3" known="true"/>
+    </values>
+    <values id="0x7f991b218ef0">
+      <value intvalue="4" known="true"/>
+    </values>
+    <values id="0x7f991b218f10">
+      <value intvalue="5" known="true"/>
+    </values>
+    <values id="0x7f991b219050">
+      <value intvalue="6" known="true"/>
+    </values>
+    <values id="0x7f991b219100">
+      <value intvalue="7" known="true"/>
+    </values>
+    <values id="0x7f991b2191b0">
+      <value intvalue="0" known="true"/>
+    </values>
+  </valueflow>
+</dump>
+</dumps>

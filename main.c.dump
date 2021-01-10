@@ -1,0 +1,968 @@
+<?xml version="1.0"?>
+<dumps>
+  <platform name="Native" char_bit="8" short_bit="16" int_bit="32" long_bit="64" long_long_bit="64" pointer_bit="64"/>
+  <rawtokens>
+    <file index="0" name="main.c"/>
+    <file index="1" name="mcc_generated_files/mcc.h"/>
+    <file index="2" name="mcc_generated_files/device_config.h"/>
+    <file index="3" name="mcc_generated_files/pin_manager.h"/>
+    <file index="4" name="mcc_generated_files/uart1.h"/>
+    <file index="5" name="mcc_generated_files/can1.h"/>
+    <file index="6" name="mcc_generated_files/can_types.h"/>
+    <tok fileIndex="0" linenr="1" column="1" str="/*x * File:   main.cx * Author: ratikx *x * Created on January 8, 2021, 5:25 PMx */"/>
+    <tok fileIndex="0" linenr="8" column="1" str="#"/>
+    <tok fileIndex="0" linenr="8" column="2" str="include"/>
+    <tok fileIndex="0" linenr="8" column="10" str="&quot;mcc_generated_files/mcc.h&quot;"/>
+    <tok fileIndex="0" linenr="10" column="1" str="/*                         Main application */"/>
+    <tok fileIndex="0" linenr="13" column="1" str="void"/>
+    <tok fileIndex="0" linenr="13" column="6" str="main"/>
+    <tok fileIndex="0" linenr="13" column="10" str="("/>
+    <tok fileIndex="0" linenr="13" column="11" str="void"/>
+    <tok fileIndex="0" linenr="13" column="15" str=")"/>
+    <tok fileIndex="0" linenr="14" column="1" str="{"/>
+    <tok fileIndex="0" linenr="15" column="5" str="// Initialize the device"/>
+    <tok fileIndex="0" linenr="16" column="5" str="SYSTEM_Initialize"/>
+    <tok fileIndex="0" linenr="16" column="22" str="("/>
+    <tok fileIndex="0" linenr="16" column="23" str=")"/>
+    <tok fileIndex="0" linenr="16" column="24" str=";"/>
+    <tok fileIndex="0" linenr="18" column="5" str="// Enable the Global Interrupts"/>
+    <tok fileIndex="0" linenr="19" column="5" str="//INTERRUPT_GlobalInterruptEnable();"/>
+    <tok fileIndex="0" linenr="21" column="5" str="// Disable the Global Interrupts"/>
+    <tok fileIndex="0" linenr="22" column="5" str="//INTERRUPT_GlobalInterruptDisable();"/>
+    <tok fileIndex="0" linenr="24" column="5" str="while"/>
+    <tok fileIndex="0" linenr="24" column="11" str="("/>
+    <tok fileIndex="0" linenr="24" column="12" str="1"/>
+    <tok fileIndex="0" linenr="24" column="13" str=")"/>
+    <tok fileIndex="0" linenr="25" column="5" str="{"/>
+    <tok fileIndex="0" linenr="26" column="9" str="PORTAbits"/>
+    <tok fileIndex="0" linenr="26" column="18" str="."/>
+    <tok fileIndex="0" linenr="26" column="19" str="RA0"/>
+    <tok fileIndex="0" linenr="26" column="23" str="="/>
+    <tok fileIndex="0" linenr="26" column="25" str="1"/>
+    <tok fileIndex="0" linenr="26" column="26" str=";"/>
+    <tok fileIndex="0" linenr="26" column="33" str="// Turn on LED for test"/>
+    <tok fileIndex="0" linenr="27" column="9" str="__delay_ms"/>
+    <tok fileIndex="0" linenr="27" column="19" str="("/>
+    <tok fileIndex="0" linenr="27" column="20" str="1000"/>
+    <tok fileIndex="0" linenr="27" column="24" str=")"/>
+    <tok fileIndex="0" linenr="27" column="25" str=";"/>
+    <tok fileIndex="0" linenr="27" column="33" str="// Wait 1s"/>
+    <tok fileIndex="0" linenr="28" column="9" str="PORTAbits"/>
+    <tok fileIndex="0" linenr="28" column="18" str="."/>
+    <tok fileIndex="0" linenr="28" column="19" str="RA0"/>
+    <tok fileIndex="0" linenr="28" column="23" str="="/>
+    <tok fileIndex="0" linenr="28" column="25" str="0"/>
+    <tok fileIndex="0" linenr="28" column="26" str=";"/>
+    <tok fileIndex="0" linenr="28" column="33" str="// Turn off LED for test"/>
+    <tok fileIndex="0" linenr="29" column="9" str="__delay_ms"/>
+    <tok fileIndex="0" linenr="29" column="19" str="("/>
+    <tok fileIndex="0" linenr="29" column="20" str="1000"/>
+    <tok fileIndex="0" linenr="29" column="24" str=")"/>
+    <tok fileIndex="0" linenr="29" column="25" str=";"/>
+    <tok fileIndex="0" linenr="29" column="33" str="// Wait 1s"/>
+    <tok fileIndex="0" linenr="30" column="5" str="}"/>
+    <tok fileIndex="0" linenr="31" column="1" str="}"/>
+  </rawtokens>
+  <suppressions>
+  </suppressions>
+<dump cfg="">
+  <standards>
+    <c version="c11"/>
+    <cpp version="c++20"/>
+  </standards>
+  <directivelist>
+    <directive file="main.c" linenr="8" str="#include &quot;mcc_generated_files/mcc.h&quot;"/>
+    <directive file="mcc_generated_files/can1.h" linenr="47" str="#ifndef CAN1_H"/>
+    <directive file="mcc_generated_files/can1.h" linenr="48" str="#define CAN1_H"/>
+    <directive file="mcc_generated_files/can1.h" linenr="54" str="#include &lt;stdbool.h&gt;"/>
+    <directive file="mcc_generated_files/can1.h" linenr="55" str="#include &lt;stdint.h&gt;"/>
+    <directive file="mcc_generated_files/can1.h" linenr="56" str="#include &quot;can_types.h&quot;"/>
+    <directive file="mcc_generated_files/can1.h" linenr="59" str="#define CAN1_TX_TXQ TXQ"/>
+    <directive file="mcc_generated_files/can1.h" linenr="771" str="#endif"/>
+    <directive file="mcc_generated_files/can_types.h" linenr="47" str="#ifndef CAN_TYPES_H"/>
+    <directive file="mcc_generated_files/can_types.h" linenr="48" str="#define CAN_TYPES_H"/>
+    <directive file="mcc_generated_files/can_types.h" linenr="54" str="#include &lt;stdint.h&gt;"/>
+    <directive file="mcc_generated_files/can_types.h" linenr="247" str="#endif"/>
+    <directive file="mcc_generated_files/device_config.h" linenr="47" str="#ifndef DEVICE_CONFIG_H"/>
+    <directive file="mcc_generated_files/device_config.h" linenr="48" str="#define DEVICE_CONFIG_H"/>
+    <directive file="mcc_generated_files/device_config.h" linenr="50" str="#define _XTAL_FREQ 20000000"/>
+    <directive file="mcc_generated_files/device_config.h" linenr="52" str="#endif"/>
+    <directive file="mcc_generated_files/mcc.h" linenr="47" str="#ifndef MCC_H"/>
+    <directive file="mcc_generated_files/mcc.h" linenr="48" str="#define MCC_H"/>
+    <directive file="mcc_generated_files/mcc.h" linenr="49" str="#include &lt;xc.h&gt;"/>
+    <directive file="mcc_generated_files/mcc.h" linenr="50" str="#include &quot;device_config.h&quot;"/>
+    <directive file="mcc_generated_files/mcc.h" linenr="51" str="#include &quot;pin_manager.h&quot;"/>
+    <directive file="mcc_generated_files/mcc.h" linenr="52" str="#include &lt;stdint.h&gt;"/>
+    <directive file="mcc_generated_files/mcc.h" linenr="53" str="#include &lt;stdbool.h&gt;"/>
+    <directive file="mcc_generated_files/mcc.h" linenr="54" str="#include &lt;conio.h&gt;"/>
+    <directive file="mcc_generated_files/mcc.h" linenr="55" str="#include &quot;uart1.h&quot;"/>
+    <directive file="mcc_generated_files/mcc.h" linenr="56" str="#include &quot;can1.h&quot;"/>
+    <directive file="mcc_generated_files/mcc.h" linenr="100" str="#endif"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="47" str="#ifndef PIN_MANAGER_H"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="48" str="#define PIN_MANAGER_H"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="54" str="#include &lt;xc.h&gt;"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="56" str="#define INPUT 1"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="57" str="#define OUTPUT 0"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="59" str="#define HIGH 1"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="60" str="#define LOW 0"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="62" str="#define ANALOG 1"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="63" str="#define DIGITAL 0"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="65" str="#define PULL_UP_ENABLED 1"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="66" str="#define PULL_UP_DISABLED 0"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="69" str="#define IO_RA0_TRIS TRISAbits.TRISA0"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="70" str="#define IO_RA0_LAT LATAbits.LATA0"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="71" str="#define IO_RA0_PORT PORTAbits.RA0"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="72" str="#define IO_RA0_WPU WPUAbits.WPUA0"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="73" str="#define IO_RA0_OD ODCONAbits.ODCA0"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="74" str="#define IO_RA0_ANS ANSELAbits.ANSELA0"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="75" str="#define IO_RA0_SetHigh() do { LATAbits.LATA0 = 1; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="76" str="#define IO_RA0_SetLow() do { LATAbits.LATA0 = 0; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="77" str="#define IO_RA0_Toggle() do { LATAbits.LATA0 = ~LATAbits.LATA0; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="78" str="#define IO_RA0_GetValue() PORTAbits.RA0"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="79" str="#define IO_RA0_SetDigitalInput() do { TRISAbits.TRISA0 = 1; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="80" str="#define IO_RA0_SetDigitalOutput() do { TRISAbits.TRISA0 = 0; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="81" str="#define IO_RA0_SetPullup() do { WPUAbits.WPUA0 = 1; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="82" str="#define IO_RA0_ResetPullup() do { WPUAbits.WPUA0 = 0; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="83" str="#define IO_RA0_SetPushPull() do { ODCONAbits.ODCA0 = 0; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="84" str="#define IO_RA0_SetOpenDrain() do { ODCONAbits.ODCA0 = 1; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="85" str="#define IO_RA0_SetAnalogMode() do { ANSELAbits.ANSELA0 = 1; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="86" str="#define IO_RA0_SetDigitalMode() do { ANSELAbits.ANSELA0 = 0; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="89" str="#define RB0_SetHigh() do { LATBbits.LATB0 = 1; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="90" str="#define RB0_SetLow() do { LATBbits.LATB0 = 0; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="91" str="#define RB0_Toggle() do { LATBbits.LATB0 = ~LATBbits.LATB0; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="92" str="#define RB0_GetValue() PORTBbits.RB0"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="93" str="#define RB0_SetDigitalInput() do { TRISBbits.TRISB0 = 1; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="94" str="#define RB0_SetDigitalOutput() do { TRISBbits.TRISB0 = 0; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="95" str="#define RB0_SetPullup() do { WPUBbits.WPUB0 = 1; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="96" str="#define RB0_ResetPullup() do { WPUBbits.WPUB0 = 0; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="97" str="#define RB0_SetAnalogMode() do { ANSELBbits.ANSELB0 = 1; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="98" str="#define RB0_SetDigitalMode() do { ANSELBbits.ANSELB0 = 0; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="101" str="#define RB1_SetHigh() do { LATBbits.LATB1 = 1; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="102" str="#define RB1_SetLow() do { LATBbits.LATB1 = 0; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="103" str="#define RB1_Toggle() do { LATBbits.LATB1 = ~LATBbits.LATB1; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="104" str="#define RB1_GetValue() PORTBbits.RB1"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="105" str="#define RB1_SetDigitalInput() do { TRISBbits.TRISB1 = 1; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="106" str="#define RB1_SetDigitalOutput() do { TRISBbits.TRISB1 = 0; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="107" str="#define RB1_SetPullup() do { WPUBbits.WPUB1 = 1; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="108" str="#define RB1_ResetPullup() do { WPUBbits.WPUB1 = 0; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="109" str="#define RB1_SetAnalogMode() do { ANSELBbits.ANSELB1 = 1; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="110" str="#define RB1_SetDigitalMode() do { ANSELBbits.ANSELB1 = 0; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="113" str="#define RB4_SetHigh() do { LATBbits.LATB4 = 1; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="114" str="#define RB4_SetLow() do { LATBbits.LATB4 = 0; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="115" str="#define RB4_Toggle() do { LATBbits.LATB4 = ~LATBbits.LATB4; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="116" str="#define RB4_GetValue() PORTBbits.RB4"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="117" str="#define RB4_SetDigitalInput() do { TRISBbits.TRISB4 = 1; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="118" str="#define RB4_SetDigitalOutput() do { TRISBbits.TRISB4 = 0; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="119" str="#define RB4_SetPullup() do { WPUBbits.WPUB4 = 1; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="120" str="#define RB4_ResetPullup() do { WPUBbits.WPUB4 = 0; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="121" str="#define RB4_SetAnalogMode() do { ANSELBbits.ANSELB4 = 1; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="122" str="#define RB4_SetDigitalMode() do { ANSELBbits.ANSELB4 = 0; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="125" str="#define RB5_SetHigh() do { LATBbits.LATB5 = 1; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="126" str="#define RB5_SetLow() do { LATBbits.LATB5 = 0; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="127" str="#define RB5_Toggle() do { LATBbits.LATB5 = ~LATBbits.LATB5; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="128" str="#define RB5_GetValue() PORTBbits.RB5"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="129" str="#define RB5_SetDigitalInput() do { TRISBbits.TRISB5 = 1; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="130" str="#define RB5_SetDigitalOutput() do { TRISBbits.TRISB5 = 0; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="131" str="#define RB5_SetPullup() do { WPUBbits.WPUB5 = 1; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="132" str="#define RB5_ResetPullup() do { WPUBbits.WPUB5 = 0; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="133" str="#define RB5_SetAnalogMode() do { ANSELBbits.ANSELB5 = 1; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="134" str="#define RB5_SetDigitalMode() do { ANSELBbits.ANSELB5 = 0; } while(0)"/>
+    <directive file="mcc_generated_files/pin_manager.h" linenr="162" str="#endif"/>
+    <directive file="mcc_generated_files/uart1.h" linenr="47" str="#ifndef UART1_H"/>
+    <directive file="mcc_generated_files/uart1.h" linenr="48" str="#define UART1_H"/>
+    <directive file="mcc_generated_files/uart1.h" linenr="54" str="#include &lt;xc.h&gt;"/>
+    <directive file="mcc_generated_files/uart1.h" linenr="55" str="#include &lt;stdbool.h&gt;"/>
+    <directive file="mcc_generated_files/uart1.h" linenr="56" str="#include &lt;stdint.h&gt;"/>
+    <directive file="mcc_generated_files/uart1.h" linenr="58" str="#ifdef __cplusplus"/>
+    <directive file="mcc_generated_files/uart1.h" linenr="62" str="#endif"/>
+    <directive file="mcc_generated_files/uart1.h" linenr="68" str="#define UART1_DataReady (UART1_is_rx_ready())"/>
+    <directive file="mcc_generated_files/uart1.h" linenr="443" str="#ifdef __cplusplus"/>
+    <directive file="mcc_generated_files/uart1.h" linenr="447" str="#endif"/>
+    <directive file="mcc_generated_files/uart1.h" linenr="449" str="#endif"/>
+  </directivelist>
+  <tokenlist>
+    <token id="0x7f991952bd50" file="mcc_generated_files/pin_manager.h" linenr="146" column="1" str="void" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f991952bea0" file="mcc_generated_files/pin_manager.h" linenr="146" column="6" str="PIN_MANAGER_Initialize" scope="0x7f99195435c0" type="name" function="0x7f9919532280" astParent="0x7f991952bf70"/>
+    <token id="0x7f991952bf70" file="mcc_generated_files/pin_manager.h" linenr="146" column="29" str="(" scope="0x7f99195435c0" link="0x7f991952c110" astOperand1="0x7f991952bea0" valueType-type="void"/>
+    <token id="0x7f991952c110" file="mcc_generated_files/pin_manager.h" linenr="146" column="34" str=")" scope="0x7f99195435c0" link="0x7f991952bf70"/>
+    <token id="0x7f991952c1e0" file="mcc_generated_files/pin_manager.h" linenr="146" column="35" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f991952c2b0" file="mcc_generated_files/pin_manager.h" linenr="158" column="1" str="void" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f991952c380" file="mcc_generated_files/pin_manager.h" linenr="158" column="6" str="PIN_MANAGER_IOC" scope="0x7f99195435c0" type="name" function="0x7f9919542140" astParent="0x7f991952c450"/>
+    <token id="0x7f991952c450" file="mcc_generated_files/pin_manager.h" linenr="158" column="21" str="(" scope="0x7f99195435c0" link="0x7f991952c5f0" astOperand1="0x7f991952c380" valueType-type="void"/>
+    <token id="0x7f991952c5f0" file="mcc_generated_files/pin_manager.h" linenr="158" column="26" str=")" scope="0x7f99195435c0" link="0x7f991952c450"/>
+    <token id="0x7f991952c6c0" file="mcc_generated_files/pin_manager.h" linenr="158" column="27" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f991952c790" file="mcc_generated_files/uart1.h" linenr="74" column="9" str="union" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f9919546b70" file="mcc_generated_files/uart1.h" linenr="74" column="0" str="uart1_status_t" scope="0x7f99195435c0" type="name" type-scope="0x7f99195316f0"/>
+    <token id="0x7f991952c930" file="mcc_generated_files/uart1.h" linenr="74" column="15" str="{" scope="0x7f99195316f0" link="0x7f991952dff0"/>
+    <token id="0x7f991952ca00" file="mcc_generated_files/uart1.h" linenr="76" column="9" str="int" scope="0x7f99195316f0" type="name" isUnsigned="true"/>
+    <token id="0x7f991952cc70" file="mcc_generated_files/uart1.h" linenr="76" column="18" str="perr" scope="0x7f99195316f0" type="name" varId="1" variable="0x7f9919548010" valueType-type="int" valueType-sign="unsigned" valueType-bits="1"/>
+    <token id="0x7f991952cee0" file="mcc_generated_files/uart1.h" linenr="76" column="26" str=";" scope="0x7f99195316f0"/>
+    <token id="0x7f991952cfb0" file="mcc_generated_files/uart1.h" linenr="77" column="9" str="int" scope="0x7f99195316f0" type="name" isUnsigned="true"/>
+    <token id="0x7f991952d080" file="mcc_generated_files/uart1.h" linenr="77" column="18" str="ferr" scope="0x7f99195316f0" type="name" varId="2" variable="0x7f99195480e0" valueType-type="int" valueType-sign="unsigned" valueType-bits="1"/>
+    <token id="0x7f991952d2f0" file="mcc_generated_files/uart1.h" linenr="77" column="26" str=";" scope="0x7f99195316f0"/>
+    <token id="0x7f991952d3c0" file="mcc_generated_files/uart1.h" linenr="78" column="9" str="int" scope="0x7f99195316f0" type="name" isUnsigned="true"/>
+    <token id="0x7f991952d490" file="mcc_generated_files/uart1.h" linenr="78" column="18" str="oerr" scope="0x7f99195316f0" type="name" varId="3" variable="0x7f99195481b0" valueType-type="int" valueType-sign="unsigned" valueType-bits="1"/>
+    <token id="0x7f991952d700" file="mcc_generated_files/uart1.h" linenr="78" column="26" str=";" scope="0x7f99195316f0"/>
+    <token id="0x7f991952d7d0" file="mcc_generated_files/uart1.h" linenr="79" column="9" str="int" scope="0x7f99195316f0" type="name" isUnsigned="true"/>
+    <token id="0x7f991952d8a0" file="mcc_generated_files/uart1.h" linenr="79" column="18" str="reserved" scope="0x7f99195316f0" type="name" varId="4" variable="0x7f9919548280" valueType-type="int" valueType-sign="unsigned" valueType-bits="5"/>
+    <token id="0x7f991952db10" file="mcc_generated_files/uart1.h" linenr="79" column="30" str=";" scope="0x7f99195316f0"/>
+    <token id="0x7f991952dbe0" file="mcc_generated_files/uart1.h" linenr="81" column="5" str="uint8_t" scope="0x7f99195316f0" type="name"/>
+    <token id="0x7f991952de50" file="mcc_generated_files/uart1.h" linenr="81" column="13" str="status" scope="0x7f99195316f0" type="name" varId="5" variable="0x7f9919548350" valueType-type="char" valueType-sign="unsigned"/>
+    <token id="0x7f991952df20" file="mcc_generated_files/uart1.h" linenr="81" column="19" str=";" scope="0x7f99195316f0"/>
+    <token id="0x7f991952dff0" file="mcc_generated_files/uart1.h" linenr="82" column="1" str="}" scope="0x7f99195316f0" link="0x7f991952c930"/>
+    <token id="0x7f9919546c40" file="mcc_generated_files/uart1.h" linenr="82" column="0" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f991952e260" file="mcc_generated_files/uart1.h" linenr="110" column="1" str="void" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f991952e330" file="mcc_generated_files/uart1.h" linenr="110" column="6" str="UART1_Initialize" scope="0x7f99195435c0" type="name" function="0x7f9919543c40" astParent="0x7f991952e400"/>
+    <token id="0x7f991952e400" file="mcc_generated_files/uart1.h" linenr="110" column="22" str="(" scope="0x7f99195435c0" link="0x7f991952e5a0" astOperand1="0x7f991952e330" valueType-type="void"/>
+    <token id="0x7f991952e5a0" file="mcc_generated_files/uart1.h" linenr="110" column="27" str=")" scope="0x7f99195435c0" link="0x7f991952e400"/>
+    <token id="0x7f991952e670" file="mcc_generated_files/uart1.h" linenr="110" column="28" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f991952e740" file="mcc_generated_files/uart1.h" linenr="158" column="1" str="bool" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f991952e810" file="mcc_generated_files/uart1.h" linenr="158" column="6" str="UART1_is_rx_ready" scope="0x7f99195435c0" type="name" function="0x7f9919544600" astParent="0x7f991952e8e0"/>
+    <token id="0x7f991952e8e0" file="mcc_generated_files/uart1.h" linenr="158" column="23" str="(" scope="0x7f99195435c0" link="0x7f991952ea80" astOperand1="0x7f991952e810" valueType-type="bool"/>
+    <token id="0x7f991952ea80" file="mcc_generated_files/uart1.h" linenr="158" column="28" str=")" scope="0x7f99195435c0" link="0x7f991952e8e0"/>
+    <token id="0x7f991952eb50" file="mcc_generated_files/uart1.h" linenr="158" column="29" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f991952ec20" file="mcc_generated_files/uart1.h" linenr="206" column="1" str="bool" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f991952ecf0" file="mcc_generated_files/uart1.h" linenr="206" column="6" str="UART1_is_tx_ready" scope="0x7f99195435c0" type="name" function="0x7f9919541c60" astParent="0x7f991952edc0"/>
+    <token id="0x7f991952edc0" file="mcc_generated_files/uart1.h" linenr="206" column="23" str="(" scope="0x7f99195435c0" link="0x7f991952ef60" astOperand1="0x7f991952ecf0" valueType-type="bool"/>
+    <token id="0x7f991952ef60" file="mcc_generated_files/uart1.h" linenr="206" column="28" str=")" scope="0x7f99195435c0" link="0x7f991952edc0"/>
+    <token id="0x7f991952f030" file="mcc_generated_files/uart1.h" linenr="206" column="29" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f991952f100" file="mcc_generated_files/uart1.h" linenr="253" column="1" str="bool" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f991952f1d0" file="mcc_generated_files/uart1.h" linenr="253" column="6" str="UART1_is_tx_done" scope="0x7f99195435c0" type="name" function="0x7f99195412a0" astParent="0x7f991952f2a0"/>
+    <token id="0x7f991952f2a0" file="mcc_generated_files/uart1.h" linenr="253" column="22" str="(" scope="0x7f99195435c0" link="0x7f991952f440" astOperand1="0x7f991952f1d0" valueType-type="bool"/>
+    <token id="0x7f991952f440" file="mcc_generated_files/uart1.h" linenr="253" column="27" str=")" scope="0x7f99195435c0" link="0x7f991952f2a0"/>
+    <token id="0x7f991952f510" file="mcc_generated_files/uart1.h" linenr="253" column="28" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f991952f5e0" file="mcc_generated_files/uart1.h" linenr="301" column="1" str="union" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f991952c860" file="mcc_generated_files/uart1.h" linenr="301" column="0" str="uart1_status_t" scope="0x7f99195435c0" type="name" type-scope="0x7f99195316f0"/>
+    <token id="0x7f991952f6b0" file="mcc_generated_files/uart1.h" linenr="301" column="16" str="UART1_get_last_status" scope="0x7f99195435c0" type="name" function="0x7f9919540dc0" astParent="0x7f991952f780"/>
+    <token id="0x7f991952f780" file="mcc_generated_files/uart1.h" linenr="301" column="37" str="(" scope="0x7f99195435c0" link="0x7f991952f920" astOperand1="0x7f991952f6b0" valueType-type="record" valueType-typeScope="0x7f99195316f0"/>
+    <token id="0x7f991952f920" file="mcc_generated_files/uart1.h" linenr="301" column="42" str=")" scope="0x7f99195435c0" link="0x7f991952f780"/>
+    <token id="0x7f991952f9f0" file="mcc_generated_files/uart1.h" linenr="301" column="43" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f991952fac0" file="mcc_generated_files/uart1.h" linenr="350" column="1" str="uint8_t" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f991952fb90" file="mcc_generated_files/uart1.h" linenr="350" column="9" str="UART1_Read" scope="0x7f99195435c0" type="name" function="0x7f99195408e0" astParent="0x7f991952fc60"/>
+    <token id="0x7f991952fc60" file="mcc_generated_files/uart1.h" linenr="350" column="19" str="(" scope="0x7f99195435c0" link="0x7f991952fe00" astOperand1="0x7f991952fb90" valueType-type="char" valueType-sign="unsigned"/>
+    <token id="0x7f991952fe00" file="mcc_generated_files/uart1.h" linenr="350" column="24" str=")" scope="0x7f99195435c0" link="0x7f991952fc60"/>
+    <token id="0x7f991952fed0" file="mcc_generated_files/uart1.h" linenr="350" column="25" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f991952ffa0" file="mcc_generated_files/uart1.h" linenr="375" column="1" str="void" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f9919530070" file="mcc_generated_files/uart1.h" linenr="375" column="6" str="UART1_Write" scope="0x7f99195435c0" type="name" function="0x7f991953f530" astParent="0x7f9919530140"/>
+    <token id="0x7f9919530140" file="mcc_generated_files/uart1.h" linenr="375" column="17" str="(" scope="0x7f99195435c0" link="0x7f99195303b0" astOperand1="0x7f9919530070" astOperand2="0x7f99195302e0" valueType-type="void"/>
+    <token id="0x7f9919530210" file="mcc_generated_files/uart1.h" linenr="375" column="18" str="uint8_t" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f99195302e0" file="mcc_generated_files/uart1.h" linenr="375" column="26" str="txData" scope="0x7f99195435c0" type="name" varId="6" variable="0x7f9919548ab0" astParent="0x7f9919530140" valueType-type="char" valueType-sign="unsigned"/>
+    <token id="0x7f99195303b0" file="mcc_generated_files/uart1.h" linenr="375" column="32" str=")" scope="0x7f99195435c0" link="0x7f9919530140"/>
+    <token id="0x7f9919530480" file="mcc_generated_files/uart1.h" linenr="375" column="33" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f9919530550" file="mcc_generated_files/uart1.h" linenr="395" column="1" str="void" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f9919530640" file="mcc_generated_files/uart1.h" linenr="395" column="6" str="UART1_SetFramingErrorHandler" scope="0x7f99195435c0" type="name" function="0x7f991953e9d0" astParent="0x7f9919530740"/>
+    <token id="0x7f9919530740" file="mcc_generated_files/uart1.h" linenr="395" column="34" str="(" scope="0x7f99195435c0" link="0x7f9919530e90" astOperand1="0x7f9919530640" astOperand2="0x7f9919530dc0" valueType-type="void"/>
+    <token id="0x7f9919530810" file="mcc_generated_files/uart1.h" linenr="395" column="35" str="void" scope="0x7f99195435c0" type="name" astParent="0x7f99195308e0"/>
+    <token id="0x7f99195308e0" file="mcc_generated_files/uart1.h" linenr="395" column="40" str="(" scope="0x7f99195435c0" link="0x7f9919530b50" astParent="0x7f9919530dc0" astOperand1="0x7f9919530810" astOperand2="0x7f99195309b0" valueType-type="void"/>
+    <token id="0x7f99195309b0" file="mcc_generated_files/uart1.h" linenr="395" column="41" str="*" scope="0x7f99195435c0" type="op" isArithmeticalOp="True" astParent="0x7f99195308e0" astOperand1="0x7f9919530a80" valueType-type="void"/>
+    <token id="0x7f9919530a80" file="mcc_generated_files/uart1.h" linenr="395" column="43" str="interruptHandler" scope="0x7f99195435c0" type="name" varId="7" variable="0x7f9919548b80" astParent="0x7f99195309b0" valueType-type="void" valueType-pointer="1"/>
+    <token id="0x7f9919530b50" file="mcc_generated_files/uart1.h" linenr="395" column="59" str=")" scope="0x7f99195435c0" link="0x7f99195308e0"/>
+    <token id="0x7f9919530dc0" file="mcc_generated_files/uart1.h" linenr="395" column="0" str="(" scope="0x7f99195435c0" link="0x7f991953e0d0" astParent="0x7f9919530740" astOperand1="0x7f99195308e0"/>
+    <token id="0x7f991953e0d0" file="mcc_generated_files/uart1.h" linenr="395" column="0" str=")" scope="0x7f99195435c0" link="0x7f9919530dc0"/>
+    <token id="0x7f9919530e90" file="mcc_generated_files/uart1.h" linenr="395" column="66" str=")" scope="0x7f99195435c0" link="0x7f9919530740"/>
+    <token id="0x7f9919530f60" file="mcc_generated_files/uart1.h" linenr="395" column="67" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f9919531030" file="mcc_generated_files/uart1.h" linenr="413" column="1" str="void" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f9919531100" file="mcc_generated_files/uart1.h" linenr="413" column="6" str="UART1_SetOverrunErrorHandler" scope="0x7f99195435c0" type="name" function="0x7f991952fd40" astParent="0x7f9919531200"/>
+    <token id="0x7f9919531200" file="mcc_generated_files/uart1.h" linenr="413" column="34" str="(" scope="0x7f99195435c0" link="0x7f9919531950" astOperand1="0x7f9919531100" astOperand2="0x7f9919531880" valueType-type="void"/>
+    <token id="0x7f99195312d0" file="mcc_generated_files/uart1.h" linenr="413" column="35" str="void" scope="0x7f99195435c0" type="name" astParent="0x7f99195313a0"/>
+    <token id="0x7f99195313a0" file="mcc_generated_files/uart1.h" linenr="413" column="40" str="(" scope="0x7f99195435c0" link="0x7f9919531610" astParent="0x7f9919531880" astOperand1="0x7f99195312d0" astOperand2="0x7f9919531470" valueType-type="void"/>
+    <token id="0x7f9919531470" file="mcc_generated_files/uart1.h" linenr="413" column="41" str="*" scope="0x7f99195435c0" type="op" isArithmeticalOp="True" astParent="0x7f99195313a0" astOperand1="0x7f9919531540" valueType-type="void"/>
+    <token id="0x7f9919531540" file="mcc_generated_files/uart1.h" linenr="413" column="43" str="interruptHandler" scope="0x7f99195435c0" type="name" varId="8" variable="0x7f9919548c50" astParent="0x7f9919531470" valueType-type="void" valueType-pointer="1"/>
+    <token id="0x7f9919531610" file="mcc_generated_files/uart1.h" linenr="413" column="59" str=")" scope="0x7f99195435c0" link="0x7f99195313a0"/>
+    <token id="0x7f9919531880" file="mcc_generated_files/uart1.h" linenr="413" column="0" str="(" scope="0x7f99195435c0" link="0x7f991953c0d0" astParent="0x7f9919531200" astOperand1="0x7f99195313a0"/>
+    <token id="0x7f991953c0d0" file="mcc_generated_files/uart1.h" linenr="413" column="0" str=")" scope="0x7f99195435c0" link="0x7f9919531880"/>
+    <token id="0x7f9919531950" file="mcc_generated_files/uart1.h" linenr="413" column="66" str=")" scope="0x7f99195435c0" link="0x7f9919531200"/>
+    <token id="0x7f9919531a20" file="mcc_generated_files/uart1.h" linenr="413" column="67" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f9919531af0" file="mcc_generated_files/uart1.h" linenr="431" column="1" str="void" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f9919531bc0" file="mcc_generated_files/uart1.h" linenr="431" column="6" str="UART1_SetErrorHandler" scope="0x7f99195435c0" type="name" function="0x7f991952f380" astParent="0x7f9919531c90"/>
+    <token id="0x7f9919531c90" file="mcc_generated_files/uart1.h" linenr="431" column="27" str="(" scope="0x7f99195435c0" link="0x7f99195323e0" astOperand1="0x7f9919531bc0" astOperand2="0x7f9919532310" valueType-type="void"/>
+    <token id="0x7f9919531d60" file="mcc_generated_files/uart1.h" linenr="431" column="28" str="void" scope="0x7f99195435c0" type="name" astParent="0x7f9919531e30"/>
+    <token id="0x7f9919531e30" file="mcc_generated_files/uart1.h" linenr="431" column="33" str="(" scope="0x7f99195435c0" link="0x7f99195320a0" astParent="0x7f9919532310" astOperand1="0x7f9919531d60" astOperand2="0x7f9919531f00" valueType-type="void"/>
+    <token id="0x7f9919531f00" file="mcc_generated_files/uart1.h" linenr="431" column="34" str="*" scope="0x7f99195435c0" type="op" isArithmeticalOp="True" astParent="0x7f9919531e30" astOperand1="0x7f9919531fd0" valueType-type="void"/>
+    <token id="0x7f9919531fd0" file="mcc_generated_files/uart1.h" linenr="431" column="36" str="interruptHandler" scope="0x7f99195435c0" type="name" varId="9" variable="0x7f9919548d20" astParent="0x7f9919531f00" valueType-type="void" valueType-pointer="1"/>
+    <token id="0x7f99195320a0" file="mcc_generated_files/uart1.h" linenr="431" column="52" str=")" scope="0x7f99195435c0" link="0x7f9919531e30"/>
+    <token id="0x7f9919532310" file="mcc_generated_files/uart1.h" linenr="431" column="0" str="(" scope="0x7f99195435c0" link="0x7f9919530d20" astParent="0x7f9919531c90" astOperand1="0x7f9919531e30"/>
+    <token id="0x7f9919530d20" file="mcc_generated_files/uart1.h" linenr="431" column="0" str=")" scope="0x7f99195435c0" link="0x7f9919532310"/>
+    <token id="0x7f99195323e0" file="mcc_generated_files/uart1.h" linenr="431" column="59" str=")" scope="0x7f99195435c0" link="0x7f9919531c90"/>
+    <token id="0x7f99195324b0" file="mcc_generated_files/uart1.h" linenr="431" column="60" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f9919532580" file="mcc_generated_files/can_types.h" linenr="65" column="9" str="union" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f991952e190" file="mcc_generated_files/can_types.h" linenr="65" column="0" str="CAN_MSG_FIELD" scope="0x7f99195435c0" type="name" type-scope="0x7f99195340b0"/>
+    <token id="0x7f9919532720" file="mcc_generated_files/can_types.h" linenr="66" column="1" str="{" scope="0x7f99195340b0" link="0x7f9919534050"/>
+    <token id="0x7f99195327f0" file="mcc_generated_files/can_types.h" linenr="67" column="5" str="uint8_t" scope="0x7f99195340b0" type="name"/>
+    <token id="0x7f99195328c0" file="mcc_generated_files/can_types.h" linenr="67" column="13" str="msgfields" scope="0x7f99195340b0" type="name" varId="10" variable="0x7f9919548420" valueType-type="char" valueType-sign="unsigned"/>
+    <token id="0x7f9919532990" file="mcc_generated_files/can_types.h" linenr="67" column="22" str=";" scope="0x7f99195340b0"/>
+    <token id="0x7f9919532a60" file="mcc_generated_files/can_types.h" linenr="70" column="9" str="uint8_t" scope="0x7f99195340b0" type="name"/>
+    <token id="0x7f9919532cd0" file="mcc_generated_files/can_types.h" linenr="70" column="17" str="idType" scope="0x7f99195340b0" type="name" varId="11" variable="0x7f99195484f0" valueType-type="char" valueType-sign="unsigned" valueType-bits="1"/>
+    <token id="0x7f9919532f40" file="mcc_generated_files/can_types.h" linenr="70" column="25" str=";" scope="0x7f99195340b0"/>
+    <token id="0x7f9919533010" file="mcc_generated_files/can_types.h" linenr="71" column="9" str="uint8_t" scope="0x7f99195340b0" type="name"/>
+    <token id="0x7f99195330e0" file="mcc_generated_files/can_types.h" linenr="71" column="17" str="frameType" scope="0x7f99195340b0" type="name" varId="12" variable="0x7f99195485c0" valueType-type="char" valueType-sign="unsigned" valueType-bits="1"/>
+    <token id="0x7f9919533350" file="mcc_generated_files/can_types.h" linenr="71" column="28" str=";" scope="0x7f99195340b0"/>
+    <token id="0x7f9919533420" file="mcc_generated_files/can_types.h" linenr="72" column="9" str="uint8_t" scope="0x7f99195340b0" type="name"/>
+    <token id="0x7f99195334f0" file="mcc_generated_files/can_types.h" linenr="72" column="17" str="dlc" scope="0x7f99195340b0" type="name" varId="13" variable="0x7f9919548690" valueType-type="char" valueType-sign="unsigned" valueType-bits="4"/>
+    <token id="0x7f9919533760" file="mcc_generated_files/can_types.h" linenr="72" column="22" str=";" scope="0x7f99195340b0"/>
+    <token id="0x7f9919533830" file="mcc_generated_files/can_types.h" linenr="73" column="9" str="uint8_t" scope="0x7f99195340b0" type="name"/>
+    <token id="0x7f9919533900" file="mcc_generated_files/can_types.h" linenr="73" column="17" str="formatType" scope="0x7f99195340b0" type="name" varId="14" variable="0x7f9919548760" valueType-type="char" valueType-sign="unsigned" valueType-bits="1"/>
+    <token id="0x7f9919533b70" file="mcc_generated_files/can_types.h" linenr="73" column="29" str=";" scope="0x7f99195340b0"/>
+    <token id="0x7f9919533c40" file="mcc_generated_files/can_types.h" linenr="74" column="9" str="uint8_t" scope="0x7f99195340b0" type="name"/>
+    <token id="0x7f9919533d10" file="mcc_generated_files/can_types.h" linenr="74" column="17" str="brs" scope="0x7f99195340b0" type="name" varId="15" variable="0x7f9919548830" valueType-type="char" valueType-sign="unsigned" valueType-bits="1"/>
+    <token id="0x7f9919533f80" file="mcc_generated_files/can_types.h" linenr="74" column="22" str=";" scope="0x7f99195340b0"/>
+    <token id="0x7f9919534050" file="mcc_generated_files/can_types.h" linenr="76" column="1" str="}" scope="0x7f99195340b0" link="0x7f9919532720"/>
+    <token id="0x7f991952e0c0" file="mcc_generated_files/can_types.h" linenr="76" column="0" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f9919534460" file="mcc_generated_files/can_types.h" linenr="78" column="9" str="struct" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f9919534390" file="mcc_generated_files/can_types.h" linenr="78" column="0" str="CAN_MSG_OBJ" scope="0x7f99195435c0" type="name" type-scope="0x7f9919532ac0"/>
+    <token id="0x7f9919534600" file="mcc_generated_files/can_types.h" linenr="79" column="1" str="{" scope="0x7f9919532ac0" link="0x7f9919534ef0"/>
+    <token id="0x7f99195346d0" file="mcc_generated_files/can_types.h" linenr="80" column="5" str="uint32_t" scope="0x7f9919532ac0" type="name"/>
+    <token id="0x7f99195347a0" file="mcc_generated_files/can_types.h" linenr="80" column="14" str="msgId" scope="0x7f9919532ac0" type="name" varId="16" variable="0x7f9919548900" valueType-type="int" valueType-sign="unsigned"/>
+    <token id="0x7f9919534870" file="mcc_generated_files/can_types.h" linenr="80" column="19" str=";" scope="0x7f9919532ac0"/>
+    <token id="0x7f9919534940" file="mcc_generated_files/can_types.h" linenr="81" column="5" str="union" scope="0x7f9919532ac0" type="name"/>
+    <token id="0x7f9919532650" file="mcc_generated_files/can_types.h" linenr="81" column="0" str="CAN_MSG_FIELD" scope="0x7f9919532ac0" type="name" type-scope="0x7f99195340b0"/>
+    <token id="0x7f9919534a10" file="mcc_generated_files/can_types.h" linenr="81" column="19" str="field" scope="0x7f9919532ac0" type="name" varId="17" variable="0x7f99195489d0" valueType-type="record" valueType-typeScope="0x7f99195340b0"/>
+    <token id="0x7f9919534ae0" file="mcc_generated_files/can_types.h" linenr="81" column="24" str=";" scope="0x7f9919532ac0"/>
+    <token id="0x7f9919534bb0" file="mcc_generated_files/can_types.h" linenr="82" column="5" str="uint8_t" scope="0x7f9919532ac0" type="name" astParent="0x7f9919534c80"/>
+    <token id="0x7f9919534c80" file="mcc_generated_files/can_types.h" linenr="82" column="13" str="*" scope="0x7f9919532ac0" type="op" isArithmeticalOp="True" astOperand1="0x7f9919534bb0" astOperand2="0x7f9919534d50"/>
+    <token id="0x7f9919534d50" file="mcc_generated_files/can_types.h" linenr="82" column="14" str="data" scope="0x7f9919532ac0" type="name" varId="18" variable="0x7f9919548a40" astParent="0x7f9919534c80" valueType-type="char" valueType-sign="unsigned" valueType-pointer="1"/>
+    <token id="0x7f9919534e20" file="mcc_generated_files/can_types.h" linenr="82" column="18" str=";" scope="0x7f9919532ac0"/>
+    <token id="0x7f9919534ef0" file="mcc_generated_files/can_types.h" linenr="83" column="1" str="}" scope="0x7f9919532ac0" link="0x7f9919534600"/>
+    <token id="0x7f99195342c0" file="mcc_generated_files/can_types.h" linenr="83" column="0" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f9919535160" file="mcc_generated_files/can_types.h" linenr="94" column="9" str="enum" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f9919535090" file="mcc_generated_files/can_types.h" linenr="94" column="0" str="CAN_MSG_OBJ_BRS_MODE" scope="0x7f99195435c0" type="name" type-scope="0x7f991952dc40"/>
+    <token id="0x7f9919535300" file="mcc_generated_files/can_types.h" linenr="95" column="1" str="{" scope="0x7f991952dc40" link="0x7f9919535980"/>
+    <token id="0x7f99195353d0" file="mcc_generated_files/can_types.h" linenr="96" column="5" str="CAN_NON_BRS_MODE" scope="0x7f991952dc40" type="name" values="0x7f991954b4f0" astParent="0x7f99195354a0" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991952dc40"/>
+    <token id="0x7f99195354a0" file="mcc_generated_files/can_types.h" linenr="96" column="25" str="=" scope="0x7f991952dc40" type="op" isAssignmentOp="True" astParent="0x7f9919535640" astOperand1="0x7f99195353d0" astOperand2="0x7f9919535570" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991952dc40"/>
+    <token id="0x7f9919535570" file="mcc_generated_files/can_types.h" linenr="96" column="27" str="0" scope="0x7f991952dc40" type="number" isInt="True" values="0x7f991954c4c0" astParent="0x7f99195354a0" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f9919535640" file="mcc_generated_files/can_types.h" linenr="96" column="28" str="," scope="0x7f991952dc40" astOperand1="0x7f99195354a0" astOperand2="0x7f99195357e0"/>
+    <token id="0x7f9919535710" file="mcc_generated_files/can_types.h" linenr="97" column="5" str="CAN_BRS_MODE" scope="0x7f991952dc40" type="name" values="0x7f99195371e0" astParent="0x7f99195357e0" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991952dc40"/>
+    <token id="0x7f99195357e0" file="mcc_generated_files/can_types.h" linenr="97" column="25" str="=" scope="0x7f991952dc40" type="op" isAssignmentOp="True" astParent="0x7f9919535640" astOperand1="0x7f9919535710" astOperand2="0x7f99195358b0" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991952dc40"/>
+    <token id="0x7f99195358b0" file="mcc_generated_files/can_types.h" linenr="97" column="27" str="1" scope="0x7f991952dc40" type="number" isInt="True" values="0x7f99195421d0" astParent="0x7f99195357e0" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f9919535980" file="mcc_generated_files/can_types.h" linenr="98" column="1" str="}" scope="0x7f991952dc40" link="0x7f9919535300"/>
+    <token id="0x7f9919534fc0" file="mcc_generated_files/can_types.h" linenr="98" column="0" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f9919546d10" file="mcc_generated_files/can_types.h" linenr="109" column="9" str="enum" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f9919535bf0" file="mcc_generated_files/can_types.h" linenr="109" column="0" str="CAN_MSG_OBJ_ID_TYPE" scope="0x7f99195435c0" type="name" type-scope="0x7f991952ca60"/>
+    <token id="0x7f9919535d90" file="mcc_generated_files/can_types.h" linenr="110" column="1" str="{" scope="0x7f991952ca60" link="0x7f99195364e0"/>
+    <token id="0x7f9919535e60" file="mcc_generated_files/can_types.h" linenr="111" column="5" str="CAN_FRAME_STD" scope="0x7f991952ca60" type="name" values="0x7f9919543cd0" astParent="0x7f9919535f30" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991952ca60"/>
+    <token id="0x7f9919535f30" file="mcc_generated_files/can_types.h" linenr="111" column="25" str="=" scope="0x7f991952ca60" type="op" isAssignmentOp="True" astParent="0x7f99195360d0" astOperand1="0x7f9919535e60" astOperand2="0x7f9919536000" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991952ca60"/>
+    <token id="0x7f9919536000" file="mcc_generated_files/can_types.h" linenr="111" column="27" str="0" scope="0x7f991952ca60" type="number" isInt="True" values="0x7f9919531850" astParent="0x7f9919535f30" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f99195360d0" file="mcc_generated_files/can_types.h" linenr="111" column="28" str="," scope="0x7f991952ca60" astOperand1="0x7f9919535f30" astOperand2="0x7f9919536270"/>
+    <token id="0x7f99195361a0" file="mcc_generated_files/can_types.h" linenr="112" column="5" str="CAN_FRAME_EXT" scope="0x7f991952ca60" type="name" values="0x7f9919544690" astParent="0x7f9919536270" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991952ca60"/>
+    <token id="0x7f9919536270" file="mcc_generated_files/can_types.h" linenr="112" column="25" str="=" scope="0x7f991952ca60" type="op" isAssignmentOp="True" astParent="0x7f99195360d0" astOperand1="0x7f99195361a0" astOperand2="0x7f9919536340" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991952ca60"/>
+    <token id="0x7f9919536340" file="mcc_generated_files/can_types.h" linenr="112" column="27" str="1" scope="0x7f991952ca60" type="number" isInt="True" values="0x7f9919543720" astParent="0x7f9919536270" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f9919536410" file="mcc_generated_files/can_types.h" linenr="112" column="28" str="," scope="0x7f991952ca60"/>
+    <token id="0x7f99195364e0" file="mcc_generated_files/can_types.h" linenr="113" column="1" str="}" scope="0x7f991952ca60" link="0x7f9919535d90"/>
+    <token id="0x7f9919535230" file="mcc_generated_files/can_types.h" linenr="113" column="0" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f9919535ad0" file="mcc_generated_files/can_types.h" linenr="124" column="9" str="enum" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f9919536750" file="mcc_generated_files/can_types.h" linenr="124" column="0" str="CAN_MSG_OBJ_FRAME_TYPE" scope="0x7f99195435c0" type="name" type-scope="0x7f9919533df0"/>
+    <token id="0x7f99195368f0" file="mcc_generated_files/can_types.h" linenr="125" column="1" str="{" scope="0x7f9919533df0" link="0x7f9919537040"/>
+    <token id="0x7f99195369c0" file="mcc_generated_files/can_types.h" linenr="126" column="5" str="CAN_FRAME_DATA" scope="0x7f9919533df0" type="name" values="0x7f9919541cf0" astParent="0x7f9919536a90" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f9919533df0"/>
+    <token id="0x7f9919536a90" file="mcc_generated_files/can_types.h" linenr="126" column="25" str="=" scope="0x7f9919533df0" type="op" isAssignmentOp="True" astParent="0x7f9919536c30" astOperand1="0x7f99195369c0" astOperand2="0x7f9919536b60" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f9919533df0"/>
+    <token id="0x7f9919536b60" file="mcc_generated_files/can_types.h" linenr="126" column="27" str="0" scope="0x7f9919533df0" type="number" isInt="True" values="0x7f991952dae0" astParent="0x7f9919536a90" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f9919536c30" file="mcc_generated_files/can_types.h" linenr="126" column="28" str="," scope="0x7f9919533df0" astOperand1="0x7f9919536a90" astOperand2="0x7f9919536dd0"/>
+    <token id="0x7f9919536d00" file="mcc_generated_files/can_types.h" linenr="127" column="5" str="CAN_FRAME_RTR" scope="0x7f9919533df0" type="name" values="0x7f991953b8d0" astParent="0x7f9919536dd0" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f9919533df0"/>
+    <token id="0x7f9919536dd0" file="mcc_generated_files/can_types.h" linenr="127" column="25" str="=" scope="0x7f9919533df0" type="op" isAssignmentOp="True" astParent="0x7f9919536c30" astOperand1="0x7f9919536d00" astOperand2="0x7f9919536ea0" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f9919533df0"/>
+    <token id="0x7f9919536ea0" file="mcc_generated_files/can_types.h" linenr="127" column="27" str="1" scope="0x7f9919533df0" type="number" isInt="True" values="0x7f991952d2c0" astParent="0x7f9919536dd0" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f9919536f70" file="mcc_generated_files/can_types.h" linenr="127" column="28" str="," scope="0x7f9919533df0"/>
+    <token id="0x7f9919537040" file="mcc_generated_files/can_types.h" linenr="128" column="1" str="}" scope="0x7f9919533df0" link="0x7f99195368f0"/>
+    <token id="0x7f9919535ba0" file="mcc_generated_files/can_types.h" linenr="128" column="0" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f9919535cc0" file="mcc_generated_files/can_types.h" linenr="139" column="9" str="enum" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f99195372b0" file="mcc_generated_files/can_types.h" linenr="139" column="0" str="CAN_MSG_OBJ_TYPE" scope="0x7f99195435c0" type="name" type-scope="0x7f99195339e0"/>
+    <token id="0x7f9919537450" file="mcc_generated_files/can_types.h" linenr="140" column="1" str="{" scope="0x7f99195339e0" link="0x7f9919537ad0"/>
+    <token id="0x7f9919537520" file="mcc_generated_files/can_types.h" linenr="141" column="5" str="CAN_2_0_FORMAT" scope="0x7f99195339e0" type="name" values="0x7f99195492b0" astParent="0x7f99195375f0" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f99195339e0"/>
+    <token id="0x7f99195375f0" file="mcc_generated_files/can_types.h" linenr="141" column="25" str="=" scope="0x7f99195339e0" type="op" isAssignmentOp="True" astParent="0x7f9919537790" astOperand1="0x7f9919537520" astOperand2="0x7f99195376c0" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f99195339e0"/>
+    <token id="0x7f99195376c0" file="mcc_generated_files/can_types.h" linenr="141" column="27" str="0" scope="0x7f99195339e0" type="number" isInt="True" values="0x7f991954aef0" astParent="0x7f99195375f0" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f9919537790" file="mcc_generated_files/can_types.h" linenr="141" column="28" str="," scope="0x7f99195339e0" astOperand1="0x7f99195375f0" astOperand2="0x7f9919537930"/>
+    <token id="0x7f9919537860" file="mcc_generated_files/can_types.h" linenr="142" column="5" str="CAN_FD_FORMAT" scope="0x7f99195339e0" type="name" values="0x7f991954afa0" astParent="0x7f9919537930" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f99195339e0"/>
+    <token id="0x7f9919537930" file="mcc_generated_files/can_types.h" linenr="142" column="25" str="=" scope="0x7f99195339e0" type="op" isAssignmentOp="True" astParent="0x7f9919537790" astOperand1="0x7f9919537860" astOperand2="0x7f9919537a00" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f99195339e0"/>
+    <token id="0x7f9919537a00" file="mcc_generated_files/can_types.h" linenr="142" column="27" str="1" scope="0x7f99195339e0" type="number" isInt="True" values="0x7f991954b050" astParent="0x7f9919537930" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f9919537ad0" file="mcc_generated_files/can_types.h" linenr="143" column="1" str="}" scope="0x7f99195339e0" link="0x7f9919537450"/>
+    <token id="0x7f9919536820" file="mcc_generated_files/can_types.h" linenr="143" column="0" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f9919537190" file="mcc_generated_files/can_types.h" linenr="154" column="9" str="enum" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f9919537d40" file="mcc_generated_files/can_types.h" linenr="154" column="0" str="CAN_TX_MSG_REQUEST_STATUS" scope="0x7f99195435c0" type="name" type-scope="0x7f99195331c0"/>
+    <token id="0x7f9919537ee0" file="mcc_generated_files/can_types.h" linenr="155" column="1" str="{" scope="0x7f99195331c0" link="0x7f9919538d70"/>
+    <token id="0x7f9919537fb0" file="mcc_generated_files/can_types.h" linenr="156" column="5" str="CAN_TX_MSG_REQUEST_SUCCESS" scope="0x7f99195331c0" type="name" values="0x7f991954b100" astParent="0x7f99195380b0" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f99195331c0"/>
+    <token id="0x7f99195380b0" file="mcc_generated_files/can_types.h" linenr="156" column="32" str="=" scope="0x7f99195331c0" type="op" isAssignmentOp="True" astParent="0x7f9919538250" astOperand1="0x7f9919537fb0" astOperand2="0x7f9919538180" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f99195331c0"/>
+    <token id="0x7f9919538180" file="mcc_generated_files/can_types.h" linenr="156" column="34" str="0" scope="0x7f99195331c0" type="number" isInt="True" values="0x7f991954b1b0" astParent="0x7f99195380b0" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f9919538250" file="mcc_generated_files/can_types.h" linenr="156" column="35" str="," scope="0x7f99195331c0" astParent="0x7f99195385f0" astOperand1="0x7f99195380b0" astOperand2="0x7f9919538450"/>
+    <token id="0x7f9919538350" file="mcc_generated_files/can_types.h" linenr="157" column="5" str="CAN_TX_MSG_REQUEST_DLC_EXCEED_ERROR" scope="0x7f99195331c0" type="name" values="0x7f991954b260" astParent="0x7f9919538450" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f99195331c0"/>
+    <token id="0x7f9919538450" file="mcc_generated_files/can_types.h" linenr="157" column="41" str="=" scope="0x7f99195331c0" type="op" isAssignmentOp="True" astParent="0x7f9919538250" astOperand1="0x7f9919538350" astOperand2="0x7f9919538520" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f99195331c0"/>
+    <token id="0x7f9919538520" file="mcc_generated_files/can_types.h" linenr="157" column="43" str="1" scope="0x7f99195331c0" type="number" isInt="True" values="0x7f991954b310" astParent="0x7f9919538450" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f99195385f0" file="mcc_generated_files/can_types.h" linenr="157" column="44" str="," scope="0x7f99195331c0" astParent="0x7f9919538930" astOperand1="0x7f9919538250" astOperand2="0x7f9919538790"/>
+    <token id="0x7f99195386c0" file="mcc_generated_files/can_types.h" linenr="158" column="5" str="CAN_TX_MSG_REQUEST_BRS_ERROR" scope="0x7f99195331c0" type="name" values="0x7f991954b3c0" astParent="0x7f9919538790" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f99195331c0"/>
+    <token id="0x7f9919538790" file="mcc_generated_files/can_types.h" linenr="158" column="34" str="=" scope="0x7f99195331c0" type="op" isAssignmentOp="True" astParent="0x7f99195385f0" astOperand1="0x7f99195386c0" astOperand2="0x7f9919538860" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f99195331c0"/>
+    <token id="0x7f9919538860" file="mcc_generated_files/can_types.h" linenr="158" column="36" str="2" scope="0x7f99195331c0" type="number" isInt="True" values="0x7f991954b470" astParent="0x7f9919538790" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f9919538930" file="mcc_generated_files/can_types.h" linenr="158" column="37" str="," scope="0x7f99195331c0" astOperand1="0x7f99195385f0" astOperand2="0x7f9919538b00"/>
+    <token id="0x7f9919538a00" file="mcc_generated_files/can_types.h" linenr="159" column="5" str="CAN_TX_MSG_REQUEST_FIFO_FULL" scope="0x7f99195331c0" type="name" values="0x7f991954b490" astParent="0x7f9919538b00" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f99195331c0"/>
+    <token id="0x7f9919538b00" file="mcc_generated_files/can_types.h" linenr="159" column="34" str="=" scope="0x7f99195331c0" type="op" isAssignmentOp="True" astParent="0x7f9919538930" astOperand1="0x7f9919538a00" astOperand2="0x7f9919538bd0" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f99195331c0"/>
+    <token id="0x7f9919538bd0" file="mcc_generated_files/can_types.h" linenr="159" column="36" str="3" scope="0x7f99195331c0" type="number" isInt="True" values="0x7f991954b4b0" astParent="0x7f9919538b00" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f9919538ca0" file="mcc_generated_files/can_types.h" linenr="159" column="37" str="," scope="0x7f99195331c0"/>
+    <token id="0x7f9919538d70" file="mcc_generated_files/can_types.h" linenr="160" column="1" str="}" scope="0x7f99195331c0" link="0x7f9919537ee0"/>
+    <token id="0x7f9919537330" file="mcc_generated_files/can_types.h" linenr="160" column="0" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f9919537380" file="mcc_generated_files/can_types.h" linenr="171" column="9" str="enum" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f9919539010" file="mcc_generated_files/can_types.h" linenr="171" column="0" str="CAN_OP_MODES" scope="0x7f99195435c0" type="name" type-scope="0x7f991952d980"/>
+    <token id="0x7f99195391b0" file="mcc_generated_files/can_types.h" linenr="172" column="1" str="{" scope="0x7f991952d980" link="0x7f991953ad10"/>
+    <token id="0x7f9919539280" file="mcc_generated_files/can_types.h" linenr="173" column="5" str="CAN_NORMAL_FD_MODE" scope="0x7f991952d980" type="name" values="0x7f991954b4d0" astParent="0x7f9919539350" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991952d980"/>
+    <token id="0x7f9919539350" file="mcc_generated_files/can_types.h" linenr="173" column="24" str="=" scope="0x7f991952d980" type="op" isAssignmentOp="True" astParent="0x7f99195394f0" astOperand1="0x7f9919539280" astOperand2="0x7f9919539420" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991952d980"/>
+    <token id="0x7f9919539420" file="mcc_generated_files/can_types.h" linenr="173" column="26" str="0" scope="0x7f991952d980" type="number" isInt="True" values="0x7f991954dce0" astParent="0x7f9919539350" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f99195394f0" file="mcc_generated_files/can_types.h" linenr="173" column="27" str="," scope="0x7f991952d980" astParent="0x7f9919539830" astOperand1="0x7f9919539350" astOperand2="0x7f9919539690"/>
+    <token id="0x7f99195395c0" file="mcc_generated_files/can_types.h" linenr="174" column="5" str="CAN_DISABLE_MODE" scope="0x7f991952d980" type="name" values="0x7f991954dd90" astParent="0x7f9919539690" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991952d980"/>
+    <token id="0x7f9919539690" file="mcc_generated_files/can_types.h" linenr="174" column="22" str="=" scope="0x7f991952d980" type="op" isAssignmentOp="True" astParent="0x7f99195394f0" astOperand1="0x7f99195395c0" astOperand2="0x7f9919539760" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991952d980"/>
+    <token id="0x7f9919539760" file="mcc_generated_files/can_types.h" linenr="174" column="24" str="1" scope="0x7f991952d980" type="number" isInt="True" values="0x7f991954de40" astParent="0x7f9919539690" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f9919539830" file="mcc_generated_files/can_types.h" linenr="174" column="25" str="," scope="0x7f991952d980" astParent="0x7f9919539ba0" astOperand1="0x7f99195394f0" astOperand2="0x7f9919539a00"/>
+    <token id="0x7f9919539900" file="mcc_generated_files/can_types.h" linenr="175" column="5" str="CAN_INTERNAL_LOOPBACK_MODE" scope="0x7f991952d980" type="name" values="0x7f991954def0" astParent="0x7f9919539a00" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991952d980"/>
+    <token id="0x7f9919539a00" file="mcc_generated_files/can_types.h" linenr="175" column="32" str="=" scope="0x7f991952d980" type="op" isAssignmentOp="True" astParent="0x7f9919539830" astOperand1="0x7f9919539900" astOperand2="0x7f9919539ad0" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991952d980"/>
+    <token id="0x7f9919539ad0" file="mcc_generated_files/can_types.h" linenr="175" column="34" str="2" scope="0x7f991952d980" type="number" isInt="True" values="0x7f991954dfa0" astParent="0x7f9919539a00" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f9919539ba0" file="mcc_generated_files/can_types.h" linenr="175" column="35" str="," scope="0x7f991952d980" astParent="0x7f9919539ee0" astOperand1="0x7f9919539830" astOperand2="0x7f9919539d40"/>
+    <token id="0x7f9919539c70" file="mcc_generated_files/can_types.h" linenr="176" column="5" str="CAN_LISTEN_ONLY_MODE" scope="0x7f991952d980" type="name" values="0x7f991954e050" astParent="0x7f9919539d40" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991952d980"/>
+    <token id="0x7f9919539d40" file="mcc_generated_files/can_types.h" linenr="176" column="26" str="=" scope="0x7f991952d980" type="op" isAssignmentOp="True" astParent="0x7f9919539ba0" astOperand1="0x7f9919539c70" astOperand2="0x7f9919539e10" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991952d980"/>
+    <token id="0x7f9919539e10" file="mcc_generated_files/can_types.h" linenr="176" column="28" str="3" scope="0x7f991952d980" type="number" isInt="True" values="0x7f991954e100" astParent="0x7f9919539d40" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f9919539ee0" file="mcc_generated_files/can_types.h" linenr="176" column="29" str="," scope="0x7f991952d980" astParent="0x7f991953a220" astOperand1="0x7f9919539ba0" astOperand2="0x7f991953a080"/>
+    <token id="0x7f9919539fb0" file="mcc_generated_files/can_types.h" linenr="177" column="5" str="CAN_CONFIGURATION_MODE" scope="0x7f991952d980" type="name" values="0x7f991954e1b0" astParent="0x7f991953a080" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991952d980"/>
+    <token id="0x7f991953a080" file="mcc_generated_files/can_types.h" linenr="177" column="28" str="=" scope="0x7f991952d980" type="op" isAssignmentOp="True" astParent="0x7f9919539ee0" astOperand1="0x7f9919539fb0" astOperand2="0x7f991953a150" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991952d980"/>
+    <token id="0x7f991953a150" file="mcc_generated_files/can_types.h" linenr="177" column="30" str="4" scope="0x7f991952d980" type="number" isInt="True" values="0x7f991954e260" astParent="0x7f991953a080" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f991953a220" file="mcc_generated_files/can_types.h" linenr="177" column="31" str="," scope="0x7f991952d980" astParent="0x7f991953a590" astOperand1="0x7f9919539ee0" astOperand2="0x7f991953a3f0"/>
+    <token id="0x7f991953a2f0" file="mcc_generated_files/can_types.h" linenr="178" column="5" str="CAN_EXTERNAL_LOOPBACK_MODE" scope="0x7f991952d980" type="name" values="0x7f991954e310" astParent="0x7f991953a3f0" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991952d980"/>
+    <token id="0x7f991953a3f0" file="mcc_generated_files/can_types.h" linenr="178" column="32" str="=" scope="0x7f991952d980" type="op" isAssignmentOp="True" astParent="0x7f991953a220" astOperand1="0x7f991953a2f0" astOperand2="0x7f991953a4c0" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991952d980"/>
+    <token id="0x7f991953a4c0" file="mcc_generated_files/can_types.h" linenr="178" column="34" str="5" scope="0x7f991952d980" type="number" isInt="True" values="0x7f991954e3c0" astParent="0x7f991953a3f0" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f991953a590" file="mcc_generated_files/can_types.h" linenr="178" column="35" str="," scope="0x7f991952d980" astParent="0x7f991953a8d0" astOperand1="0x7f991953a220" astOperand2="0x7f991953a730"/>
+    <token id="0x7f991953a660" file="mcc_generated_files/can_types.h" linenr="179" column="5" str="CAN_NORMAL_2_0_MODE" scope="0x7f991952d980" type="name" values="0x7f991954e470" astParent="0x7f991953a730" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991952d980"/>
+    <token id="0x7f991953a730" file="mcc_generated_files/can_types.h" linenr="179" column="25" str="=" scope="0x7f991952d980" type="op" isAssignmentOp="True" astParent="0x7f991953a590" astOperand1="0x7f991953a660" astOperand2="0x7f991953a800" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991952d980"/>
+    <token id="0x7f991953a800" file="mcc_generated_files/can_types.h" linenr="179" column="27" str="6" scope="0x7f991952d980" type="number" isInt="True" values="0x7f991954e520" astParent="0x7f991953a730" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f991953a8d0" file="mcc_generated_files/can_types.h" linenr="179" column="28" str="," scope="0x7f991952d980" astOperand1="0x7f991953a590" astOperand2="0x7f991953aaa0"/>
+    <token id="0x7f991953a9a0" file="mcc_generated_files/can_types.h" linenr="180" column="5" str="CAN_RESTRICTED_OPERATION_MODE" scope="0x7f991952d980" type="name" values="0x7f991954e5d0" astParent="0x7f991953aaa0" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991952d980"/>
+    <token id="0x7f991953aaa0" file="mcc_generated_files/can_types.h" linenr="180" column="35" str="=" scope="0x7f991952d980" type="op" isAssignmentOp="True" astParent="0x7f991953a8d0" astOperand1="0x7f991953a9a0" astOperand2="0x7f991953ab70" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991952d980"/>
+    <token id="0x7f991953ab70" file="mcc_generated_files/can_types.h" linenr="180" column="36" str="7" scope="0x7f991952d980" type="number" isInt="True" values="0x7f991954e680" astParent="0x7f991953aaa0" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f991953ac40" file="mcc_generated_files/can_types.h" linenr="180" column="37" str="," scope="0x7f991952d980"/>
+    <token id="0x7f991953ad10" file="mcc_generated_files/can_types.h" linenr="181" column="1" str="}" scope="0x7f991952d980" link="0x7f99195391b0"/>
+    <token id="0x7f9919537e10" file="mcc_generated_files/can_types.h" linenr="181" column="0" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f9919537ca0" file="mcc_generated_files/can_types.h" linenr="192" column="9" str="enum" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f991953af80" file="mcc_generated_files/can_types.h" linenr="192" column="0" str="CAN_OP_MODE_STATUS" scope="0x7f99195435c0" type="name" type-scope="0x7f991952d160"/>
+    <token id="0x7f991953b120" file="mcc_generated_files/can_types.h" linenr="193" column="1" str="{" scope="0x7f991952d160" link="0x7f991953b690"/>
+    <token id="0x7f991953b1f0" file="mcc_generated_files/can_types.h" linenr="194" column="5" str="CAN_OP_MODE_REQUEST_SUCCESS" scope="0x7f991952d160" type="name" values="0x7f991954e730" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991952d160"/>
+    <token id="0x7f991953b2f0" file="mcc_generated_files/can_types.h" linenr="194" column="32" str="," scope="0x7f991952d160"/>
+    <token id="0x7f991953b3c0" file="mcc_generated_files/can_types.h" linenr="195" column="5" str="CAN_OP_MODE_REQUEST_FAIL" scope="0x7f991952d160" type="name" values="0x7f991954e7e0" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991952d160"/>
+    <token id="0x7f991953b4c0" file="mcc_generated_files/can_types.h" linenr="195" column="29" str="," scope="0x7f991952d160"/>
+    <token id="0x7f991953b590" file="mcc_generated_files/can_types.h" linenr="196" column="5" str="CAN_OP_MODE_SYS_ERROR_OCCURED" scope="0x7f991952d160" type="name" values="0x7f991954e890" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991952d160"/>
+    <token id="0x7f991953b690" file="mcc_generated_files/can_types.h" linenr="197" column="1" str="}" scope="0x7f991952d160" link="0x7f991953b120"/>
+    <token id="0x7f99195390e0" file="mcc_generated_files/can_types.h" linenr="197" column="0" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f9919537cf0" file="mcc_generated_files/can_types.h" linenr="208" column="9" str="enum" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f991953b900" file="mcc_generated_files/can_types.h" linenr="208" column="0" str="CAN_TX_FIFO_STATUS" scope="0x7f99195435c0" type="name" type-scope="0x7f991953de70"/>
+    <token id="0x7f991953baa0" file="mcc_generated_files/can_types.h" linenr="209" column="1" str="{" scope="0x7f991953de70" link="0x7f991953beb0"/>
+    <token id="0x7f991953bb70" file="mcc_generated_files/can_types.h" linenr="210" column="5" str="CAN_TX_FIFO_FULL" scope="0x7f991953de70" type="name" values="0x7f991954e940" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991953de70"/>
+    <token id="0x7f991953bc40" file="mcc_generated_files/can_types.h" linenr="210" column="21" str="," scope="0x7f991953de70"/>
+    <token id="0x7f991953bd10" file="mcc_generated_files/can_types.h" linenr="211" column="5" str="CAN_TX_FIFO_AVAILABLE" scope="0x7f991953de70" type="name" values="0x7f991954e9f0" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991953de70"/>
+    <token id="0x7f991953bde0" file="mcc_generated_files/can_types.h" linenr="211" column="26" str="," scope="0x7f991953de70"/>
+    <token id="0x7f991953beb0" file="mcc_generated_files/can_types.h" linenr="212" column="1" str="}" scope="0x7f991953de70" link="0x7f991953baa0"/>
+    <token id="0x7f991953b050" file="mcc_generated_files/can_types.h" linenr="212" column="0" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f991953aee0" file="mcc_generated_files/can_types.h" linenr="223" column="9" str="enum" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f991953c120" file="mcc_generated_files/can_types.h" linenr="223" column="0" str="CAN_DLC" scope="0x7f99195435c0" type="name" type-scope="0x7f991953b770"/>
+    <token id="0x7f991953c2c0" file="mcc_generated_files/can_types.h" linenr="224" column="1" str="{" scope="0x7f991953b770" link="0x7f991953dd90"/>
+    <token id="0x7f991953c390" file="mcc_generated_files/can_types.h" linenr="226" column="5" str="DLC_0" scope="0x7f991953b770" type="name" values="0x7f991954eaa0" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991953b770"/>
+    <token id="0x7f991953c460" file="mcc_generated_files/can_types.h" linenr="226" column="10" str="," scope="0x7f991953b770"/>
+    <token id="0x7f991953c530" file="mcc_generated_files/can_types.h" linenr="227" column="5" str="DLC_1" scope="0x7f991953b770" type="name" values="0x7f991954eb50" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991953b770"/>
+    <token id="0x7f991953c600" file="mcc_generated_files/can_types.h" linenr="227" column="10" str="," scope="0x7f991953b770"/>
+    <token id="0x7f991953c6d0" file="mcc_generated_files/can_types.h" linenr="228" column="5" str="DLC_2" scope="0x7f991953b770" type="name" values="0x7f991954ec00" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991953b770"/>
+    <token id="0x7f991953c7a0" file="mcc_generated_files/can_types.h" linenr="228" column="10" str="," scope="0x7f991953b770"/>
+    <token id="0x7f991953c870" file="mcc_generated_files/can_types.h" linenr="229" column="5" str="DLC_3" scope="0x7f991953b770" type="name" values="0x7f991954ecb0" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991953b770"/>
+    <token id="0x7f991953c940" file="mcc_generated_files/can_types.h" linenr="229" column="10" str="," scope="0x7f991953b770"/>
+    <token id="0x7f991953ca10" file="mcc_generated_files/can_types.h" linenr="230" column="5" str="DLC_4" scope="0x7f991953b770" type="name" values="0x7f991954ed60" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991953b770"/>
+    <token id="0x7f991953cae0" file="mcc_generated_files/can_types.h" linenr="230" column="10" str="," scope="0x7f991953b770"/>
+    <token id="0x7f991953cbb0" file="mcc_generated_files/can_types.h" linenr="231" column="5" str="DLC_5" scope="0x7f991953b770" type="name" values="0x7f991954ee10" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991953b770"/>
+    <token id="0x7f991953cc80" file="mcc_generated_files/can_types.h" linenr="231" column="10" str="," scope="0x7f991953b770"/>
+    <token id="0x7f991953cd50" file="mcc_generated_files/can_types.h" linenr="232" column="5" str="DLC_6" scope="0x7f991953b770" type="name" values="0x7f991954eec0" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991953b770"/>
+    <token id="0x7f991953ce20" file="mcc_generated_files/can_types.h" linenr="232" column="10" str="," scope="0x7f991953b770"/>
+    <token id="0x7f991953cef0" file="mcc_generated_files/can_types.h" linenr="233" column="5" str="DLC_7" scope="0x7f991953b770" type="name" values="0x7f991954ef70" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991953b770"/>
+    <token id="0x7f991953cfc0" file="mcc_generated_files/can_types.h" linenr="233" column="10" str="," scope="0x7f991953b770"/>
+    <token id="0x7f991953d090" file="mcc_generated_files/can_types.h" linenr="234" column="5" str="DLC_8" scope="0x7f991953b770" type="name" values="0x7f991954f020" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991953b770"/>
+    <token id="0x7f991953d160" file="mcc_generated_files/can_types.h" linenr="234" column="10" str="," scope="0x7f991953b770"/>
+    <token id="0x7f991953d230" file="mcc_generated_files/can_types.h" linenr="238" column="5" str="DLC_12" scope="0x7f991953b770" type="name" values="0x7f991954f0d0" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991953b770"/>
+    <token id="0x7f991953d300" file="mcc_generated_files/can_types.h" linenr="238" column="11" str="," scope="0x7f991953b770"/>
+    <token id="0x7f991953d3d0" file="mcc_generated_files/can_types.h" linenr="239" column="5" str="DLC_16" scope="0x7f991953b770" type="name" values="0x7f991954f180" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991953b770"/>
+    <token id="0x7f991953d4a0" file="mcc_generated_files/can_types.h" linenr="239" column="11" str="," scope="0x7f991953b770"/>
+    <token id="0x7f991953d570" file="mcc_generated_files/can_types.h" linenr="240" column="5" str="DLC_20" scope="0x7f991953b770" type="name" values="0x7f991954f230" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991953b770"/>
+    <token id="0x7f991953d640" file="mcc_generated_files/can_types.h" linenr="240" column="11" str="," scope="0x7f991953b770"/>
+    <token id="0x7f991953d710" file="mcc_generated_files/can_types.h" linenr="241" column="5" str="DLC_24" scope="0x7f991953b770" type="name" values="0x7f991954f2e0" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991953b770"/>
+    <token id="0x7f991953d7e0" file="mcc_generated_files/can_types.h" linenr="241" column="11" str="," scope="0x7f991953b770"/>
+    <token id="0x7f991953d8b0" file="mcc_generated_files/can_types.h" linenr="242" column="5" str="DLC_32" scope="0x7f991953b770" type="name" values="0x7f991954f390" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991953b770"/>
+    <token id="0x7f991953d980" file="mcc_generated_files/can_types.h" linenr="242" column="11" str="," scope="0x7f991953b770"/>
+    <token id="0x7f991953da50" file="mcc_generated_files/can_types.h" linenr="243" column="5" str="DLC_48" scope="0x7f991953b770" type="name" values="0x7f991954f440" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991953b770"/>
+    <token id="0x7f991953db20" file="mcc_generated_files/can_types.h" linenr="243" column="11" str="," scope="0x7f991953b770"/>
+    <token id="0x7f991953dbf0" file="mcc_generated_files/can_types.h" linenr="244" column="5" str="DLC_64" scope="0x7f991953b770" type="name" values="0x7f991954f4f0" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991953b770"/>
+    <token id="0x7f991953dcc0" file="mcc_generated_files/can_types.h" linenr="244" column="11" str="," scope="0x7f991953b770"/>
+    <token id="0x7f991953dd90" file="mcc_generated_files/can_types.h" linenr="245" column="1" str="}" scope="0x7f991953b770" link="0x7f991953c2c0"/>
+    <token id="0x7f991953b9d0" file="mcc_generated_files/can_types.h" linenr="245" column="0" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f991953af30" file="mcc_generated_files/can1.h" linenr="61" column="9" str="enum" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f991953e000" file="mcc_generated_files/can1.h" linenr="61" column="0" str="CAN1_TX_FIFO_CHANNELS" scope="0x7f99195435c0" type="name" type-scope="0x7f9919538e50"/>
+    <token id="0x7f991953e1a0" file="mcc_generated_files/can1.h" linenr="62" column="1" str="{" scope="0x7f9919538e50" link="0x7f991953e4e0"/>
+    <token id="0x7f991953e270" file="mcc_generated_files/can1.h" linenr="63" column="5" str="TXQ" scope="0x7f9919538e50" type="name" values="0x7f991954f5a0" astParent="0x7f991953e340" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f9919538e50"/>
+    <token id="0x7f991953e340" file="mcc_generated_files/can1.h" linenr="63" column="9" str="=" scope="0x7f9919538e50" type="op" isAssignmentOp="True" astOperand1="0x7f991953e270" astOperand2="0x7f991953e410" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f9919538e50"/>
+    <token id="0x7f991953e410" file="mcc_generated_files/can1.h" linenr="63" column="11" str="0" scope="0x7f9919538e50" type="number" isInt="True" values="0x7f991954f650" astParent="0x7f991953e340" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f991953e4e0" file="mcc_generated_files/can1.h" linenr="64" column="1" str="}" scope="0x7f9919538e50" link="0x7f991953e1a0"/>
+    <token id="0x7f991953c1f0" file="mcc_generated_files/can1.h" linenr="64" column="0" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f991953c080" file="mcc_generated_files/can1.h" linenr="102" column="1" str="void" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f991953e820" file="mcc_generated_files/can1.h" linenr="102" column="6" str="CAN1_Initialize" scope="0x7f99195435c0" type="name" function="0x7f9919536680" astParent="0x7f991953e8f0"/>
+    <token id="0x7f991953e8f0" file="mcc_generated_files/can1.h" linenr="102" column="21" str="(" scope="0x7f99195435c0" link="0x7f991953ea90" astOperand1="0x7f991953e820" valueType-type="void"/>
+    <token id="0x7f991953ea90" file="mcc_generated_files/can1.h" linenr="102" column="26" str=")" scope="0x7f99195435c0" link="0x7f991953e8f0"/>
+    <token id="0x7f991953eb60" file="mcc_generated_files/can1.h" linenr="102" column="27" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f991953ec30" file="mcc_generated_files/can1.h" linenr="143" column="1" str="CAN_OP_MODE_STATUS" scope="0x7f99195435c0" type="name" type-scope="0x7f991952d160"/>
+    <token id="0x7f991953ed00" file="mcc_generated_files/can1.h" linenr="143" column="20" str="CAN1_OperationModeSet" scope="0x7f99195435c0" type="name" function="0x7f991953e5c0" astParent="0x7f991953edd0"/>
+    <token id="0x7f991953edd0" file="mcc_generated_files/can1.h" linenr="143" column="41" str="(" scope="0x7f99195435c0" link="0x7f991953f110" astOperand1="0x7f991953ed00" astOperand2="0x7f991953f040" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991952d160"/>
+    <token id="0x7f991953eea0" file="mcc_generated_files/can1.h" linenr="143" column="42" str="const" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f991953ef70" file="mcc_generated_files/can1.h" linenr="143" column="48" str="CAN_OP_MODES" scope="0x7f99195435c0" type="name" type-scope="0x7f991952d980"/>
+    <token id="0x7f991953f040" file="mcc_generated_files/can1.h" linenr="143" column="61" str="reqestMode" scope="0x7f99195435c0" type="name" varId="19" variable="0x7f9919548df0" astParent="0x7f991953edd0" valueType-type="int" valueType-sign="signed" valueType-constness="1" valueType-typeScope="0x7f991952d980"/>
+    <token id="0x7f991953f110" file="mcc_generated_files/can1.h" linenr="143" column="71" str=")" scope="0x7f99195435c0" link="0x7f991953edd0"/>
+    <token id="0x7f991953f1e0" file="mcc_generated_files/can1.h" linenr="143" column="72" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f991953f2b0" file="mcc_generated_files/can1.h" linenr="181" column="1" str="CAN_OP_MODES" scope="0x7f99195435c0" type="name" type-scope="0x7f991952d980"/>
+    <token id="0x7f991953f380" file="mcc_generated_files/can1.h" linenr="181" column="14" str="CAN1_OperationModeGet" scope="0x7f99195435c0" type="name" function="0x7f991953e6a0" astParent="0x7f991953f450"/>
+    <token id="0x7f991953f450" file="mcc_generated_files/can1.h" linenr="181" column="35" str="(" scope="0x7f99195435c0" link="0x7f991953f5f0" astOperand1="0x7f991953f380" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991952d980"/>
+    <token id="0x7f991953f5f0" file="mcc_generated_files/can1.h" linenr="181" column="40" str=")" scope="0x7f99195435c0" link="0x7f991953f450"/>
+    <token id="0x7f991953f6c0" file="mcc_generated_files/can1.h" linenr="181" column="41" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f991953f790" file="mcc_generated_files/can1.h" linenr="241" column="1" str="CAN_TX_MSG_REQUEST_STATUS" scope="0x7f99195435c0" type="name" type-scope="0x7f99195331c0"/>
+    <token id="0x7f991953f890" file="mcc_generated_files/can1.h" linenr="241" column="27" str="CAN1_Transmit" scope="0x7f99195435c0" type="name" function="0x7f9919547090" astParent="0x7f991953f960"/>
+    <token id="0x7f991953f960" file="mcc_generated_files/can1.h" linenr="241" column="40" str="(" scope="0x7f99195435c0" link="0x7f991953ffe0" astOperand1="0x7f991953f890" astOperand2="0x7f991953fca0" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f99195331c0"/>
+    <token id="0x7f991953fa30" file="mcc_generated_files/can1.h" linenr="241" column="41" str="const" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f991953fb00" file="mcc_generated_files/can1.h" linenr="241" column="47" str="CAN1_TX_FIFO_CHANNELS" scope="0x7f99195435c0" type="name" type-scope="0x7f9919538e50"/>
+    <token id="0x7f991953fbd0" file="mcc_generated_files/can1.h" linenr="241" column="69" str="fifoChannel" scope="0x7f99195435c0" type="name" varId="20" variable="0x7f9919548ec0" astParent="0x7f991953fca0" valueType-type="int" valueType-sign="signed" valueType-constness="1" valueType-typeScope="0x7f9919538e50"/>
+    <token id="0x7f991953fca0" file="mcc_generated_files/can1.h" linenr="241" column="80" str="," scope="0x7f99195435c0" astParent="0x7f991953f960" astOperand1="0x7f991953fbd0" astOperand2="0x7f991953fe40"/>
+    <token id="0x7f991953fd70" file="mcc_generated_files/can1.h" linenr="241" column="82" str="struct" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f9919534530" file="mcc_generated_files/can1.h" linenr="241" column="0" str="CAN_MSG_OBJ" scope="0x7f99195435c0" type="name" type-scope="0x7f9919532ac0" astParent="0x7f991953fe40"/>
+    <token id="0x7f991953fe40" file="mcc_generated_files/can1.h" linenr="241" column="94" str="*" scope="0x7f99195435c0" type="op" isArithmeticalOp="True" astParent="0x7f991953fca0" astOperand1="0x7f9919534530" astOperand2="0x7f991953ff10"/>
+    <token id="0x7f991953ff10" file="mcc_generated_files/can1.h" linenr="241" column="95" str="txCanMsg" scope="0x7f99195435c0" type="name" varId="21" variable="0x7f9919548f90" astParent="0x7f991953fe40" valueType-type="record" valueType-pointer="1" valueType-typeScope="0x7f9919532ac0"/>
+    <token id="0x7f991953ffe0" file="mcc_generated_files/can1.h" linenr="241" column="103" str=")" scope="0x7f99195435c0" link="0x7f991953f960"/>
+    <token id="0x7f99195400b0" file="mcc_generated_files/can1.h" linenr="241" column="104" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f9919540180" file="mcc_generated_files/can1.h" linenr="297" column="1" str="bool" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f9919540250" file="mcc_generated_files/can1.h" linenr="297" column="6" str="CAN1_IsBusOff" scope="0x7f99195435c0" type="name" function="0x7f9919547170" astParent="0x7f9919540320"/>
+    <token id="0x7f9919540320" file="mcc_generated_files/can1.h" linenr="297" column="19" str="(" scope="0x7f99195435c0" link="0x7f99195404c0" astOperand1="0x7f9919540250" valueType-type="bool"/>
+    <token id="0x7f99195404c0" file="mcc_generated_files/can1.h" linenr="297" column="24" str=")" scope="0x7f99195435c0" link="0x7f9919540320"/>
+    <token id="0x7f9919540590" file="mcc_generated_files/can1.h" linenr="297" column="25" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f9919540660" file="mcc_generated_files/can1.h" linenr="355" column="1" str="bool" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f9919540730" file="mcc_generated_files/can1.h" linenr="355" column="6" str="CAN1_IsTxErrorPassive" scope="0x7f99195435c0" type="name" function="0x7f9919547250" astParent="0x7f9919540800"/>
+    <token id="0x7f9919540800" file="mcc_generated_files/can1.h" linenr="355" column="27" str="(" scope="0x7f99195435c0" link="0x7f99195409a0" astOperand1="0x7f9919540730" valueType-type="bool"/>
+    <token id="0x7f99195409a0" file="mcc_generated_files/can1.h" linenr="355" column="32" str=")" scope="0x7f99195435c0" link="0x7f9919540800"/>
+    <token id="0x7f9919540a70" file="mcc_generated_files/can1.h" linenr="355" column="33" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f9919540b40" file="mcc_generated_files/can1.h" linenr="414" column="1" str="bool" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f9919540c10" file="mcc_generated_files/can1.h" linenr="414" column="6" str="CAN1_IsTxErrorWarning" scope="0x7f99195435c0" type="name" function="0x7f9919547330" astParent="0x7f9919540ce0"/>
+    <token id="0x7f9919540ce0" file="mcc_generated_files/can1.h" linenr="414" column="27" str="(" scope="0x7f99195435c0" link="0x7f9919540e80" astOperand1="0x7f9919540c10" valueType-type="bool"/>
+    <token id="0x7f9919540e80" file="mcc_generated_files/can1.h" linenr="414" column="32" str=")" scope="0x7f99195435c0" link="0x7f9919540ce0"/>
+    <token id="0x7f9919540f50" file="mcc_generated_files/can1.h" linenr="414" column="33" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f9919541020" file="mcc_generated_files/can1.h" linenr="473" column="1" str="bool" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f99195410f0" file="mcc_generated_files/can1.h" linenr="473" column="6" str="CAN1_IsTxErrorActive" scope="0x7f99195435c0" type="name" function="0x7f9919547410" astParent="0x7f99195411c0"/>
+    <token id="0x7f99195411c0" file="mcc_generated_files/can1.h" linenr="473" column="26" str="(" scope="0x7f99195435c0" link="0x7f9919541360" astOperand1="0x7f99195410f0" valueType-type="bool"/>
+    <token id="0x7f9919541360" file="mcc_generated_files/can1.h" linenr="473" column="31" str=")" scope="0x7f99195435c0" link="0x7f99195411c0"/>
+    <token id="0x7f9919541430" file="mcc_generated_files/can1.h" linenr="473" column="32" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f9919541500" file="mcc_generated_files/can1.h" linenr="521" column="1" str="bool" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f99195415d0" file="mcc_generated_files/can1.h" linenr="521" column="6" str="CAN1_IsRxErrorPassive" scope="0x7f99195435c0" type="name" function="0x7f99195474f0" astParent="0x7f99195416a0"/>
+    <token id="0x7f99195416a0" file="mcc_generated_files/can1.h" linenr="521" column="27" str="(" scope="0x7f99195435c0" link="0x7f9919541840" astOperand1="0x7f99195415d0" valueType-type="bool"/>
+    <token id="0x7f9919541840" file="mcc_generated_files/can1.h" linenr="521" column="32" str=")" scope="0x7f99195435c0" link="0x7f99195416a0"/>
+    <token id="0x7f9919541910" file="mcc_generated_files/can1.h" linenr="521" column="33" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f99195419e0" file="mcc_generated_files/can1.h" linenr="569" column="1" str="bool" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f9919541ab0" file="mcc_generated_files/can1.h" linenr="569" column="6" str="CAN1_IsRxErrorWarning" scope="0x7f99195435c0" type="name" function="0x7f99195475d0" astParent="0x7f9919541b80"/>
+    <token id="0x7f9919541b80" file="mcc_generated_files/can1.h" linenr="569" column="27" str="(" scope="0x7f99195435c0" link="0x7f9919541d20" astOperand1="0x7f9919541ab0" valueType-type="bool"/>
+    <token id="0x7f9919541d20" file="mcc_generated_files/can1.h" linenr="569" column="32" str=")" scope="0x7f99195435c0" link="0x7f9919541b80"/>
+    <token id="0x7f9919541df0" file="mcc_generated_files/can1.h" linenr="569" column="33" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f9919541ec0" file="mcc_generated_files/can1.h" linenr="617" column="1" str="bool" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f9919541f90" file="mcc_generated_files/can1.h" linenr="617" column="6" str="CAN1_IsRxErrorActive" scope="0x7f99195435c0" type="name" function="0x7f99195476b0" astParent="0x7f9919542060"/>
+    <token id="0x7f9919542060" file="mcc_generated_files/can1.h" linenr="617" column="26" str="(" scope="0x7f99195435c0" link="0x7f9919542200" astOperand1="0x7f9919541f90" valueType-type="bool"/>
+    <token id="0x7f9919542200" file="mcc_generated_files/can1.h" linenr="617" column="31" str=")" scope="0x7f99195435c0" link="0x7f9919542060"/>
+    <token id="0x7f99195422d0" file="mcc_generated_files/can1.h" linenr="617" column="32" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f99195423a0" file="mcc_generated_files/can1.h" linenr="668" column="1" str="void" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f9919542470" file="mcc_generated_files/can1.h" linenr="668" column="6" str="CAN1_Sleep" scope="0x7f99195435c0" type="name" function="0x7f9919547790" astParent="0x7f9919542540"/>
+    <token id="0x7f9919542540" file="mcc_generated_files/can1.h" linenr="668" column="16" str="(" scope="0x7f99195435c0" link="0x7f99195426e0" astOperand1="0x7f9919542470" valueType-type="void"/>
+    <token id="0x7f99195426e0" file="mcc_generated_files/can1.h" linenr="668" column="21" str=")" scope="0x7f99195435c0" link="0x7f9919542540"/>
+    <token id="0x7f99195427b0" file="mcc_generated_files/can1.h" linenr="668" column="22" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f9919542880" file="mcc_generated_files/can1.h" linenr="722" column="1" str="CAN_TX_FIFO_STATUS" scope="0x7f99195435c0" type="name" type-scope="0x7f991953de70"/>
+    <token id="0x7f9919542950" file="mcc_generated_files/can1.h" linenr="722" column="20" str="CAN1_TransmitFIFOStatusGet" scope="0x7f99195435c0" type="name" function="0x7f9919547870" astParent="0x7f9919542a50"/>
+    <token id="0x7f9919542a50" file="mcc_generated_files/can1.h" linenr="722" column="46" str="(" scope="0x7f99195435c0" link="0x7f9919542d90" astOperand1="0x7f9919542950" astOperand2="0x7f9919542cc0" valueType-type="int" valueType-sign="signed" valueType-typeScope="0x7f991953de70"/>
+    <token id="0x7f9919542b20" file="mcc_generated_files/can1.h" linenr="722" column="47" str="const" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f9919542bf0" file="mcc_generated_files/can1.h" linenr="722" column="53" str="CAN1_TX_FIFO_CHANNELS" scope="0x7f99195435c0" type="name" type-scope="0x7f9919538e50"/>
+    <token id="0x7f9919542cc0" file="mcc_generated_files/can1.h" linenr="722" column="75" str="fifoChannel" scope="0x7f99195435c0" type="name" varId="22" variable="0x7f9919549060" astParent="0x7f9919542a50" valueType-type="int" valueType-sign="signed" valueType-constness="1" valueType-typeScope="0x7f9919538e50"/>
+    <token id="0x7f9919542d90" file="mcc_generated_files/can1.h" linenr="722" column="86" str=")" scope="0x7f99195435c0" link="0x7f9919542a50"/>
+    <token id="0x7f9919542e60" file="mcc_generated_files/can1.h" linenr="722" column="87" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f9919542f30" file="mcc_generated_files/can1.h" linenr="767" column="1" str="void" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f9919543000" file="mcc_generated_files/can1.h" linenr="767" column="6" str="CAN1_SetTXQnullHandler" scope="0x7f99195435c0" type="name" function="0x7f9919547950" astParent="0x7f99195430d0"/>
+    <token id="0x7f99195430d0" file="mcc_generated_files/can1.h" linenr="767" column="28" str="(" scope="0x7f99195435c0" link="0x7f9919543820" astOperand1="0x7f9919543000" astOperand2="0x7f9919543750" valueType-type="void"/>
+    <token id="0x7f99195431a0" file="mcc_generated_files/can1.h" linenr="767" column="29" str="void" scope="0x7f99195435c0" type="name" astParent="0x7f9919543270"/>
+    <token id="0x7f9919543270" file="mcc_generated_files/can1.h" linenr="767" column="34" str="(" scope="0x7f99195435c0" link="0x7f99195434e0" astParent="0x7f9919543750" astOperand1="0x7f99195431a0" astOperand2="0x7f9919543340" valueType-type="void"/>
+    <token id="0x7f9919543340" file="mcc_generated_files/can1.h" linenr="767" column="35" str="*" scope="0x7f99195435c0" type="op" isArithmeticalOp="True" astParent="0x7f9919543270" astOperand1="0x7f9919543410" valueType-type="void"/>
+    <token id="0x7f9919543410" file="mcc_generated_files/can1.h" linenr="767" column="36" str="handler" scope="0x7f99195435c0" type="name" varId="23" variable="0x7f9919549130" astParent="0x7f9919543340" valueType-type="void" valueType-pointer="1"/>
+    <token id="0x7f99195434e0" file="mcc_generated_files/can1.h" linenr="767" column="43" str=")" scope="0x7f99195435c0" link="0x7f9919543270"/>
+    <token id="0x7f9919543750" file="mcc_generated_files/can1.h" linenr="767" column="0" str="(" scope="0x7f99195435c0" link="0x7f9919530d70" astParent="0x7f99195430d0" astOperand1="0x7f9919543270"/>
+    <token id="0x7f9919530d70" file="mcc_generated_files/can1.h" linenr="767" column="0" str=")" scope="0x7f99195435c0" link="0x7f9919543750"/>
+    <token id="0x7f9919543820" file="mcc_generated_files/can1.h" linenr="767" column="50" str=")" scope="0x7f99195435c0" link="0x7f99195430d0"/>
+    <token id="0x7f99195438f0" file="mcc_generated_files/can1.h" linenr="767" column="51" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f99195439c0" file="mcc_generated_files/mcc.h" linenr="71" column="1" str="void" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f9919543a90" file="mcc_generated_files/mcc.h" linenr="71" column="6" str="SYSTEM_Initialize" scope="0x7f99195435c0" type="name" function="0x7f9919547a30" astParent="0x7f9919543b60"/>
+    <token id="0x7f9919543b60" file="mcc_generated_files/mcc.h" linenr="71" column="23" str="(" scope="0x7f99195435c0" link="0x7f9919543d00" astOperand1="0x7f9919543a90" valueType-type="void"/>
+    <token id="0x7f9919543d00" file="mcc_generated_files/mcc.h" linenr="71" column="28" str=")" scope="0x7f99195435c0" link="0x7f9919543b60"/>
+    <token id="0x7f9919543dd0" file="mcc_generated_files/mcc.h" linenr="71" column="29" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f9919543ea0" file="mcc_generated_files/mcc.h" linenr="84" column="1" str="void" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f9919543f70" file="mcc_generated_files/mcc.h" linenr="84" column="6" str="OSCILLATOR_Initialize" scope="0x7f99195435c0" type="name" function="0x7f9919547b10" astParent="0x7f9919544040"/>
+    <token id="0x7f9919544040" file="mcc_generated_files/mcc.h" linenr="84" column="27" str="(" scope="0x7f99195435c0" link="0x7f99195441e0" astOperand1="0x7f9919543f70" valueType-type="void"/>
+    <token id="0x7f99195441e0" file="mcc_generated_files/mcc.h" linenr="84" column="32" str=")" scope="0x7f99195435c0" link="0x7f9919544040"/>
+    <token id="0x7f99195442b0" file="mcc_generated_files/mcc.h" linenr="84" column="33" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f9919544380" file="mcc_generated_files/mcc.h" linenr="97" column="1" str="void" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f9919544450" file="mcc_generated_files/mcc.h" linenr="97" column="6" str="PMD_Initialize" scope="0x7f99195435c0" type="name" function="0x7f9919547bf0" astParent="0x7f9919544520"/>
+    <token id="0x7f9919544520" file="mcc_generated_files/mcc.h" linenr="97" column="20" str="(" scope="0x7f99195435c0" link="0x7f99195446c0" astOperand1="0x7f9919544450" valueType-type="void"/>
+    <token id="0x7f99195446c0" file="mcc_generated_files/mcc.h" linenr="97" column="25" str=")" scope="0x7f99195435c0" link="0x7f9919544520"/>
+    <token id="0x7f9919544790" file="mcc_generated_files/mcc.h" linenr="97" column="26" str=";" scope="0x7f99195435c0"/>
+    <token id="0x7f9919544860" file="main.c" linenr="13" column="1" str="void" scope="0x7f99195435c0" type="name"/>
+    <token id="0x7f9919544930" file="main.c" linenr="13" column="6" str="main" scope="0x7f99195435c0" type="name" function="0x7f9919547cd0" astParent="0x7f9919544a00"/>
+    <token id="0x7f9919544a00" file="main.c" linenr="13" column="10" str="(" scope="0x7f99195435c0" link="0x7f9919544ba0" astOperand1="0x7f9919544930" valueType-type="void"/>
+    <token id="0x7f9919544ba0" file="main.c" linenr="13" column="15" str=")" scope="0x7f99195435c0" link="0x7f9919544a00"/>
+    <token id="0x7f9919544c70" file="main.c" linenr="14" column="1" str="{" scope="0x7f9919547db0" link="0x7f9919546740"/>
+    <token id="0x7f9919544d40" file="main.c" linenr="16" column="5" str="SYSTEM_Initialize" scope="0x7f9919547db0" type="name" function="0x7f9919547a30" astParent="0x7f9919544e10"/>
+    <token id="0x7f9919544e10" file="main.c" linenr="16" column="22" str="(" scope="0x7f9919547db0" link="0x7f9919544ee0" astOperand1="0x7f9919544d40" valueType-type="void"/>
+    <token id="0x7f9919544ee0" file="main.c" linenr="16" column="23" str=")" scope="0x7f9919547db0" link="0x7f9919544e10"/>
+    <token id="0x7f9919544fb0" file="main.c" linenr="16" column="24" str=";" scope="0x7f9919547db0"/>
+    <token id="0x7f9919545080" file="main.c" linenr="24" column="5" str="while" scope="0x7f9919547db0" type="name" astParent="0x7f9919545150"/>
+    <token id="0x7f9919545150" file="main.c" linenr="24" column="11" str="(" scope="0x7f9919547db0" link="0x7f99195452f0" astOperand1="0x7f9919545080" astOperand2="0x7f9919545220"/>
+    <token id="0x7f9919545220" file="main.c" linenr="24" column="12" str="1" scope="0x7f9919547db0" type="number" isInt="True" values="0x7f991954f700" astParent="0x7f9919545150" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f99195452f0" file="main.c" linenr="24" column="13" str=")" scope="0x7f9919547db0" link="0x7f9919545150"/>
+    <token id="0x7f99195453c0" file="main.c" linenr="25" column="5" str="{" scope="0x7f9919547ee0" link="0x7f9919546670"/>
+    <token id="0x7f9919545490" file="main.c" linenr="26" column="9" str="PORTAbits" scope="0x7f9919547ee0" type="name" astParent="0x7f9919545560"/>
+    <token id="0x7f9919545560" file="main.c" linenr="26" column="18" str="." scope="0x7f9919547ee0" astParent="0x7f9919545700" astOperand1="0x7f9919545490" astOperand2="0x7f9919545630"/>
+    <token id="0x7f9919545630" file="main.c" linenr="26" column="19" str="RA0" scope="0x7f9919547ee0" type="name" astParent="0x7f9919545560"/>
+    <token id="0x7f9919545700" file="main.c" linenr="26" column="23" str="=" scope="0x7f9919547ee0" type="op" isAssignmentOp="True" astOperand1="0x7f9919545560" astOperand2="0x7f99195457d0"/>
+    <token id="0x7f99195457d0" file="main.c" linenr="26" column="25" str="1" scope="0x7f9919547ee0" type="number" isInt="True" values="0x7f991954f7b0" astParent="0x7f9919545700" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f99195458a0" file="main.c" linenr="26" column="26" str=";" scope="0x7f9919547ee0"/>
+    <token id="0x7f9919545970" file="main.c" linenr="27" column="9" str="__delay_ms" scope="0x7f9919547ee0" type="name" astParent="0x7f9919545a40"/>
+    <token id="0x7f9919545a40" file="main.c" linenr="27" column="19" str="(" scope="0x7f9919547ee0" link="0x7f9919545be0" astOperand1="0x7f9919545970" astOperand2="0x7f9919545b10"/>
+    <token id="0x7f9919545b10" file="main.c" linenr="27" column="20" str="1000" scope="0x7f9919547ee0" type="number" isInt="True" values="0x7f991954f860" astParent="0x7f9919545a40" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f9919545be0" file="main.c" linenr="27" column="24" str=")" scope="0x7f9919547ee0" link="0x7f9919545a40"/>
+    <token id="0x7f9919545cb0" file="main.c" linenr="27" column="25" str=";" scope="0x7f9919547ee0"/>
+    <token id="0x7f9919545d80" file="main.c" linenr="28" column="9" str="PORTAbits" scope="0x7f9919547ee0" type="name" astParent="0x7f9919545e50"/>
+    <token id="0x7f9919545e50" file="main.c" linenr="28" column="18" str="." scope="0x7f9919547ee0" astParent="0x7f9919545ff0" astOperand1="0x7f9919545d80" astOperand2="0x7f9919545f20"/>
+    <token id="0x7f9919545f20" file="main.c" linenr="28" column="19" str="RA0" scope="0x7f9919547ee0" type="name" astParent="0x7f9919545e50"/>
+    <token id="0x7f9919545ff0" file="main.c" linenr="28" column="23" str="=" scope="0x7f9919547ee0" type="op" isAssignmentOp="True" astOperand1="0x7f9919545e50" astOperand2="0x7f99195460c0"/>
+    <token id="0x7f99195460c0" file="main.c" linenr="28" column="25" str="0" scope="0x7f9919547ee0" type="number" isInt="True" values="0x7f991954f910" astParent="0x7f9919545ff0" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f9919546190" file="main.c" linenr="28" column="26" str=";" scope="0x7f9919547ee0"/>
+    <token id="0x7f9919546260" file="main.c" linenr="29" column="9" str="__delay_ms" scope="0x7f9919547ee0" type="name" astParent="0x7f9919546330"/>
+    <token id="0x7f9919546330" file="main.c" linenr="29" column="19" str="(" scope="0x7f9919547ee0" link="0x7f99195464d0" astOperand1="0x7f9919546260" astOperand2="0x7f9919546400"/>
+    <token id="0x7f9919546400" file="main.c" linenr="29" column="20" str="1000" scope="0x7f9919547ee0" type="number" isInt="True" values="0x7f991954f9c0" astParent="0x7f9919546330" valueType-type="int" valueType-sign="signed"/>
+    <token id="0x7f99195464d0" file="main.c" linenr="29" column="24" str=")" scope="0x7f9919547ee0" link="0x7f9919546330"/>
+    <token id="0x7f99195465a0" file="main.c" linenr="29" column="25" str=";" scope="0x7f9919547ee0"/>
+    <token id="0x7f9919546670" file="main.c" linenr="30" column="5" str="}" scope="0x7f9919547ee0" link="0x7f99195453c0"/>
+    <token id="0x7f9919546740" file="main.c" linenr="31" column="1" str="}" scope="0x7f9919547db0" link="0x7f9919544c70"/>
+  </tokenlist>
+  <scopes>
+    <scope id="0x7f99195435c0" type="Global">
+      <functionList>
+        <function id="0x7f9919532280" tokenDef="0x7f991952bea0" name="PIN_MANAGER_Initialize" type="Function"/>
+        <function id="0x7f9919542140" tokenDef="0x7f991952c380" name="PIN_MANAGER_IOC" type="Function"/>
+        <function id="0x7f9919543c40" tokenDef="0x7f991952e330" name="UART1_Initialize" type="Function"/>
+        <function id="0x7f9919544600" tokenDef="0x7f991952e810" name="UART1_is_rx_ready" type="Function"/>
+        <function id="0x7f9919541c60" tokenDef="0x7f991952ecf0" name="UART1_is_tx_ready" type="Function"/>
+        <function id="0x7f99195412a0" tokenDef="0x7f991952f1d0" name="UART1_is_tx_done" type="Function"/>
+        <function id="0x7f9919540dc0" tokenDef="0x7f991952f6b0" name="UART1_get_last_status" type="Function"/>
+        <function id="0x7f99195408e0" tokenDef="0x7f991952fb90" name="UART1_Read" type="Function"/>
+        <function id="0x7f991953f530" tokenDef="0x7f9919530070" name="UART1_Write" type="Function">
+          <arg nr="1" variable="0x7f9919548ab0"/>
+        </function>
+        <function id="0x7f991953e9d0" tokenDef="0x7f9919530640" name="UART1_SetFramingErrorHandler" type="Function">
+          <arg nr="1" variable="0x7f9919548b80"/>
+        </function>
+        <function id="0x7f991952fd40" tokenDef="0x7f9919531100" name="UART1_SetOverrunErrorHandler" type="Function">
+          <arg nr="1" variable="0x7f9919548c50"/>
+        </function>
+        <function id="0x7f991952f380" tokenDef="0x7f9919531bc0" name="UART1_SetErrorHandler" type="Function">
+          <arg nr="1" variable="0x7f9919548d20"/>
+        </function>
+        <function id="0x7f9919536680" tokenDef="0x7f991953e820" name="CAN1_Initialize" type="Function"/>
+        <function id="0x7f991953e5c0" tokenDef="0x7f991953ed00" name="CAN1_OperationModeSet" type="Function">
+          <arg nr="1" variable="0x7f9919548df0"/>
+        </function>
+        <function id="0x7f991953e6a0" tokenDef="0x7f991953f380" name="CAN1_OperationModeGet" type="Function"/>
+        <function id="0x7f9919547090" tokenDef="0x7f991953f890" name="CAN1_Transmit" type="Function">
+          <arg nr="1" variable="0x7f9919548ec0"/>
+          <arg nr="2" variable="0x7f9919548f90"/>
+        </function>
+        <function id="0x7f9919547170" tokenDef="0x7f9919540250" name="CAN1_IsBusOff" type="Function"/>
+        <function id="0x7f9919547250" tokenDef="0x7f9919540730" name="CAN1_IsTxErrorPassive" type="Function"/>
+        <function id="0x7f9919547330" tokenDef="0x7f9919540c10" name="CAN1_IsTxErrorWarning" type="Function"/>
+        <function id="0x7f9919547410" tokenDef="0x7f99195410f0" name="CAN1_IsTxErrorActive" type="Function"/>
+        <function id="0x7f99195474f0" tokenDef="0x7f99195415d0" name="CAN1_IsRxErrorPassive" type="Function"/>
+        <function id="0x7f99195475d0" tokenDef="0x7f9919541ab0" name="CAN1_IsRxErrorWarning" type="Function"/>
+        <function id="0x7f99195476b0" tokenDef="0x7f9919541f90" name="CAN1_IsRxErrorActive" type="Function"/>
+        <function id="0x7f9919547790" tokenDef="0x7f9919542470" name="CAN1_Sleep" type="Function"/>
+        <function id="0x7f9919547870" tokenDef="0x7f9919542950" name="CAN1_TransmitFIFOStatusGet" type="Function">
+          <arg nr="1" variable="0x7f9919549060"/>
+        </function>
+        <function id="0x7f9919547950" tokenDef="0x7f9919543000" name="CAN1_SetTXQnullHandler" type="Function">
+          <arg nr="1" variable="0x7f9919549130"/>
+        </function>
+        <function id="0x7f9919547a30" tokenDef="0x7f9919543a90" name="SYSTEM_Initialize" type="Function"/>
+        <function id="0x7f9919547b10" tokenDef="0x7f9919543f70" name="OSCILLATOR_Initialize" type="Function"/>
+        <function id="0x7f9919547bf0" tokenDef="0x7f9919544450" name="PMD_Initialize" type="Function"/>
+        <function id="0x7f9919547cd0" tokenDef="0x7f9919544930" name="main" type="Function"/>
+      </functionList>
+    </scope>
+    <scope id="0x7f99195316f0" type="Union" className="uart1_status_t" bodyStart="0x7f991952c930" bodyEnd="0x7f991952dff0" nestedIn="0x7f99195435c0">
+      <varlist>
+        <var id="0x7f9919548010"/>
+        <var id="0x7f99195480e0"/>
+        <var id="0x7f99195481b0"/>
+        <var id="0x7f9919548280"/>
+        <var id="0x7f9919548350"/>
+      </varlist>
+    </scope>
+    <scope id="0x7f99195340b0" type="Union" className="CAN_MSG_FIELD" bodyStart="0x7f9919532720" bodyEnd="0x7f9919534050" nestedIn="0x7f99195435c0">
+      <varlist>
+        <var id="0x7f9919548420"/>
+        <var id="0x7f99195484f0"/>
+        <var id="0x7f99195485c0"/>
+        <var id="0x7f9919548690"/>
+        <var id="0x7f9919548760"/>
+        <var id="0x7f9919548830"/>
+      </varlist>
+    </scope>
+    <scope id="0x7f9919532ac0" type="Struct" className="CAN_MSG_OBJ" bodyStart="0x7f9919534600" bodyEnd="0x7f9919534ef0" nestedIn="0x7f99195435c0">
+      <varlist>
+        <var id="0x7f9919548900"/>
+        <var id="0x7f99195489d0"/>
+        <var id="0x7f9919548a40"/>
+      </varlist>
+    </scope>
+    <scope id="0x7f991952dc40" type="Enum" className="CAN_MSG_OBJ_BRS_MODE" bodyStart="0x7f9919535300" bodyEnd="0x7f9919535980" nestedIn="0x7f99195435c0"/>
+    <scope id="0x7f991952ca60" type="Enum" className="CAN_MSG_OBJ_ID_TYPE" bodyStart="0x7f9919535d90" bodyEnd="0x7f99195364e0" nestedIn="0x7f99195435c0"/>
+    <scope id="0x7f9919533df0" type="Enum" className="CAN_MSG_OBJ_FRAME_TYPE" bodyStart="0x7f99195368f0" bodyEnd="0x7f9919537040" nestedIn="0x7f99195435c0"/>
+    <scope id="0x7f99195339e0" type="Enum" className="CAN_MSG_OBJ_TYPE" bodyStart="0x7f9919537450" bodyEnd="0x7f9919537ad0" nestedIn="0x7f99195435c0"/>
+    <scope id="0x7f99195331c0" type="Enum" className="CAN_TX_MSG_REQUEST_STATUS" bodyStart="0x7f9919537ee0" bodyEnd="0x7f9919538d70" nestedIn="0x7f99195435c0"/>
+    <scope id="0x7f991952d980" type="Enum" className="CAN_OP_MODES" bodyStart="0x7f99195391b0" bodyEnd="0x7f991953ad10" nestedIn="0x7f99195435c0"/>
+    <scope id="0x7f991952d160" type="Enum" className="CAN_OP_MODE_STATUS" bodyStart="0x7f991953b120" bodyEnd="0x7f991953b690" nestedIn="0x7f99195435c0"/>
+    <scope id="0x7f991953de70" type="Enum" className="CAN_TX_FIFO_STATUS" bodyStart="0x7f991953baa0" bodyEnd="0x7f991953beb0" nestedIn="0x7f99195435c0"/>
+    <scope id="0x7f991953b770" type="Enum" className="CAN_DLC" bodyStart="0x7f991953c2c0" bodyEnd="0x7f991953dd90" nestedIn="0x7f99195435c0"/>
+    <scope id="0x7f9919538e50" type="Enum" className="CAN1_TX_FIFO_CHANNELS" bodyStart="0x7f991953e1a0" bodyEnd="0x7f991953e4e0" nestedIn="0x7f99195435c0"/>
+    <scope id="0x7f9919547db0" type="Function" className="main" bodyStart="0x7f9919544c70" bodyEnd="0x7f9919546740" nestedIn="0x7f99195435c0" function="0x7f9919547cd0"/>
+    <scope id="0x7f9919547ee0" type="While" bodyStart="0x7f99195453c0" bodyEnd="0x7f9919546670" nestedIn="0x7f9919547db0"/>
+  </scopes>
+  <variables>
+    <var id="0x7f9919548010" nameToken="0x7f991952cc70" typeStartToken="0x7f991952ca00" typeEndToken="0x7f991952ca00" access="Public" scope="0x7f99195316f0" constness="0" isArgument="false" isArray="false" isClass="false" isConst="false" isExtern="false" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x7f99195480e0" nameToken="0x7f991952d080" typeStartToken="0x7f991952cfb0" typeEndToken="0x7f991952cfb0" access="Public" scope="0x7f99195316f0" constness="0" isArgument="false" isArray="false" isClass="false" isConst="false" isExtern="false" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x7f99195481b0" nameToken="0x7f991952d490" typeStartToken="0x7f991952d3c0" typeEndToken="0x7f991952d3c0" access="Public" scope="0x7f99195316f0" constness="0" isArgument="false" isArray="false" isClass="false" isConst="false" isExtern="false" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x7f9919548280" nameToken="0x7f991952d8a0" typeStartToken="0x7f991952d7d0" typeEndToken="0x7f991952d7d0" access="Public" scope="0x7f99195316f0" constness="0" isArgument="false" isArray="false" isClass="false" isConst="false" isExtern="false" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x7f9919548350" nameToken="0x7f991952de50" typeStartToken="0x7f991952dbe0" typeEndToken="0x7f991952dbe0" access="Public" scope="0x7f99195316f0" constness="0" isArgument="false" isArray="false" isClass="false" isConst="false" isExtern="false" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x7f9919548420" nameToken="0x7f99195328c0" typeStartToken="0x7f99195327f0" typeEndToken="0x7f99195327f0" access="Public" scope="0x7f99195340b0" constness="0" isArgument="false" isArray="false" isClass="false" isConst="false" isExtern="false" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x7f99195484f0" nameToken="0x7f9919532cd0" typeStartToken="0x7f9919532a60" typeEndToken="0x7f9919532a60" access="Public" scope="0x7f99195340b0" constness="0" isArgument="false" isArray="false" isClass="false" isConst="false" isExtern="false" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x7f99195485c0" nameToken="0x7f99195330e0" typeStartToken="0x7f9919533010" typeEndToken="0x7f9919533010" access="Public" scope="0x7f99195340b0" constness="0" isArgument="false" isArray="false" isClass="false" isConst="false" isExtern="false" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x7f9919548690" nameToken="0x7f99195334f0" typeStartToken="0x7f9919533420" typeEndToken="0x7f9919533420" access="Public" scope="0x7f99195340b0" constness="0" isArgument="false" isArray="false" isClass="false" isConst="false" isExtern="false" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x7f9919548760" nameToken="0x7f9919533900" typeStartToken="0x7f9919533830" typeEndToken="0x7f9919533830" access="Public" scope="0x7f99195340b0" constness="0" isArgument="false" isArray="false" isClass="false" isConst="false" isExtern="false" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x7f9919548830" nameToken="0x7f9919533d10" typeStartToken="0x7f9919533c40" typeEndToken="0x7f9919533c40" access="Public" scope="0x7f99195340b0" constness="0" isArgument="false" isArray="false" isClass="false" isConst="false" isExtern="false" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x7f9919548900" nameToken="0x7f99195347a0" typeStartToken="0x7f99195346d0" typeEndToken="0x7f99195346d0" access="Public" scope="0x7f9919532ac0" constness="0" isArgument="false" isArray="false" isClass="false" isConst="false" isExtern="false" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x7f99195489d0" nameToken="0x7f9919534a10" typeStartToken="0x7f9919534940" typeEndToken="0x7f9919532650" access="Public" scope="0x7f9919532ac0" constness="0" isArgument="false" isArray="false" isClass="true" isConst="false" isExtern="false" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x7f9919548a40" nameToken="0x7f9919534d50" typeStartToken="0x7f9919534bb0" typeEndToken="0x7f9919534c80" access="Public" scope="0x7f9919532ac0" constness="0" isArgument="false" isArray="false" isClass="false" isConst="false" isExtern="false" isLocal="false" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x7f9919548ab0" nameToken="0x7f99195302e0" typeStartToken="0x7f9919530210" typeEndToken="0x7f9919530210" access="Argument" scope="0x0" constness="0" isArgument="true" isArray="false" isClass="false" isConst="false" isExtern="false" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x7f9919548b80" nameToken="0x7f9919530a80" typeStartToken="0x7f9919530810" typeEndToken="0x7f99195309b0" access="Argument" scope="0x0" constness="0" isArgument="true" isArray="false" isClass="false" isConst="false" isExtern="false" isLocal="false" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x7f9919548c50" nameToken="0x7f9919531540" typeStartToken="0x7f99195312d0" typeEndToken="0x7f9919531470" access="Argument" scope="0x0" constness="0" isArgument="true" isArray="false" isClass="false" isConst="false" isExtern="false" isLocal="false" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x7f9919548d20" nameToken="0x7f9919531fd0" typeStartToken="0x7f9919531d60" typeEndToken="0x7f9919531f00" access="Argument" scope="0x0" constness="0" isArgument="true" isArray="false" isClass="false" isConst="false" isExtern="false" isLocal="false" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x7f9919548df0" nameToken="0x7f991953f040" typeStartToken="0x7f991953ef70" typeEndToken="0x7f991953ef70" access="Argument" scope="0x0" constness="1" isArgument="true" isArray="false" isClass="false" isConst="true" isExtern="false" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x7f9919548ec0" nameToken="0x7f991953fbd0" typeStartToken="0x7f991953fb00" typeEndToken="0x7f991953fb00" access="Argument" scope="0x0" constness="1" isArgument="true" isArray="false" isClass="false" isConst="true" isExtern="false" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x7f9919548f90" nameToken="0x7f991953ff10" typeStartToken="0x7f9919534530" typeEndToken="0x7f991953fe40" access="Argument" scope="0x0" constness="0" isArgument="true" isArray="false" isClass="false" isConst="false" isExtern="false" isLocal="false" isPointer="true" isReference="false" isStatic="false"/>
+    <var id="0x7f9919549060" nameToken="0x7f9919542cc0" typeStartToken="0x7f9919542bf0" typeEndToken="0x7f9919542bf0" access="Argument" scope="0x0" constness="1" isArgument="true" isArray="false" isClass="false" isConst="true" isExtern="false" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="0x7f9919549130" nameToken="0x7f9919543410" typeStartToken="0x7f99195431a0" typeEndToken="0x7f9919543340" access="Argument" scope="0x0" constness="0" isArgument="true" isArray="false" isClass="false" isConst="false" isExtern="false" isLocal="false" isPointer="true" isReference="false" isStatic="false"/>
+  </variables>
+  <valueflow>
+    <values id="0x7f991954b4f0">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x7f991954c4c0">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x7f99195371e0">
+      <value intvalue="1" known="true"/>
+    </values>
+    <values id="0x7f99195421d0">
+      <value intvalue="1" known="true"/>
+    </values>
+    <values id="0x7f9919543cd0">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x7f9919531850">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x7f9919544690">
+      <value intvalue="1" known="true"/>
+    </values>
+    <values id="0x7f9919543720">
+      <value intvalue="1" known="true"/>
+    </values>
+    <values id="0x7f9919541cf0">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x7f991952dae0">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x7f991953b8d0">
+      <value intvalue="1" known="true"/>
+    </values>
+    <values id="0x7f991952d2c0">
+      <value intvalue="1" known="true"/>
+    </values>
+    <values id="0x7f99195492b0">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x7f991954aef0">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x7f991954afa0">
+      <value intvalue="1" known="true"/>
+    </values>
+    <values id="0x7f991954b050">
+      <value intvalue="1" known="true"/>
+    </values>
+    <values id="0x7f991954b100">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x7f991954b1b0">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x7f991954b260">
+      <value intvalue="1" known="true"/>
+    </values>
+    <values id="0x7f991954b310">
+      <value intvalue="1" known="true"/>
+    </values>
+    <values id="0x7f991954b3c0">
+      <value intvalue="2" known="true"/>
+    </values>
+    <values id="0x7f991954b470">
+      <value intvalue="2" known="true"/>
+    </values>
+    <values id="0x7f991954b490">
+      <value intvalue="3" known="true"/>
+    </values>
+    <values id="0x7f991954b4b0">
+      <value intvalue="3" known="true"/>
+    </values>
+    <values id="0x7f991954b4d0">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x7f991954dce0">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x7f991954dd90">
+      <value intvalue="1" known="true"/>
+    </values>
+    <values id="0x7f991954de40">
+      <value intvalue="1" known="true"/>
+    </values>
+    <values id="0x7f991954def0">
+      <value intvalue="2" known="true"/>
+    </values>
+    <values id="0x7f991954dfa0">
+      <value intvalue="2" known="true"/>
+    </values>
+    <values id="0x7f991954e050">
+      <value intvalue="3" known="true"/>
+    </values>
+    <values id="0x7f991954e100">
+      <value intvalue="3" known="true"/>
+    </values>
+    <values id="0x7f991954e1b0">
+      <value intvalue="4" known="true"/>
+    </values>
+    <values id="0x7f991954e260">
+      <value intvalue="4" known="true"/>
+    </values>
+    <values id="0x7f991954e310">
+      <value intvalue="5" known="true"/>
+    </values>
+    <values id="0x7f991954e3c0">
+      <value intvalue="5" known="true"/>
+    </values>
+    <values id="0x7f991954e470">
+      <value intvalue="6" known="true"/>
+    </values>
+    <values id="0x7f991954e520">
+      <value intvalue="6" known="true"/>
+    </values>
+    <values id="0x7f991954e5d0">
+      <value intvalue="7" known="true"/>
+    </values>
+    <values id="0x7f991954e680">
+      <value intvalue="7" known="true"/>
+    </values>
+    <values id="0x7f991954e730">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x7f991954e7e0">
+      <value intvalue="1" known="true"/>
+    </values>
+    <values id="0x7f991954e890">
+      <value intvalue="2" known="true"/>
+    </values>
+    <values id="0x7f991954e940">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x7f991954e9f0">
+      <value intvalue="1" known="true"/>
+    </values>
+    <values id="0x7f991954eaa0">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x7f991954eb50">
+      <value intvalue="1" known="true"/>
+    </values>
+    <values id="0x7f991954ec00">
+      <value intvalue="2" known="true"/>
+    </values>
+    <values id="0x7f991954ecb0">
+      <value intvalue="3" known="true"/>
+    </values>
+    <values id="0x7f991954ed60">
+      <value intvalue="4" known="true"/>
+    </values>
+    <values id="0x7f991954ee10">
+      <value intvalue="5" known="true"/>
+    </values>
+    <values id="0x7f991954eec0">
+      <value intvalue="6" known="true"/>
+    </values>
+    <values id="0x7f991954ef70">
+      <value intvalue="7" known="true"/>
+    </values>
+    <values id="0x7f991954f020">
+      <value intvalue="8" known="true"/>
+    </values>
+    <values id="0x7f991954f0d0">
+      <value intvalue="9" known="true"/>
+    </values>
+    <values id="0x7f991954f180">
+      <value intvalue="10" known="true"/>
+    </values>
+    <values id="0x7f991954f230">
+      <value intvalue="11" known="true"/>
+    </values>
+    <values id="0x7f991954f2e0">
+      <value intvalue="12" known="true"/>
+    </values>
+    <values id="0x7f991954f390">
+      <value intvalue="13" known="true"/>
+    </values>
+    <values id="0x7f991954f440">
+      <value intvalue="14" known="true"/>
+    </values>
+    <values id="0x7f991954f4f0">
+      <value intvalue="15" known="true"/>
+    </values>
+    <values id="0x7f991954f5a0">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x7f991954f650">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x7f991954f700">
+      <value intvalue="1" known="true"/>
+    </values>
+    <values id="0x7f991954f7b0">
+      <value intvalue="1" known="true"/>
+      <value intvalue="0" condition-line="24" impossible="true"/>
+    </values>
+    <values id="0x7f991954f860">
+      <value intvalue="1000" known="true"/>
+    </values>
+    <values id="0x7f991954f910">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="0x7f991954f9c0">
+      <value intvalue="1000" known="true"/>
+    </values>
+  </valueflow>
+</dump>
+</dumps>
