@@ -27,5 +27,6 @@ void main(void)
         __delay_ms(1000);       // Wait 1s
         PORTAbits.RA0 = 0;      // Turn off LED for test
         __delay_ms(1000);       // Wait 1s
+        // test
     }
 }
