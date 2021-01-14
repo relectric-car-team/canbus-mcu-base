@@ -49,6 +49,7 @@
 */
 #include <xc.h>
 #include "uart1.h"
+#include <string.h>
 
 static volatile uart1_status_t uart1RxLastError;
 
@@ -197,6 +198,14 @@ void UART1_SetOverrunErrorHandler(void (* interruptHandler)(void)){
 
 void UART1_SetErrorHandler(void (* interruptHandler)(void)){
     UART1_ErrorHandler = interruptHandler;
+}
+
+void printStringUART(char *str)
+{
+    unsigned int i;
+    for (i=0; i<strlen(str); i++) {
+        UART1_Write(str[i]);
+    }          
 }
 
 

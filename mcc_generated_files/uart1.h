@@ -430,8 +430,23 @@ void UART1_SetOverrunErrorHandler(void (* interruptHandler)(void));
 */
 void UART1_SetErrorHandler(void (* interruptHandler)(void));
 
-
-
+/**
+ * @Summary
+ *  Prints a string to UART1
+ * 
+ * @Description
+ *  This method will take an array of characters/a string and print it to the UART
+ * 
+ * @Preconditions
+ *  The UART1 module must be initialized before invoking this method
+ * 
+ * @param str
+ *  String to be printed to UART
+ * 
+ * @returns
+ *  None
+ */
+void printStringUART(char *str);
 
 
 
