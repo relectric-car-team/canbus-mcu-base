@@ -20,13 +20,18 @@ void main(void)
 
     // Disable the Global Interrupts
     //INTERRUPT_GlobalInterruptDisable();
+    
+    IO_RC4_SetDigitalMode();
+    IO_RC4_SetDigitalOutput();
+    IO_RC4_SetLow();
+    IO_RC5_SetDigitalMode();
+    IO_RC5_SetDigitalOutput();
+    IO_RC5_SetHigh();
 
     while (1)
     {
-        PORTAbits.RA0 = 1;      // Turn on LED for test
-        __delay_ms(1000);       // Wait 1s
-        PORTAbits.RA0 = 0;      // Turn off LED for test
-        __delay_ms(1000);       // Wait 1s
-        // test
+        __delay_ms(1000);
+        IO_RC4_Toggle();
+        IO_RC5_Toggle();
     }
 }
