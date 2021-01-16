@@ -200,12 +200,24 @@ void UART1_SetErrorHandler(void (* interruptHandler)(void)){
     UART1_ErrorHandler = interruptHandler;
 }
 
-void printStringUART(char *str)
+void print(char *str)
 {
     unsigned int i;
-    for (i=0; i<strlen(str); i++) {
+    for (i=0; i<strlen(str); i++)
+    {
         UART1_Write(str[i]);
     }          
+}
+
+void println(char *str)
+{
+    unsigned int i;
+    for (i=0; i<strlen(str); i++)
+    {
+        UART1_Write(str[i]);
+    }
+    UART1_Write('\n');
+    UART1_Write('\r');
 }
 
 
