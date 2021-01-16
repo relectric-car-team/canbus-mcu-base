@@ -446,7 +446,61 @@ void UART1_SetErrorHandler(void (* interruptHandler)(void));
  * @returns
  *  None
  */
-void print(char *str);
+void printString(char *str);
+
+/**
+ * @Summary
+ *  Prints a byte to UART1
+ * 
+ * @Description
+ *  This method will take a byte and print it to the UART
+ * 
+ * @Preconditions
+ *  The UART1 module must be initialized before invoking this method
+ * 
+ * @param str
+ *  String to be printed to UART
+ * 
+ * @returns
+ *  None
+ */
+void printByte(uint8_t word);
+
+/**
+ * @Summary
+ *  Prints an integer to UART1
+ * 
+ * @Description
+ *  This method will take an integer and print it to the UART
+ * 
+ * @Preconditions
+ *  The UART1 module must be initialized before invoking this method
+ * 
+ * @param str
+ *  String to be printed to UART
+ * 
+ * @returns
+ *  None
+ */
+void printInt(int i);
+
+/**
+ * @Summary
+ *  Prints a float to UART1
+ * 
+ * @Description
+ *  This method will take a float and print it to the UART
+ * 
+ * @Preconditions
+ *  The UART1 module must be initialized before invoking this method
+ * 
+ * @param str
+ *  String to be printed to UART
+ * 
+ * @returns
+ *  None
+ */
+void printFloat(float i);
 
 /**
  * @Summary
@@ -464,10 +518,61 @@ void print(char *str);
  * @returns
  *  None
  */
-void println(char *str);
+void printlnString(char *str);
 
+/**
+ * @Summary
+ *  Prints a byte to UART1 and adds a newline
+ * 
+ * @Description
+ *  This method will take a byte and print it to the UART, then add a new line
+ * 
+ * @Preconditions
+ *  The UART1 module must be initialized before invoking this method
+ * 
+ * @param str
+ *  String to be printed to UART
+ * 
+ * @returns
+ *  None
+ */
+void printlnByte(uint8_t word);
 
+/**
+ * @Summary
+ *  Prints an integer to UART1 and adds a newline
+ * 
+ * @Description
+ *  This method will take an integer and print it to the UART, then add a new line
+ * 
+ * @Preconditions
+ *  The UART1 module must be initialized before invoking this method
+ * 
+ * @param str
+ *  String to be printed to UART
+ * 
+ * @returns
+ *  None
+ */
+void printlnInt(int i);
 
+/**
+ * @Summary
+ *  Prints a float to UART1 and adds a newline
+ * 
+ * @Description
+ *  This method will take a float and print it to the UART, then add a new line
+ * 
+ * @Preconditions
+ *  The UART1 module must be initialized before invoking this method
+ * 
+ * @param str
+ *  String to be printed to UART
+ * 
+ * @returns
+ *  None
+ */
+void printlnFloat(float i);
 
 
 

@@ -50,6 +50,7 @@
 #include <xc.h>
 #include "uart1.h"
 #include <string.h>
+#include <stdio.h>
 
 static volatile uart1_status_t uart1RxLastError;
 
@@ -200,7 +201,7 @@ void UART1_SetErrorHandler(void (* interruptHandler)(void)){
     UART1_ErrorHandler = interruptHandler;
 }
 
-void print(char *str)
+void printString(char *str)
 {
     unsigned int i;
     for (i=0; i<strlen(str); i++)
@@ -209,18 +210,52 @@ void print(char *str)
     }          
 }
 
-void println(char *str)
+void printByte(uint8_t word)
 {
-    unsigned int i;
-    for (i=0; i<strlen(str); i++)
-    {
-        UART1_Write(str[i]);
-    }
+    UART1_Write(word);
+}
+
+void printInt(int i)
+{
+    char temp[16];
+    sprintf(temp, "%i", i);
+    printString(temp);
+}
+
+void printFloat(float f)
+{
+    char temp[16];
+    sprintf(temp, "%f", f);
+    printString(temp);
+}
+
+void printlnString(char *str)
+{
+    printString(str);
     UART1_Write('\n');
     UART1_Write('\r');
 }
 
+void printlnByte(uint8_t word)
+{
+    UART1_Write(word);
+    UART1_Write('\n');
+    UART1_Write('\r');
+}
 
+void printlnInt(int i)
+{
+    char temp[16];
+    sprintf(temp, "%i", i);
+    printlnString(temp);
+}
+
+void printlnFloat(float f)
+{
+    char temp[16];
+    sprintf(temp, "%f", f);
+    printlnString(temp);
+}
 
 
 

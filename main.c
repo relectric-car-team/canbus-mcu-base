@@ -33,6 +33,9 @@ void main(void)
         __delay_ms(1000);
         IO_RC4_Toggle();
         IO_RC5_Toggle();
-        println("Hello, World");
+        printString("Test ");
+        printlnString("Hello, World");
+        printlnInt(8345);
+        printlnFloat(234.4);
     }
 }
