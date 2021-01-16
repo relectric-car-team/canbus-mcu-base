@@ -33,6 +33,6 @@ void main(void)
         __delay_ms(1000);
         IO_RC4_Toggle();
         IO_RC5_Toggle();
-        printStringUART("Hello, World");
+        printStringUART("Hello, World\n\r");
     }
 }

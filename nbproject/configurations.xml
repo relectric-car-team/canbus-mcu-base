@@ -679,8 +679,6 @@
         <property key="memories.programmemory.ranges" value="0-1ffff"/>
         <property key="memories.rww" value="true"/>
         <property key="poweroptions.powerenable" value="true"/>
-        <property key="programmerToGoFilePath"
-                  value="/Users/ratik/MPLABXProjects/can-base.X/debug/default/can-base_ptg"/>
         <property key="programmerToGoImageName" value="can-base_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
@@ -708,7 +706,7 @@
                   value="toolpack.updateoptions.uselatestoolpack"/>
         <property key="toolpack.updateoptions.packversion"
                   value="Press to select which tool pack to use"/>
-        <property key="voltagevalue" value="5.0"/>
+        <property key="voltagevalue" value="3.3"/>
       </pk4hybrid>
     </conf>
   </confs>
