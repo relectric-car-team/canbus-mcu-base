@@ -1,4 +1,4 @@
-# Microcontroller CANBUS Test
+# Microcontroller CANBUS Base
 
 This repository holds base code used to create a CANBUS network using
 PIC MCUs. This specific repo is designed to be used with the PIC18F27Q84.
