@@ -49,9 +49,23 @@
 */
 #include <xc.h>
 #include "uart1.h"
-#include <string.h>
-#include <stdio.h>
 
+/**
+  Section: Macro Declarations
+*/
+#define UART1_TX_BUFFER_SIZE 8
+#define UART1_RX_BUFFER_SIZE 8
+
+/**
+  Section: Global Variables
+*/
+
+
+static volatile uint8_t uart1RxHead = 0;
+static volatile uint8_t uart1RxTail = 0;
+static volatile uint8_t uart1RxBuffer[UART1_RX_BUFFER_SIZE];
+static volatile uart1_status_t uart1RxStatusBuffer[UART1_RX_BUFFER_SIZE];
+volatile uint8_t uart1RxCount;
 static volatile uart1_status_t uart1RxLastError;
 
 /**
@@ -68,6 +82,8 @@ void UART1_DefaultErrorHandler(void);
 void UART1_Initialize(void)
 {
     // Disable interrupts before changing states
+    PIE4bits.U1RXIE = 0;
+    UART1_SetRxInterruptHandler(UART1_Receive_ISR);
 
     // Set the UART1 module to the options selected in the user interface.
 
@@ -98,11 +114,11 @@ void UART1_Initialize(void)
     // TXPOL not inverted; FLO off; C0EN Checksum Mode 0; RXPOL not inverted; RUNOVF RX input shifter stops all activity; STP Transmit 1Stop bit, receiver verifies first Stop bit; 
     U1CON2 = 0x00;
 
-    // BRGL 130; 
-    U1BRGL = 0x82;
+    // BRGL 138; 
+    U1BRGL = 0x8A;
 
-    // BRGH 6; 
-    U1BRGH = 0x06;
+    // BRGH 0; 
+    U1BRGH = 0x00;
 
     // STPMD in middle of first Stop bit; TXWRE No error; 
     U1FIFO = 0x00;
@@ -123,11 +139,17 @@ void UART1_Initialize(void)
 
     uart1RxLastError.status = 0;
 
+    uart1RxHead = 0;
+    uart1RxTail = 0;
+    uart1RxCount = 0;
+
+    // enable receive interrupt
+    PIE4bits.U1RXIE = 1;
 }
 
 bool UART1_is_rx_ready(void)
 {
-    return (bool)(PIR4bits.U1RXIF);
+    return (uart1RxCount ? true : false);
 }
 
 bool UART1_is_tx_ready(void)
@@ -146,27 +168,24 @@ uart1_status_t UART1_get_last_status(void){
 
 uint8_t UART1_Read(void)
 {
-    while(!PIR4bits.U1RXIF)
+    uint8_t readValue  = 0;
+    
+    while(0 == uart1RxCount)
     {
     }
 
-    uart1RxLastError.status = 0;
+    uart1RxLastError = uart1RxStatusBuffer[uart1RxTail];
 
-    if(U1ERRIRbits.FERIF){
-        uart1RxLastError.ferr = 1;
-        UART1_FramingErrorHandler();
+    readValue = uart1RxBuffer[uart1RxTail++];
+   	if(sizeof(uart1RxBuffer) <= uart1RxTail)
+    {
+        uart1RxTail = 0;
     }
+    PIE4bits.U1RXIE = 0;
+    uart1RxCount--;
+    PIE4bits.U1RXIE = 1;
 
-    if(U1ERRIRbits.RXFOIF){
-        uart1RxLastError.oerr = 1;
-        UART1_OverrunErrorHandler();
-    }
-
-    if(uart1RxLastError.status){
-        UART1_ErrorHandler();
-    }
-
-    return U1RXB;
+    return readValue;
 }
 
 void UART1_Write(uint8_t txData)
@@ -178,15 +197,60 @@ void UART1_Write(uint8_t txData)
     U1TXB = txData;    // Write the data byte to the USART.
 }
 
+char getch(void)
+{
+    return UART1_Read();
+}
+
+void putch(char txData)
+{
+    UART1_Write(txData);
+}
 
 
 
+
+
+void UART1_Receive_ISR(void)
+{
+    // use this default receive interrupt handler code
+    uart1RxStatusBuffer[uart1RxHead].status = 0;
+
+    if(U1ERRIRbits.FERIF){
+        uart1RxStatusBuffer[uart1RxHead].ferr = 1;
+        UART1_FramingErrorHandler();
+    }
+    
+    if(U1ERRIRbits.RXFOIF){
+        uart1RxStatusBuffer[uart1RxHead].oerr = 1;
+        UART1_OverrunErrorHandler();
+    }
+    
+    if(uart1RxStatusBuffer[uart1RxHead].status){
+        UART1_ErrorHandler();
+    } else {
+        UART1_RxDataHandler();
+    }
+
+    // or set custom function using UART1_SetRxInterruptHandler()
+}
+
+void UART1_RxDataHandler(void){
+    // use this default receive interrupt handler code
+    uart1RxBuffer[uart1RxHead++] = U1RXB;
+    if(sizeof(uart1RxBuffer) <= uart1RxHead)
+    {
+        uart1RxHead = 0;
+    }
+    uart1RxCount++;
+}
 
 void UART1_DefaultFramingErrorHandler(void){}
 
 void UART1_DefaultOverrunErrorHandler(void){}
 
 void UART1_DefaultErrorHandler(void){
+    UART1_RxDataHandler();
 }
 
 void UART1_SetFramingErrorHandler(void (* interruptHandler)(void)){
@@ -201,62 +265,11 @@ void UART1_SetErrorHandler(void (* interruptHandler)(void)){
     UART1_ErrorHandler = interruptHandler;
 }
 
-void printString(char *str)
-{
-    unsigned int i;
-    for (i=0; i<strlen(str); i++)
-    {
-        UART1_Write(str[i]);
-    }          
-}
 
-void printByte(uint8_t word)
-{
-    UART1_Write(word);
-}
 
-void printInt(int i)
-{
-    char temp[16];
-    sprintf(temp, "%i", i);
-    printString(temp);
+void UART1_SetRxInterruptHandler(void (* InterruptHandler)(void)){
+    UART1_RxInterruptHandler = InterruptHandler;
 }
-
-void printFloat(float f)
-{
-    char temp[16];
-    sprintf(temp, "%f", f);
-    printString(temp);
-}
-
-void printlnString(char *str)
-{
-    printString(str);
-    UART1_Write('\n');
-    UART1_Write('\r');
-}
-
-void printlnByte(uint8_t word)
-{
-    UART1_Write(word);
-    UART1_Write('\n');
-    UART1_Write('\r');
-}
-
-void printlnInt(int i)
-{
-    char temp[16];
-    sprintf(temp, "%i", i);
-    printlnString(temp);
-}
-
-void printlnFloat(float f)
-{
-    char temp[16];
-    sprintf(temp, "%f", f);
-    printlnString(temp);
-}
-
 
 
 

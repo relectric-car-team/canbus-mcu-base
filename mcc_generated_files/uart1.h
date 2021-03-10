@@ -54,6 +54,7 @@
 #include <xc.h>
 #include <stdbool.h>
 #include <stdint.h>
+#include <stdio.h>
 
 #ifdef __cplusplus  // Provide C++ Compatibility
 
@@ -81,6 +82,11 @@ typedef union {
     uint8_t status;
 }uart1_status_t;
 
+/**
+ Section: Global variables
+ */
+extern volatile uint8_t uart1TxBufferRemaining;
+extern volatile uint8_t uart1RxCount;
 
 /**
   Section: UART1 APIs
@@ -375,6 +381,47 @@ uint8_t UART1_Read(void);
 void UART1_Write(uint8_t txData);
 
 
+/**
+  @Summary
+    Maintains the driver's receiver state machine and implements its ISR
+
+  @Description
+    This routine is used to maintain the driver's internal receiver state
+    machine.This interrupt service routine is called when the state of the
+    receiver needs to be maintained in a non polled manner.
+
+  @Preconditions
+    UART1_Initialize() function should have been called
+    for the ISR to execute correctly.
+
+  @Param
+    None
+
+  @Returns
+    None
+*/       
+void UART1_Receive_ISR(void);
+
+/**
+  @Summary
+    Maintains the driver's receiver state machine
+
+  @Description
+    This routine is called by the receive state routine and is used to maintain 
+    the driver's internal receiver state machine. It should be called by a custom
+    ISR to maintain normal behavior
+
+  @Preconditions
+    UART1_Initialize() function should have been called
+    for the ISR to execute correctly.
+
+  @Param
+    None
+
+  @Returns
+    None
+*/
+void UART1_RxDataHandler(void);
 
 /**
   @Summary
@@ -430,151 +477,46 @@ void UART1_SetOverrunErrorHandler(void (* interruptHandler)(void));
 */
 void UART1_SetErrorHandler(void (* interruptHandler)(void));
 
-/**
- * @Summary
- *  Prints a string to UART1
- * 
- * @Description
- *  This method will take an array of characters/a string and print it to the UART
- * 
- * @Preconditions
- *  The UART1 module must be initialized before invoking this method
- * 
- * @param str
- *  String to be printed to UART
- * 
- * @returns
- *  None
- */
-void printString(char *str);
+
 
 /**
- * @Summary
- *  Prints a byte to UART1
- * 
- * @Description
- *  This method will take a byte and print it to the UART
- * 
- * @Preconditions
- *  The UART1 module must be initialized before invoking this method
- * 
- * @param str
- *  String to be printed to UART
- * 
- * @returns
- *  None
- */
-void printByte(uint8_t word);
+  @Summary
+    UART1 Receive Interrupt Handler
+
+  @Description
+    This is a pointer to the function that will be called upon UART1 receive interrupt
+
+  @Preconditions
+    Initialize  the UART1 module with receive interrupt enabled
+
+  @Param
+    None
+
+  @Returns
+    None
+*/
+void (*UART1_RxInterruptHandler)(void);
+
+
+
 
 /**
- * @Summary
- *  Prints an integer to UART1
- * 
- * @Description
- *  This method will take an integer and print it to the UART
- * 
- * @Preconditions
- *  The UART1 module must be initialized before invoking this method
- * 
- * @param str
- *  String to be printed to UART
- * 
- * @returns
- *  None
- */
-void printInt(int i);
+  @Summary
+    Set UART1 Receive Interrupt Handler
 
-/**
- * @Summary
- *  Prints a float to UART1
- * 
- * @Description
- *  This method will take a float and print it to the UART
- * 
- * @Preconditions
- *  The UART1 module must be initialized before invoking this method
- * 
- * @param str
- *  String to be printed to UART
- * 
- * @returns
- *  None
- */
-void printFloat(float i);
+  @Description
+    This API sets the function to be called upon UART1 receive interrupt
 
-/**
- * @Summary
- *  Prints a string to UART1 and adds a newline
- * 
- * @Description
- *  This method will take an array of characters/a string and print it to the UART, then add a new line
- * 
- * @Preconditions
- *  The UART1 module must be initialized before invoking this method
- * 
- * @param str
- *  String to be printed to UART
- * 
- * @returns
- *  None
- */
-void printlnString(char *str);
+  @Preconditions
+    Initialize  the UART1 module with receive interrupt enabled before calling this API
 
-/**
- * @Summary
- *  Prints a byte to UART1 and adds a newline
- * 
- * @Description
- *  This method will take a byte and print it to the UART, then add a new line
- * 
- * @Preconditions
- *  The UART1 module must be initialized before invoking this method
- * 
- * @param str
- *  String to be printed to UART
- * 
- * @returns
- *  None
- */
-void printlnByte(uint8_t word);
+  @Param
+    Address of function to be set as receive interrupt handler
 
-/**
- * @Summary
- *  Prints an integer to UART1 and adds a newline
- * 
- * @Description
- *  This method will take an integer and print it to the UART, then add a new line
- * 
- * @Preconditions
- *  The UART1 module must be initialized before invoking this method
- * 
- * @param str
- *  String to be printed to UART
- * 
- * @returns
- *  None
- */
-void printlnInt(int i);
-
-/**
- * @Summary
- *  Prints a float to UART1 and adds a newline
- * 
- * @Description
- *  This method will take a float and print it to the UART, then add a new line
- * 
- * @Preconditions
- *  The UART1 module must be initialized before invoking this method
- * 
- * @param str
- *  String to be printed to UART
- * 
- * @returns
- *  None
- */
-void printlnFloat(float i);
-
-
+  @Returns
+    None
+*/
+void UART1_SetRxInterruptHandler(void (* InterruptHandler)(void));
 
 
 
