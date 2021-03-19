@@ -180,6 +180,55 @@ CAN_OP_MODE_STATUS CAN1_OperationModeSet(const CAN_OP_MODES reqestMode);
 */
 CAN_OP_MODES CAN1_OperationModeGet(void);
 
+/**
+  @Summary
+    Reads the message object from CAN receive FIFO.
+
+  @Description
+    This routine reads a message object from the CAN receive FIFO.
+
+  @Preconditions
+    CAN1_Initialize() function should be called before calling this function. 
+    The CAN1_ReceivedMessageCountGet() function should be checked to see if the receiver
+    is not empty before calling this function.
+
+  @Param
+    rxCanMsg    - pointer to the message object
+
+  @Returns
+    true        - Receive successful
+    false       - Receive failure
+
+  @Example
+    <code>
+    void main(void) 
+    {
+        CAN_MSG_OBJ msg;
+     
+        SYSTEM_Initialize();
+        
+        if(CAN_CONFIGURATION_MODE == CAN1_OperationModeGet())
+        {
+            if(CAN_OP_MODE_REQUEST_SUCCESS == CAN1_OperationModeSet(CAN_NORMAL_2_0_MODE))
+            {
+                while(1) 
+                {
+                    if(CAN1_ReceivedMessageCountGet() > 0) 
+                    {
+                        if(true == CAN1_Receive(&msg))
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        while (1);
+    }
+    </code>
+*/
+bool CAN1_Receive(CAN_MSG_OBJ *rxCanMsg);
 
 /**
   @Summary
@@ -721,6 +770,82 @@ void CAN1_Sleep(void);
 */
 CAN_TX_FIFO_STATUS CAN1_TransmitFIFOStatusGet(const CAN1_TX_FIFO_CHANNELS fifoChannel);
 
+/**
+  @Summary
+    CAN RX FIFO number of messages that are received.
+
+  @Description
+    This returns the number of messages that are received.
+
+  @Preconditions
+    CAN1_Initialize function should be called before calling this function.
+
+  @Param
+     None
+
+  @Returns
+    Number of message received.
+
+  @Example
+    <code>
+    void main(void) 
+    {
+        CAN_MSG_OBJ msg;
+     
+        SYSTEM_Initialize();
+
+        if(CAN_CONFIGURATION_MODE == CAN1_OperationModeGet())
+        {
+            if(CAN_OP_MODE_REQUEST_SUCCESS == CAN1_OperationModeSet(CAN_NORMAL_2_0_MODE))
+            {
+                while(1) 
+                {
+                    if(CAN1_ReceivedMessageCountGet() > 0) 
+                    {
+                        CAN1_Receive(&msg);
+                    }
+                }
+            }
+        }
+    }
+    </code>
+*/
+uint8_t CAN1_ReceivedMessageCountGet(void);
+
+/**
+  @Summary
+    Sets the Disable RX FIFO Interrupt interrupt handler.
+
+  @Description
+    This routine sets the Disable RX FIFO Interrupt interrupt handler for FIFO1.
+
+  @Param
+    Address of the callback routine.
+
+  @Returns
+    None
+ 
+  @Example
+    <code>
+    volatile CAN_MSG_OBJ gMsg;
+    
+    void CustomFIFO1Handler(void)
+    {
+        CAN1_ReceiveFrom(FIFO1, &gMsg);
+    }
+
+    void main(void)
+    {
+        SYSTEM_Initialize();
+        CAN1_SetFIFO1nullHandler(&CustomFIFO1Handler);
+        
+        INTERRUPT_GlobalInterruptEnable();
+
+        while(1);
+    }
+    </code>
+*/
+void CAN1_SetFIFO1nullHandler(void (*handler)(void));
 
 /**
   @Summary
